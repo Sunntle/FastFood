@@ -1,0 +1,80 @@
+@media(min-width:992px){
+    .signin{
+        order: 1;
+    }
+    .login{
+        order: 2;
+    }
+}
+
+@media(max-width:992px){
+    body{
+     font-size: 12px;
+    }
+    .logo {
+        order: 2;
+    }
+    nav.menu{
+        order: 1;
+    }
+    header{
+        background-color: rgba(255,255,255,.9);
+    }
+    .nav-link, i:not(i.features){
+        color: black!important;
+    }
+    .on a, .on i{
+        color: black!important;
+    }
+}
+@media (max-width: 428px) {
+    .buy-btn{
+        margin-top: 1%;
+        display: block;
+        text-transform: uppercase;
+        background-color: #f72b3f;
+        color: #fff;
+        padding: 0.625em 0em;
+        width: 100%;
+        border: none;
+        opacity: 1;
+        transition: 0.3s all;
+    }
+}
+@media(max-width:552px){
+    body{
+     font-size: 8px;
+    }
+    .slide{
+        padding-top: 15em;
+        padding-bottom: 8em;
+    }
+    .nav-link{
+        font-size: 1.5em;
+    }
+
+    /* Gia Huy */
+
+    .table-reponsive .boxTTT{
+        width: 100% !important;
+
+    }
+    .table-reponsive .boxTTT h1{
+        font-size: 1.5em;
+        background: #f00000;
+        height: 2em;
+        color: azure;
+        line-height: 1em;
+        text-align: center;
+        padding-top: 0.5em;
+    }
+    .boxCart tr {
+        display: flex;
+    }
+    .TTTT{
+        display: grid;
+    }
+    .boxDonHang table tr{
+        display: flex;
+    }
+}
