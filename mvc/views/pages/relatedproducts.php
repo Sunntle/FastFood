@@ -1,85 +1,59 @@
 <div class="py-5">
-<div class="container">
-    <div class="heading">
-            <h3 class="section-title fs-2">Sản phẩm khác</h3>
-</div>
-<div class="row">
-                <div class="col-lg-3 col-sm-4 col-6">
-                    <li>
-                        <div class="produtct-item">
-                            <div class="product-top">
-                                <a href="" class="products-stemp">
-                                    <img src="./public/images/1 (3).jpg" alt="">
-                                </a>
-                                <!-- <a href="" class="buy-now text-decoration-none text-decoration-none">Xem Ngay</a> -->
-        
-                            </div>
-                            <div class="product-info">
-                                <a href="" class="products-cat text-dark bg-transparent text-decoration-none ">Bugger</a>
-                                <a href="" class="products-name fw-bolder bg-transparent">Big Bite Great Taste</a>
-                                <div class="product-price">59,000 đ</div>
-                                <input type="submit" name="addcart" value="Đặt hàng">
-                            </div>
-                        </div>
-                    </li>
+    <div class="container">
+        <div class="heading">
+                <h3 class="section-title fs-2">Sản phẩm khác</h3>
+    </div>
+    <div class="row mx-auto container-fluid">
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid" src="./public/images/7Up-Can.png" alt="">
+                    <h5 class="p-name">7 UP</h5>
+                    <h5 class="p-price text-danger">15,000 VND</h5>
+                    <form action="/live/cart" method="POST">
+                        <!-- <input type="hidden" name="sl" value="1" min="1">
+                        <input type="hidden" name="hinhAnh" value="<?php echo $kq['hinhAnh']?>">
+                        <input type="hidden" name="tenHangHoa" value="<?php echo $kq['tenHangHoa']?>">
+                        <input type="hidden" name="maHangHoa" value="<?php echo $kq['maHangHoa']?>">
+                        <input type="hidden" name="gia" value="<?php echo $kq['gia']?>"> -->
+                        <input class="pbuy-btn" type="submit" class="py-2 px-5" id="addtocart" name="addtocart" value="Thêm vào giỏ hàng"> 
+                    </form>
                 </div>
-                <div class="col-lg-3 col-sm-4 col-6">
-                    <li>
-                        <div class="produtct-item">
-                            <div class="product-top">
-                                <a href="" class="products-stemp">
-                                    <img src="./public/images/1 (3).jpg" alt="">
-                                </a>
-                                <!-- <a href="" class="buy-now text-decoration-none text-decoration-none">Xem Ngay</a> -->
-        
-                            </div>
-                            <div class="product-info">
-                                <a href="" class="products-cat text-dark bg-transparent text-decoration-none ">Bugger</a>
-                                <a href="" class="products-name fw-bolder bg-transparent">Big Bite Great Taste</a>
-                                <div class="product-price">59,000 đ</div>
-                                <input type="submit" name="addcart" value="Đặt hàng">
-                            </div>
-                        </div>
-                    </li>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid p-img" src="./public/images/7Up-Can.png" alt="">
+                    <h5 class="p-name">7 UP</h5>
+                    <h5 class="p-price text-danger">15,000 VND</h5>
+                    <form action="/live/cart" method="POST">
+                        <!-- <input type="hidden" name="sl" value="1" min="1">
+                        <input type="hidden" name="hinhAnh" value="<?php echo $kq['hinhAnh']?>">
+                        <input type="hidden" name="tenHangHoa" value="<?php echo $kq['tenHangHoa']?>">
+                        <input type="hidden" name="maHangHoa" value="<?php echo $kq['maHangHoa']?>">
+                        <input type="hidden" name="gia" value="<?php echo $kq['gia']?>"> -->
+                        <input class="pbuy-btn" type="submit" class="py-2 px-5" id="addtocart" name="addtocart" value="Thêm vào giỏ hàng"> 
+                    </form>
                 </div>
-                <div class="col-lg-3 col-sm-4 col-6">
-                    <li>
-                        <div class="produtct-item">
-                            <div class="product-top">
-                                <a href="" class="products-stemp">
-                                    <img src="./public/images/1 (3).jpg" alt="">
-                                </a>
-                                <!-- <a href="" class="buy-now text-decoration-none text-decoration-none">Xem Ngay</a> -->
-        
-                            </div>
-                            <div class="product-info">
-                                <a href="" class="products-cat text-dark bg-transparent text-decoration-none ">Bugger</a>
-                                <a href="" class="products-name fw-bolder bg-transparent">Big Bite Great Taste</a>
-                                <div class="product-price">59,000 đ</div>
-                                <input type="submit" name="addcart" value="Đặt hàng">
-                            </div>
-                        </div>
-                    </li>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid" src="./public/images/7Up-Can.png" alt="">
+                    <h5 class="p-name">7 UP</h5>
+                    <h5 class="p-price text-danger">15,000 VND</h5>
+                    <form action="/live/cart" method="POST">
+                        <!-- <input type="hidden" name="sl" value="1" min="1">
+                        <input type="hidden" name="hinhAnh" value="<?php echo $kq['hinhAnh']?>">
+                        <input type="hidden" name="tenHangHoa" value="<?php echo $kq['tenHangHoa']?>">
+                        <input type="hidden" name="maHangHoa" value="<?php echo $kq['maHangHoa']?>">
+                        <input type="hidden" name="gia" value="<?php echo $kq['gia']?>"> -->
+                        <input class="pbuy-btn" type="submit" class="py-2 px-5" id="addtocart" name="addtocart" value="Thêm vào giỏ hàng"> 
+                    </form>
                 </div>
-                <div class="col-lg-3 col-sm-4 col-6">
-                    <li>
-                        <div class="produtct-item">
-                            <div class="product-top">
-                                <a href="" class="products-stemp">
-                                    <img src="./public/images/1 (3).jpg" alt="">
-                                </a>
-                                <!-- <a href="" class="buy-now text-decoration-none text-decoration-none">Xem Ngay</a> -->
-        
-                            </div>
-                            <div class="product-info">
-                                <a href="" class="products-cat text-dark bg-transparent text-decoration-none ">Bugger</a>
-                                <a href="" class="products-name fw-bolder bg-transparent">Big Bite Great Taste</a>
-                                <div class="product-price">59,000 đ</div>
-                                <input type="submit" name="addcart" value="Đặt hàng">
-                            </div>
-                        </div>
-                    </li>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid" src="./public/images/7Up-Can.png" alt="">
+                    <h5 class="p-name">7 UP</h5>
+                    <h5 class="p-price text-danger">15,000 VND</h5>
+                    <form action="/live/cart" method="POST">
+                        <!-- <input type="hidden" name="sl" value="1" min="1">
+                        <input type="hidden" name="hinhAnh" value="<?php echo $kq['hinhAnh']?>">
+                        <input type="hidden" name="tenHangHoa" value="<?php echo $kq['tenHangHoa']?>">
+                        <input type="hidden" name="maHangHoa" value="<?php echo $kq['maHangHoa']?>">
+                        <input type="hidden" name="gia" value="<?php echo $kq['gia']?>"> -->
+                        <input class="pbuy-btn" type="submit" class="py-2 px-5" id="addtocart" name="addtocart" value="Thêm vào giỏ hàng"> 
+                    </form>
                 </div>
-</div>
-</div>
-</div>
+            </div>

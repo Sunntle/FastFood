@@ -26,12 +26,11 @@
 
         <div class="col-lg-6 col-md-12 col-12">
             
-            <h6>Menu / <?php foreach($data['listAll'] as $key){ if($kq['maLoai'] == $key['maLoai']) echo $key['tenLoai']; }?></h6>
+            <h6>Menu / <?php foreach($data['AllType'] as $key){ if($kq['maLoai'] == $key['maLoai']) echo $key['tenLoai']; }?></h6>
             <h3 class="py-3"><?php echo $kq['tenHangHoa']?></h3>
             <h2 class="text-danger"><?php echo $kq['gia']?> đ</h2>
-            <input type="number" value="1" min="1">
             <form action="/live/cart" method="POST">
-                <input type="hidden" name="sl" value="1" min="1">
+                <input type="number" name="sl" value="1" min="1">
                 <input type="hidden" name="hinhAnh" value="<?php echo $kq['hinhAnh']?>">
                 <input type="hidden" name="tenHangHoa" value="<?php echo $kq['tenHangHoa']?>">
                 <input type="hidden" name="maHangHoa" value="<?php echo $kq['maHangHoa']?>">
@@ -54,13 +53,13 @@
                     <button type="submit" class="btn btn-primary my-3">Gửi</button>
                 </form>
             </span></h4>
-    <?php foreach($data['AllCmt'] as $kq) {?>
+    <?php foreach($data['CmtID'] as $kq) {?>
         <div class="items my-2">
             <div class="nguoi">
                 <div class="text">
-                    <img class="anh" src="./public/images/3i.jpg" alt="">
+                    <img class="anh" src=" <?php foreach($data['KhachHang'] as $key){ if($kq['maKH'] == $key['maKH']) echo $key['hinh']; }?>" alt="">
                     <div>
-                        <p><?php echo $kq['maKH']?></p>
+                        <p><?php foreach($data['KhachHang'] as $key){ if($kq['maKH'] == $key['maKH']) echo $key['tenKH']; }?></p>
                         <span><?php echo $kq['noiDung']?>!</span>
                         <p><?php echo $kq['ngayBL']?></p>
                     </div>

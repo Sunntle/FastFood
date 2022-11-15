@@ -6,6 +6,8 @@ class menu extends controller{
     {
         $this->sanpham = $this->model("hangHoaModel");
         $this->loaiModel = $this->model("loaiModel");
+        $this->binhLuan = $this->model("binhLuanModel");
+        $this->user = $this->model("userModel");
     }
     
     function SayHi(){
@@ -51,6 +53,8 @@ class menu extends controller{
             "ProductID"=>$this->sanpham->SelectProductID($a),
             "AllCmt"=>$this->sanpham->listAllCmt(),
             "listAll"=>$this->loaiModel->listAll(),
+            "CmtID"=>$this->binhLuan->SelectCmtbyID($a),
+            "KhachHang"=>$this->user->listAll(),
             ],
         );
     }

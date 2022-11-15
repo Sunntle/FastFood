@@ -4,6 +4,10 @@ class binhLuanModel extends db{
         $sql = "SELECT * FROM binhluan";
         return $this->pdo_query($sql);
     }
+    public function SelectCmtbyID($id){
+        $sql = "SELECT * FROM binhluan WHERE maHangHoa = ?";
+        return $this->pdo_query($sql,$id);
+    }
     public function SelectBLByGroup(){
         $sql = "SELECT *,count(maHangHoa) FROM binhluan GROUP BY maHangHoa";
         return $this->pdo_query($sql);
