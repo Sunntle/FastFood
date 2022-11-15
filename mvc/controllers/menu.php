@@ -10,13 +10,14 @@ class menu extends controller{
         $this->user = $this->model("userModel");
     }
     
-    function SayHi(){
+    function SayHi($a){
         $this->view(
             "layout",
             [
             "Pages"=>"menu",
             "AllType"=>$this->loaiModel->listAll(),
             "AllSP"=>$this->sanpham->listAllSanPham(),
+            "ProductbyIDType"=>$this->loaiModel->SelectProductbyIDType($a),
             ],
         );
     }

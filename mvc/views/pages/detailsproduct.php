@@ -26,7 +26,7 @@
 
         <div class="col-lg-6 col-md-12 col-12">
             
-            <h6>Menu / <?php foreach($data['AllType'] as $key){ if($kq['maLoai'] == $key['maLoai']) echo $key['tenLoai']; }?></h6>
+            <h6>Menu / <?php foreach($data['listAll'] as $key){ if($kq['maLoai'] == $key['maLoai']) echo $key['tenLoai']; }?></h6>
             <h3 class="py-3"><?php echo $kq['tenHangHoa']?></h3>
             <h2 class="text-danger"><?php echo $kq['gia']?> đ</h2>
             <form action="/live/cart" method="POST">

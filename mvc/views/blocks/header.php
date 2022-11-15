@@ -16,7 +16,7 @@
                         <a class="text-decoration-none text-white nav-link" href="blog">VỀ CHÚNG TÔI</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-decoration-none text-white nav-link" href="menu">THỰC ĐƠN</a>
+                        <a class="text-decoration-none text-white nav-link" href="menu/SayHi/1">THỰC ĐƠN</a>
                     </li>
                     <li class="nav-item">
                         <a class="text-decoration-none text-white nav-link" href="news">TIN TỨC</a>

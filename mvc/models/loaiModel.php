@@ -8,6 +8,10 @@ class loaiModel extends db{
         $sql ="SELECT * FROM loai WHERE maLoai =?";
         return $this->pdo_query($sql,$maLoai);
     }
+    public function SelectProductbyIDType($id){
+        $sql = "SELECT * FROM hanghoa WHERE maLoai = ?";
+        return $this->pdo_query($sql,$id);
+    }
     public function UpdateLoai($tenLoai,$hinh,$maLoai){
         $sql = "UPDATE loai
         SET tenLoai = ?, hinh = ?
