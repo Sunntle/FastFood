@@ -12,10 +12,6 @@ class hangHoaModel extends db{
         $sql = "SELECT * FROM hanghoa ORDER BY luotXem DESC limit 4";
         return $this->pdo_query($sql);
     }
-    public function listAllLoai(){
-        $sql = "SELECT * FROM loai";
-        return $this->pdo_query($sql);
-    }
     public function listAllCmt(){
         $sql = "SELECT * FROM binhluan";
         return $this->pdo_query($sql);

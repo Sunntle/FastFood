@@ -13,7 +13,7 @@ class menu extends controller{
             "layout",
             [
             "Pages"=>"menu",
-            "AllType"=>$this->sanpham->listAllLoai(),
+            "AllType"=>$this->loaiModel->listAll(),
             "AllSP"=>$this->sanpham->listAllSanPham(),
             ],
         );
