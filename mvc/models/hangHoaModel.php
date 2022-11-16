@@ -76,6 +76,14 @@ class hangHoaModel extends db{
         $sql = "SELECT * FROM hanghoa WHERE $id $keyword $page " ;
         return $this->pdo_query($sql);
     }
+    public function soLuong(){
+        $sql = "SELECT maHangHoa, soLuong FROM hanghoa ";
+        return $this->pdo_query($sql);
+    }
+    public function UpdateQtyHH($qty,$maHH){
+        $sql = "UPDATE hanghoa SET soLuong = ? WHERE  maHangHoa = ?";
+        return $this->pdo_execute($sql,$qty,$maHH);
+    }
 
 
 }

@@ -5,7 +5,7 @@ $myApp = new App();
 function debug($param)
 {
     echo '<pre>';
-    var_dump($param);
+    print_r($param);
     echo '</pre>';
 }
 ?>

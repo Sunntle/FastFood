@@ -1,9 +1,11 @@
 <?php
 class donhang extends controller{
     public $billModel;
+    public $hangHoaModel;
     public function __construct()
     {
         $this->billModel = $this->model("billModel");
+        $this->hangHoaModel = $this->model("hangHoaModel");
     }
     
     function SayHi(){
@@ -16,7 +18,6 @@ class donhang extends controller{
             
             ],
         );
-        
     }
     function editdonhang(){
         $id = $_GET['id'];
@@ -32,9 +33,26 @@ class donhang extends controller{
     }
     function update(){
         if(isset($_POST['status'])){
+            $fl = 0;
             $status = $_POST['status'];
-            $id = $_POST['id'];
-            $this->billModel->UpdateBill($status,$id);
+
+            if ($_POST['status']==2){
+                $id = $_POST['id'];                
+                $slAllSP = $this->hangHoaModel->soLuong();
+                
+                // $bill = $this->billModel->ShowId($id);
+                $qtysl = $this->billModel->QtyCart($id);
+                
+                for ($i=0;$i<sizeof($qtysl);$i++){
+                    foreach($slAllSP as $ma => $sl){
+                        if($sl['maHangHoa'] == $qtysl[$i]['maHangHoa']){
+                            $upQty = ($sl['soLuong'])- ($qtysl[$i]['soLuong']);
+                            echo $this->hangHoaModel->UpdateQtyHH($upQty,$sl['maHangHoa']);
+                        }
+                    }
+                }    
+            }
+            $this->billModel->UpdateBill($status,$id);          
             header('Location: /live/admin/donhang/');
         } 
     }

@@ -50,5 +50,10 @@ class billModel extends db{
             $sql = "SELECT * FROM bill WHERE maKH = ? ORDER BY id DESC ";
             return $this->pdo_query($sql,$u);
         }
+        public function QtyCart($qty){
+            $sql = "SELECT maHangHoa, soLuong, idBill FROM giohang Where idBill = ?";
+            return $this->pdo_query($sql,$qty);
+        }
+        
     }
 ?>
