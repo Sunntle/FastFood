@@ -3,9 +3,11 @@
 class login extends controller{
     //model
     public $userModel;
+    public $billModel;
     public function __construct()
     {
         $this->userModel = $this->model("userModel");
+        $this->billModel = $this->model("billModel");
     }
     function SayHi(){
         if(isset($_SESSION['login'])){
@@ -65,6 +67,7 @@ class login extends controller{
                     [
                     "Pages"=>"account",
                     "thongbao"=>$thongbao,
+                    "billKH"=>$this->billModel->selectKH($_SESSION['login']['maKH']),
                     "khachHang"=>$this->userModel->SelectUserByMaKH($_SESSION['login']['maKH']),
                     ],
                 );
@@ -73,6 +76,7 @@ class login extends controller{
                     "layout",
                     [
                     "Pages"=>"account",
+                    "billKH"=>$this->billModel->selectKH($_SESSION['login']['maKH']),
                     "khachHang"=>$this->userModel->SelectUserByMaKH($_SESSION['login']['maKH']),
                     ],
                 );
