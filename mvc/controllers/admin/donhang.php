@@ -32,10 +32,22 @@ class donhang extends controller{
     }
     function update(){
         if(isset($_POST['status'])){
+            $fl = 0;
             $status = $_POST['status'];
-            $id = $_POST['id'];
-            $this->billModel->UpdateBill($status,$id);
-            header('Location: /live/admin/donhang/');
+
+            if ($_POST['status']==2){
+                $id = $_POST['id'];
+                echo $id;
+                $fl = 1;
+                $bill =$this->billModel->ShowId($id);
+                debug($bill);
+
+                
+            }
+
+            
+            // $this->billModel->UpdateBill($status,$id);          
+            // header('Location: /live/admin/donhang/');
         } 
     }
 
