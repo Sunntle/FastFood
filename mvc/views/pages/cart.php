@@ -1,5 +1,13 @@
 
-
+<?php 
+    if(isset($_GET['thongbao']) && $_GET['thongbao'] !="" ){
+        $tb =  $_GET['thongbao'];   
+        $dis= "d-none";
+    }else{
+        $tb = "";
+        $dis= "";
+    }
+?>
 <div class="content">
     <div class="container slide">
     <div class="col-md-8 col-ms-12">
@@ -45,10 +53,11 @@
                 <div class="p-2 fs-5 col-lg-2 col-3 text-center"><a href="/live/cart/dellcart&id=<?=$i?>" class="bg-transparent text-dark"><i class="fa-solid fa-trash"></i></a></a> </div>
                 <!-- <input type="hidden" name="sum"> -->
             </div>
+            
             <?php $i++;          
             } ?>
             <div class="container w-100 p-3 d-flex flex-row"><button class=" btn btn-dark " type="submit">Cập nhật</button></div>
-            
+            <div class="container"><p class="text-danger"><?= $tb?></p></div>
         </form> 
         <?php }?>
         
@@ -64,7 +73,8 @@
                     <td class="w-50"><?= number_format($tong) ?> đ</td>
                 </tr>
             </table>
-            <a class="btn btn-dark p-2 cursor-pointer text-light bg-dark nav-link" href="/live/bill">THANH TOÁN ĐƠN HÀNG</a> 
+
+            <a class="btn btn-dark p-2 cursor-pointer text-light bg-dark nav-link <?= $dis?>" href="/live/bill">THANH TOÁN ĐƠN HÀNG</a> 
         </div>
     </div>
     <div style="clear:both"></div>

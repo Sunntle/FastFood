@@ -46,8 +46,10 @@ class donhang extends controller{
                 for ($i=0;$i<sizeof($qtysl);$i++){
                     foreach($slAllSP as $ma => $sl){
                         if($sl['maHangHoa'] == $qtysl[$i]['maHangHoa']){
-                            $upQty = ($sl['soLuong'])- ($qtysl[$i]['soLuong']);
-                            echo $this->hangHoaModel->UpdateQtyHH($upQty,$sl['maHangHoa']);
+                            if($sl['soLuong'] > $qtysl[$i]['soLuong']){
+                                $upQty = ($sl['soLuong'])- ($qtysl[$i]['soLuong']);
+                                $this->hangHoaModel->UpdateQtyHH($upQty,$sl['maHangHoa']);
+                            }
                         }
                     }
                 }    

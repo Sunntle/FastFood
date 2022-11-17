@@ -1,6 +1,10 @@
 <?php
 class cart extends controller{
-
+    public $hangHoaModel;
+    public function __construct()
+    {
+        $this->hangHoaModel = $this->model("hangHoaModel");
+    }
     
     function SayHi(){
     $this->view(
@@ -45,17 +49,46 @@ class cart extends controller{
             }
         }    
     }
+
+
     function updateCart(){
+        $slAllSP = $this->hangHoaModel->soLuong();
+        $thongbao = "";
         foreach($_POST['slnew'] as $id => $sl ){ 
             for ($i=0;$i<sizeof($_SESSION['vohang']);$i++){  
                 if($_SESSION['vohang'][$i][0] == $id){
-                    $_SESSION['vohang'][$i][4] = $sl;
-                    break;
+                    foreach ($slAllSP as $ma => $slALL) {
+                        if ($slALL['maHangHoa'] == $id) {
+                            if ($slALL['soLuong'] >= $sl) {
+                                $_SESSION['vohang'][$i][4] = $sl;
+                                break;
+                            }else{
+                                echo $thongbao = "Số lượng sản phẩm bạn mua đã vượt giới hạn trong kho";
+                            }
+                        }
+                    }
                 }   
             }  
         }
-        header('Location: /live/cart');
+        header('Location: /live/cart&thongbao='.$thongbao);
     }
+
+
+
+
+    // function updateCart(){
+    //     $slAllSP = $this->hangHoaModel->soLuong();
+    //     foreach($_POST['slnew'] as $id => $sl ){ 
+    //         for ($i=0;$i<sizeof($_SESSION['vohang']);$i++){  
+    //             if($_SESSION['vohang'][$i][0] == $id){
+
+    //                 $_SESSION['vohang'][$i][4] = $sl;
+    //                 break;
+    //             }   
+    //         }  
+    //     }
+    //     header('Location: /live/cart');
+    // }
     // function updateCart($id,$qty){
     //     debug($id);debug($qty);
     //     for ($i=0;$i<sizeof($_SESSION['vohang']);$i++){
