@@ -8,7 +8,24 @@
         });
     </script> ';
     }
+    function ttdh($n){
+        switch ($n){
+            case '0':
+                $tt = "Đơn hàng mới";
+                break;
+            case '1':
+                $tt = "Đang giao hàng";
+                break;
+            case '2':
+                $tt = "Hoàn tất";
+                break;
+            default:
+                break;
+        }
+        return $tt;
+    }
 ?>
+
 <div class="container slide">
 <div class=""><?php if(isset($data['thongbao'])) echo "<div class='text-center my-2 text-danger fw-bolder'>".$data['thongbao']."</div>" ?></div>
     <div class="row">
@@ -30,6 +47,12 @@
                     </p>
                 </div>
                 <div class="change-update row bg-light rounded shadow-sm p-4">
+                    <button class="text-dark bg-transparent border-0 bg-transparent"  onclick="openTab('donhang')">
+                        <div class="d-flex align-items-center justify-content-around my-2 ">
+                            <p class="m-0 text-start">Đơn hàng</p>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                    </button>
                     <button class="text-dark bg-transparent border-0" onclick="openTab('account')" id="defaultOpen">
                         <div class="d-flex align-items-center justify-content-around my-2 ">
                             <p class="m-0 text-start">Account</p>
@@ -60,6 +83,40 @@
                         </div>
                     </button>
                 </div>
+            </div>
+            <div class="col-md-8 col-sm-12 food" id="donhang" style="display:none">
+                <h2 class="py-3 text-uppercase text-center">Danh sách đơn hàng</h2>
+                    <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Mã đơn hàng</th>
+                        <th scope="col">Khách hàng</th>
+                        <th scope="col">Số lượng hàng</th>
+                        <th scope="col">Giá trị đơn hàng</th>
+                        <th scope="col">Tình trạng đơn hàng</th>
+                        <th scope="col">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody class="centerBill">
+                        <?php foreach ($data['billKH'] as $key){ 
+                            
+                            $ttdh = ttdh($key['status']);
+                            
+                        ?>            
+                        <tr>
+                            <th scope="row"><a class="text-dark bg-light" href="/live/billKH/SayHi&id=<?= $key['id']?>">NON-<?= $key['id']?></a>           
+                        </th>
+                            <td ><?= $key['name']?></td>
+                            <td><?= $key['sl'] ?></td>
+                            <td><?= number_format($key['total'])?> đ</td>
+                            <td> <?=$ttdh?> </td>
+                            <td class="btn_suaxoa p">
+                                <button class="btn btn-danger"><a href="/live/billKH/dell&id=<?=$key['id']?>" class="text-light nav-link">Hủy Đơn Hàng</a></button>
+                            </td>
+                        </tr>
+                        <?php }?>
+                    </tbody>
+                </table>
             </div>
             <div class="col-md-8 col-sm-12 food" id="account">
                 <h2 class="text-center">Account</h2>

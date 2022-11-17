@@ -29,9 +29,13 @@
             <h6>Menu / <?php foreach($data['listAll'] as $key){ if($kq['maLoai'] == $key['maLoai']) echo $key['tenLoai']; }?></h6>
             <h3 class="py-3"><?php echo $kq['tenHangHoa']?></h3>
             <h2 class="text-danger"><?php echo $kq['gia']?> đ</h2>
-            <input type="number" value="1" min="1">
-            <form action="/live/cart" method="POST">
-                <input type="hidden" name="sl" value="1" min="1">
+            <div class="quantity w-75 d-flex">
+                    <button class="tru btn btn-outline-danger px-3" onclick=" tru('0')">-</button>
+                    <input type="number" class="mx-3 w-25 form-control border border-danger" id="numberSL" name="sl" value="1" min="1">
+                    <button class="cong btn btn-outline-danger px-3 " onclick=" cong('10')">+</button>
+            </div>
+            <form action="/live/cart " method="POST">
+                <input type="hidden" id="slsp" name="sl" value="1" min="1">
                 <input type="hidden" name="hinhAnh" value="<?php echo $kq['hinhAnh']?>">
                 <input type="hidden" name="tenHangHoa" value="<?php echo $kq['tenHangHoa']?>">
                 <input type="hidden" name="maHangHoa" value="<?php echo $kq['maHangHoa']?>">
@@ -54,13 +58,13 @@
                     <button type="submit" class="btn btn-primary my-3">Gửi</button>
                 </form>
             </span></h4>
-    <?php foreach($data['AllCmt'] as $kq) {?>
+    <?php foreach($data['CmtID'] as $kq) {?>
         <div class="items my-2">
             <div class="nguoi">
                 <div class="text">
-                    <img class="anh" src="./public/images/3i.jpg" alt="">
+                    <img class="anh" src=" <?php foreach($data['KhachHang'] as $key){ if($kq['maKH'] == $key['maKH']) echo $key['hinh']; }?>" alt="">
                     <div>
-                        <p><?php echo $kq['maKH']?></p>
+                        <p><?php foreach($data['KhachHang'] as $key){ if($kq['maKH'] == $key['maKH']) echo $key['tenKH']; }?></p>
                         <span><?php echo $kq['noiDung']?>!</span>
                         <p><?php echo $kq['ngayBL']?></p>
                     </div>
@@ -76,4 +80,26 @@
     <?php require_once "relatedproducts.php"; ?>
 </div>
     
+<script>
+    
+    function cong(max) {
+
+    var cong =document.getElementById("numberSL").value = parseInt(document.getElementById("numberSL").value) + 1;
+    
+    var slsp = document.getElementById("slsp").value = parseInt(document.getElementById("slsp").value) + 1;
+    slsp = cong ;
+    // if (document.getElementById("numberSL").value >= parseInt(max)) {
+    //     document.getElementById("numberSL").value = max;
+    // }
+}
+function tru(min) {
+    
+    var tru = document.getElementById("numberSL").value = parseInt(document.getElementById("numberSL").value) - 1;
+
+    // if (document.getElementById("numberSL").value <= parseInt(min)) {
+    //     document.getElementById("numberSL").value = min;
+
+    // }
+}
+</script>
     

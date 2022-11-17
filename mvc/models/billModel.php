@@ -46,5 +46,14 @@ class billModel extends db{
             $sql = "DELETE FROM bill WHERE MaKH= ?";
             return $this->pdo_execute($sql,$MaKH);
         }
+        public function selectKH($u){
+            $sql = "SELECT * FROM bill WHERE maKH = ? ORDER BY id DESC ";
+            return $this->pdo_query($sql,$u);
+        }
+        public function QtyCart($qty){
+            $sql = "SELECT maHangHoa, soLuong, idBill FROM giohang Where idBill = ?";
+            return $this->pdo_query($sql,$qty);
+        }
+        
     }
 ?>
