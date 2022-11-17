@@ -59,8 +59,13 @@ class cart extends controller{
                 if($_SESSION['vohang'][$i][0] == $id){
                     foreach ($slAllSP as $ma => $slALL) {
                         if ($slALL['maHangHoa'] == $id) {
-                            if ($slALL['soLuong'] >= $sl) {
+                            if ($sl == 0 || $sl < 0) {    
+                                array_splice($_SESSION['vohang'],$i,1);
+                                debug($_SESSION['vohang']);
+                                break;
+                            } elseif ($slALL['soLuong'] >= $sl){
                                 $_SESSION['vohang'][$i][4] = $sl;
+                                
                                 break;
                             }else{
                                 echo $thongbao = "Số lượng sản phẩm bạn mua đã vượt giới hạn trong kho";
@@ -104,10 +109,9 @@ class cart extends controller{
 
     function dellcart(){
         if(isset($_SESSION['vohang'])){
-            echo $_GET['id'];
+            
             if(isset($_GET['id'])){
                 array_splice($_SESSION['vohang'],$_GET['id'],1);
-                
             }
             else {
                 unset($_SESSION['vohang']);
