@@ -51,6 +51,16 @@ class bill extends controller
             header('Location: /live/mybill&lastid='.$last);
         }
     }
+    public function qtycart(){
+        if(isset($_SESSION['login'])){
+            $maKH = $_SESSION['login']['maKH'];
+            $qty = $this->billModel->demsldonhang($maKH);
+            if($qty['sl'] > 0){
+                echo $qty['sl'];
+            }
+            
+        }
+    }
 }
 
 

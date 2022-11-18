@@ -37,10 +37,26 @@
                     </form>
                     <div class="col-lg-2 col-md-1 col-4 d-flex align-items-center p-0 justify-content-start hover-red">
                         <!-- <a class="text-white" href=""><i class="fa-solid fa-bag-shopping fa-xl fs-4 py-2"></i></a> -->
-                        <a class="text-white" href="login"><i class="fa-regular fa-user fs-5 py-2"></i></a>
+                        <a class="text-white" href="login"><i class="fa-regular fa-user fs-5 py-2"></i> </a><span class="result text-white nav-link mb-3 ms-2 shadow-sm px-2 rounded-circle bg-dark"></span>
                     </div>
                 </div>
             </div>
         </nav>
     </div>
 </header>
+<script>
+$( document ).ready(function() {
+    $.get( "/live/bill/qtycart", function( data ) {
+        if (data >0){
+            $( ".result" ).html(data);
+            
+        }else{
+            $( ".result" ).html();
+            
+        }
+       
+
+    });
+});
+
+</script>

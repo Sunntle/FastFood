@@ -16,7 +16,10 @@ class billModel extends db{
             $sql = "SELECT * FROM bill where id= $last";
             return $this->pdo_query($sql);
         }
-
+        public function SelectBillByMaKH($MaKH){
+            $sql = "SELECT * FROM bill where maKH=?";
+            return $this->pdo_query($sql,$MaKH);
+        }
         public function count($get){
             $sql = "SELECT SUM(soLuong) as dem FROM giohang where idBill= '$get'";
             $row = $this->pdo_query($sql);
@@ -27,11 +30,12 @@ class billModel extends db{
             $sql = "SELECT * FROM bill";
             return $this->pdo_query($sql);
         }
-
+        public function dellIdCart($id){
+            $sql = " DELETE FROM giohang WHERE idBill = ? ";
+            return $this->pdo_execute($sql,$id);
+        }
         public function dellIdBill($id){
-            $sql = "SET FOREIGN_KEY_CHECKS=0;";
-            $sql .= " DELETE FROM bill WHERE id = ? ;";
-            $sql .= " SET FOREIGN_KEY_CHECKS=1;";
+            $sql = " DELETE FROM bill WHERE id = ? ";
             return $this->pdo_execute($sql,$id);
         }
         public function ShowID($id){
@@ -54,6 +58,10 @@ class billModel extends db{
             $sql = "SELECT maHangHoa, soLuong, idBill FROM giohang Where idBill = ?";
             return $this->pdo_query($sql,$qty);
         }
-        
+        public function demsldonhang($m){
+            $sql ="SELECT maKH, COUNT(maKH) as sl FROM bill WHERE status BETWEEN 0 AND 1 AND maKH = ?";
+            $data= $this->pdo_query($sql,$m);
+            return $data[0];
+        }
     }
 ?>

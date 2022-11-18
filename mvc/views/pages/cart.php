@@ -48,7 +48,7 @@
                 <div class="p-2 fs-5 col-lg-1 col-1 d-lg-block  d-none"><img class="img-fluid" src="<?= $kq[2] ?>" alt=""></div>
                 <div class="p-2 fs-5 col-lg-3 col-3 text-center"><span class="fs-5"><?= $kq[1] ?></span></div>
                 <div class="p-2 fs-5 col-lg-2 col-2 text-center"><span class="fs-5"><?= number_format($kq[3]) ?> đ</span></div>
-                <div class="p-2 fs-5 col-lg-1 col-2 text-center"><span class="fs-5"><input class="p-1 form-control" id="qty" type="number" name="slnew[<?= $kq[0]?>]" step="1" min="1" value="<?= $kq[4]?>"></span></div>
+                <div class="p-2 fs-5 col-lg-1 col-2 text-center"><span class="fs-5"><input class="p-1 form-control" id="qty" type="number" name="slnew[<?= $kq[0]?>]" step="1" min="-100" value="<?= $kq[4]?>"></span></div>
                 <div class="p-2 fs-5 col-lg-3 col-2 text-center"><span class="fs-5"><?= number_format($tt)?> đ</span></div>
                 <div class="p-2 fs-5 col-lg-2 col-3 text-center"><a href="/live/cart/dellcart&id=<?=$i?>" class="bg-transparent text-dark"><i class="fa-solid fa-trash"></i></a></a> </div>
                 <!-- <input type="hidden" name="sum"> -->
@@ -56,7 +56,10 @@
             
             <?php $i++;          
             } ?>
-            <div class="container w-100 p-3 d-flex flex-row"><button class=" btn btn-dark " type="submit">Cập nhật</button></div>
+            <div class="container w-100 p-3 d-flex flex-row">
+                <a href="/live/menu/SayHi/1" class="btn bg-success text-light rounded">Thêm Mới</a>
+                <button class="ms-3 btn btn-dark " type="submit">Cập nhật</button>
+            </div>
             <div class="container"><p class="text-danger"><?= $tb?></p></div>
         </form> 
         <?php }?>

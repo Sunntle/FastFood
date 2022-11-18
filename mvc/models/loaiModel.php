@@ -47,5 +47,6 @@ class loaiModel extends db{
         $tk=$this->pdo_query($sql);
         return $tk;
     }
+    
 }
 ?>
