@@ -16,7 +16,10 @@ class billModel extends db{
             $sql = "SELECT * FROM bill where id= $last";
             return $this->pdo_query($sql);
         }
-
+        public function SelectBillByMaKH($MaKH){
+            $sql = "SELECT * FROM bill where maKH=?";
+            return $this->pdo_query($sql,$MaKH);
+        }
         public function count($get){
             $sql = "SELECT SUM(soLuong) as dem FROM giohang where idBill= '$get'";
             $row = $this->pdo_query($sql);

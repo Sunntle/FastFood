@@ -49,7 +49,7 @@
                 <div class="change-update row bg-light rounded shadow-sm p-4">
                     <button class="text-dark bg-transparent border-0 bg-transparent"  onclick="openTab('donhang')">
                         <div class="d-flex align-items-center justify-content-around my-2 ">
-                            <p class="m-0 text-start">Đơn hàng <em class="result1 bg-dark ms-2 text-light px-2  rounded-circle"></em></p>
+                            <p class="m-0 text-start">Đơn hàng</p>
                             <i class="fa-solid fa-angle-right"></i>
                         </div>
                     </button>

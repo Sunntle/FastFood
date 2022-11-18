@@ -27,7 +27,10 @@ class khachhang extends controller{
     }
     public function XoaKH(){
         $this->binhLuanModel = $this->model("binhLuanModel");
-        $this->billModel = $this->model("billModel");
+        // $this->billModel = $this->model("billModel");
+        // foreach($this->billModel->SelectBillByMaKH($_GET['maKH']) as $key){
+        //     $this->billModel->dellIdCart($key['id']);
+        // }
         $this->billModel->DeleteBillByMaKH($_GET['maKH']);
         $this->binhLuanModel->DeleteBLBYMaKH($_GET['maKH']);
         $this->userModel->DeleteKH($_GET['maKH']);
@@ -42,6 +45,7 @@ class khachhang extends controller{
                 $tenKH = $_POST['tenKH'];
                 $email = $_POST['email'];
                 $matKhau = $_POST['matKhau'];
+                $pass_hash = password_hash($matKhau, PASSWORD_DEFAULT);
                 $vaiTro = $_POST['vaiTro'];
                 $diaChi = $_POST['diaChi'];
                 $soDienThoai = $_POST['number'];
@@ -50,10 +54,10 @@ class khachhang extends controller{
                     $target_dir = "./public/images/";
                     $target_file = $target_dir.$hinhanhpath;
                     move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file);
-                    $this->userModel->UpdateKH($tenKH,$soDienThoai,$email,$matKhau,$vaiTro,$diaChi,$target_file,$maKH);
+                    $this->userModel->UpdateKH($tenKH,$soDienThoai,$email,$pass_hash,$vaiTro,$diaChi,$target_file,$maKH);
                     $thongbao = "Cập nhật thành công thông tin khách hàng !";
                 }else if($hinhanhpath=="") {
-                    $this->userModel->UpdateKHNoImg($tenKH,$soDienThoai,$email,$matKhau,$vaiTro,$diaChi,$maKH);
+                    $this->userModel->UpdateKHNoImg($tenKH,$soDienThoai,$email,$pass_hash,$vaiTro,$diaChi,$maKH);
                     $thongbao = "Cập nhật thành công thông tin khách hàng không hình ảnh !";
                 };
             }
@@ -93,11 +97,11 @@ class khachhang extends controller{
                         $target_dir = "./public/images/";
                         $target_file = $target_dir.$hinhanhpath;
                         move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file);
-                        $this->userModel->InsertKH($tenKH,$email,$user,$matKhau,$target_file,$vaiTro,$diaChi);
+                        $this->userModel->InsertKH($tenKH,$email,$user,$pass_hash,$target_file,$vaiTro,$diaChi);
                         $thongbao = "Thêm thành công thông tin và hình ảnh khách hàng !";
                     }else if($hinhanhpath=="") {
                         $avt_default="./public/images/default_avatar.jpg";
-                        $this->userModel->InsertKH($tenKH,$email,$user,$matKhau,$avt_default,$vaiTro,$diaChi);
+                        $this->userModel->InsertKH($tenKH,$email,$user,$pass_hash,$avt_default,$vaiTro,$diaChi);
                         $thongbao = "Cập nhật thành công thông tin khách hàng!";
                     };
                 }
