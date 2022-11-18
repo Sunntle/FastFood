@@ -10,38 +10,58 @@ class menu extends controller{
         $this->user = $this->model("userModel");
     }
     
-    function SayHi($a){
+
+    function SayHi($a){       
+        if (isset($_POST['keyword']) && $_POST['keyword'] !=""){    
+            $keyword = $_POST['keyword'];
+            $se = " tenHangHoa LIKE '%$keyword%'";
+            $i="";
+            $page = "";
+            $data = $this->sanpham->SelectProductbyIDType($i,$se,$page);
+        } else{
+            if(isset($_GET['page'])){
+                $page = $_GET['page'] * 4;
+            } else{
+                $page = 4;
+            }
+            $se = "";
+            $id = "maLoai = $a";
+            $limit = " LIMIT 0,$page";
+            $data = $this->sanpham->SelectProductbyIDType($id,$se,$limit);
+        }
+          
+        
         $this->view(
             "layout",
             [
             "Pages"=>"menu",
             "AllType"=>$this->loaiModel->listAll(),
-            "AllSP"=>$this->sanpham->listAllSanPham(),
-            "ProductbyIDType"=>$this->loaiModel->SelectProductbyIDType($a),
+            "ProductbyIDType"=>$data,
+            "idLoai"=>$a,
+            ],
+        ); 
+    }
+    function search(){
+
+        if (isset($_POST['keyword']) && $_POST['keyword'] !=""){
+            
+            $keyword = $_POST['keyword'];
+            var_dump($keyword);
+            $se = $this->sanpham->search();
+        } else{
+            $se = "Không tìm thấy sản phẩm tương tự ";
+        }
+        
+        
+        $this->view(
+            "layout",
+            [
+            "Pages"=>"menu",
+            "All"=> $se,
             ],
         );
     }
-
-    
-    // function SayHi($page){
-    //     $keyword = isset($_GET['keyword']) ? $_GET['keyword']:'';
-    //     $countSP = $this->sanpham->countSP($keyword);
-    //     $perPage = 3;
-    //     $pageCount = (int) ceil($countSP / $perPage); 
-    //     $currentPage = isset($page) ? (int) $page : 1;
-    //     $offset =  ($currentPage - 1) * $perPage;  
-    //     $this->view(
-    //         "layout",
-    //         [
-    //         "Pages"=>"menu",
-    //         "currentPage"=>$currentPage,
-    //         "AllType"=>$this->sanpham->listAllLoai(),
-    //         "AllSP"=>$this->sanpham->listAllSanPham(),
-    //         "phantrang"=>$this->sanpham->PhanTrang($keyword,$perPage,$offset),
-    //         "countSP"=> $pageCount,          
-    //         ],
-    //     );
-    // }   
+   
     function detailsproduct($a){
         foreach($this->sanpham->SelectProductID($a) as $key){
             $luotXem = $key['luotXem'] + 1;

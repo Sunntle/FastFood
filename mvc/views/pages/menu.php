@@ -19,7 +19,7 @@
     
     </section>
     
-    <div class="row container">
+    <div class="row container" id="sp">
         <?php foreach($data['ProductbyIDType'] as $kq){ ?>
             <div class="product col-lg-3 col-md-4 col-12">
                 <a class="bg-transparent" href="/live/menu/detailsproduct/<?php echo $kq['maHangHoa']?>">
@@ -28,14 +28,17 @@
                 <a href="" class="text-dark bg-transparent text-decoration-none "><?php foreach($data['AllType'] as $key){ if($kq['maLoai'] == $key['maLoai']) echo $key['tenLoai'];}?></a>
                 <a href="/live/menu/detailsproduct/<?php echo $kq['maHangHoa']?>" class="products-cat text-dark bg-transparent text-decoration-none "><h5 class="p-name"><?php echo $kq['tenHangHoa']?></h5></a>
                 <a href="/live/menu/detailsproduct/<?php echo $kq['maHangHoa']?>" class="bg-transparent text-decoration-none "><h5 class="p-price text-danger"><?php echo number_format($kq['gia'])?> VND</h5></a>
-                <form action="/live/cart" method="POST">
+                <form action="/live/cart" method="POST" class="form_addtocart">
                     <input type="hidden" name="sl" value="1" min="1">
                     <input type="hidden" name="hinhAnh" value="<?php echo $kq['hinhAnh']?>">
                     <input type="hidden" name="tenHangHoa" value="<?php echo $kq['tenHangHoa']?>">
                     <input type="hidden" name="maHangHoa" value="<?php echo $kq['maHangHoa']?>">
                     <input type="hidden" name="gia" value="<?php echo $kq['gia']?>">
-                    <input class="pbuy-btn" type="submit" class="py-2 px-5" id="addtocart" name="addtocart" value="Thêm vào giỏ hàng"> 
+                    <input class="pbuy-btn"  type="submit" class="py-2 px-5" id="addtocart" name="addtocart" value="Thêm vào giỏ hàng"> 
                 </form>
             </div>               
         <?php }?>
-    </div>           
+    </div>   
+    <div  class="container text-center my-5">
+        <button class="bg-dark"><a class= "bg-dark text-light nav-link" href="/live/menu/SayHi/<?=$data['idLoai']?>&page=2#sp">Xem thêm</a></button>
+    </div>        

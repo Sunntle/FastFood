@@ -24,6 +24,10 @@ class hangHoaModel extends db{
         $sql = "SELECT * FROM hanghoa WHERE tenHangHoa = ?";
         return $this->pdo_query($sql, $tenHangHoa);
     }
+    // public function SelectProductbyIDType($id,$page){
+    //     $sql = "SELECT * FROM hanghoa WHERE maLoai = ".$id." LIMIT 0,".$page;
+    //     return $this->pdo_query($sql);
+    // }
     public function UpdateLuotXem($luotXem,$maHangHoa){
         $sql = "UPDATE hanghoa
         SET luotXem = ?
@@ -67,6 +71,20 @@ class hangHoaModel extends db{
         $count = $this->pdo_query($sql);
         return $count[0]['dem'];
     }
+
+    public function SelectProductbyIDType($id,$keyword,$page){
+        $sql = "SELECT * FROM hanghoa WHERE $id $keyword $page " ;
+        return $this->pdo_query($sql);
+    }
+    public function soLuong(){
+        $sql = "SELECT maHangHoa, soLuong FROM hanghoa ";
+        return $this->pdo_query($sql);
+    }
+    public function UpdateQtyHH($qty,$maHH){
+        $sql = "UPDATE hanghoa SET soLuong = ? WHERE  maHangHoa = ?";
+        return $this->pdo_execute($sql,$qty,$maHH);
+    }
+
 
 }
 ?>

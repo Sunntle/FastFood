@@ -28,6 +28,7 @@ class bill extends controller
             $dc = $_POST['dc'];
             $tt = $_POST['tongtien'];
             $sumqty = $_POST['sumqty'];
+            
             $pttt = $_POST['pttt'];
             if(isset($_SESSION['login'])){
                 $use = $_SESSION['login']['maKH'];

@@ -46,9 +46,9 @@ if(isset($_SESSION["login"])){
                             <td>'. ($i+1) .'</td>
                         <td> <img style="width:30%" src="'.$kq[2].'"> </td> 
                         <td style="vertical-align: middle;">'.$kq[1].'</td> 
-                        <td style="vertical-align: middle;">'.$kq[3].'</td> 
+                        <td style="vertical-align: middle;">'.number_format($kq[3]).'</td> 
                         <td style="vertical-align: middle;">'.$kq[4].'</td> 
-                        <td style="vertical-align: middle;">'.$tt.' VND</td> </tr>';
+                        <td style="vertical-align: middle;">'.number_format($tt).' VND</td> </tr>';
         
                     $i++;
                     $sumqty += $kq[4];
@@ -57,7 +57,7 @@ if(isset($_SESSION["login"])){
                 <tbody>
                     <tr class="">
                         <td colspan="5">Tổng đơn hàng</td>
-                        <td colspan="2"><?php echo $tong ?> VND</td>
+                        <td colspan="2"><?php echo number_format($tong) ?> VND</td>
                     </tr>
                 </tbody>
             </table>
