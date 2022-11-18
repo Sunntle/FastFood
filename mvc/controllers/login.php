@@ -67,7 +67,7 @@ class login extends controller{
                     [
                     "Pages"=>"account",
                     "thongbao"=>$thongbao,
-                    "billKH"=>$this->billModel->selectKH($_SESSION['login']['maKH']),
+                    "billKH"=>$this->billModel->SelectBillByStatus($_SESSION['login']['maKH']),
                     "khachHang"=>$this->userModel->SelectUserByMaKH($_SESSION['login']['maKH']),
                     ],
                 );
@@ -76,7 +76,7 @@ class login extends controller{
                     "layout",
                     [
                     "Pages"=>"account",
-                    "billKH"=>$this->billModel->selectKH($_SESSION['login']['maKH']),
+                    "billKH"=>$this->billModel->SelectBillByStatus($_SESSION['login']['maKH']),
                     "khachHang"=>$this->userModel->SelectUserByMaKH($_SESSION['login']['maKH']),
                     ],
                 );
