@@ -32,7 +32,7 @@ class hanghoa extends controller{
         if(isset($_POST['btn-update'])){
             $dem = 0;
             if(strlen($_POST['tenHangHoa'])==0||strlen($_POST['gia'])==0||strlen($_POST['moTa'])==0||strlen($_POST['soLuong'])==0){
-                $thongbao ="Chưa diền đủ các trường !";
+                $thongbao ="Chưa điền đủ các trường !";
             }else{
                 $tenHangHoa = $_POST['tenHangHoa'];
                 foreach($this->hangHoaModel->SelectSpByTenSp($tenHangHoa) as $key){

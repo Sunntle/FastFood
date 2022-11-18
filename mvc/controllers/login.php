@@ -149,7 +149,14 @@ class login extends controller{
                                 $_SESSION['login']['hoTen']=$key['tenKH'];
                                 $_SESSION['login']['vaiTro']=$key['vaiTro'];
                                 $_SESSION['login']['maKH']=$key['maKH'];
-                            }else echo "Sai";
+                            }else echo "
+                            <div class='alert alert-danger p-2 w-25 rounded text-center my-5 mx-auto'>Sai mật khẩu !
+                            <div><a href='../home' class='btn btn-success text-dark my-2'>Trang chủ</a>
+                            <a onclick='history.back()' class='btn btn-danger text-dark my-2'>Quay về</a>
+                            </div>
+                            
+                            </div>
+                            ";;
                     }
                 }else $loi ="Sai tài khoản";
             }

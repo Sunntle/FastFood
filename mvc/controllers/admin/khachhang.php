@@ -31,7 +31,6 @@ class khachhang extends controller{
         // foreach($this->billModel->SelectBillByMaKH($_GET['maKH']) as $key){
         //     $this->billModel->dellIdCart($key['id']);
         // }
-        $this->billModel->DeleteBillByMaKH($_GET['maKH']);
         $this->binhLuanModel->DeleteBLBYMaKH($_GET['maKH']);
         $this->userModel->DeleteKH($_GET['maKH']);
         header("location: ./");
