@@ -61,6 +61,7 @@ class donhang extends controller{
 
     function dell(){
         $id = $_GET['id'];
+        $this->billModel->dellIdCart($id);
         $this->billModel->dellIdBill($id);
         header('Location: /live/admin/donhang/');
     }

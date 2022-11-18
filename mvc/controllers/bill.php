@@ -20,7 +20,8 @@ class bill extends controller
     }
 
     public function bill()
-    {
+    {   
+        
         if (isset($_POST['dathang'])) {
             $name = $_POST['name'];
             $email = $_POST['email'];
@@ -49,6 +50,16 @@ class bill extends controller
             }
             $show = $this->billModel->ShowBill($last);
             header('Location: /live/mybill&lastid='.$last);
+        }
+    }
+    public function qtycart(){
+        if(isset($_SESSION['login'])){
+            $maKH = $_SESSION['login']['maKH'];
+            $qty = $this->billModel->demsldonhang($maKH);
+            if($qty['sl'] > 0){
+                echo $qty['sl'];
+            }
+            
         }
     }
 }
