@@ -97,19 +97,15 @@
                         </tr>
                     </thead>
                     <tbody class="centerBill">
-                        <?php foreach ($data['billKH'] as $key){ 
-                            
-                            $ttdh = ttdh($key['status']);
-                            
+                        <?php foreach ($data['billKH'] as $key){                             
+                            $ttdh = ttdh($key['status']);                            
                         ?>            
-                        <tr>
-                            <th scope="row"><a class="text-dark bg-light" href="/live/billKH/SayHi&id=<?= $key['id']?>">NON-<?= $key['id']?></a>           
-                        </th>
+                            <td scope="row"><a class="text-dark bg-light linkidcart text-decoration-none " data="/live/bill/ChiTietBill/<?= $key['id']?>" data-bs-toggle="modal" data-bs-target="#myModal">NON-<b><?= $key['id']?></b> </a> </td>                                
                             <td><?= $key['sl'] ?></td>
                             <td><?= number_format($key['total'])?> đ</td>
                             <td> <?=$ttdh?> </td>
-                            <td class="btn_suaxoa p">
-                                <button class="btn btn-danger"><a href="/live/billKH/dell&id=<?=$key['id']?>" class="text-light nav-link">Hủy</a></button>
+                            <td style="height: 15px;" class="btn_suaxoa p">
+                                <button  class="btn btn-danger"><a  href="/live/billKH/dell&id=<?=$key['id']?>" class="text-light nav-link">Hủy</a></button>
                             </td>
                         </tr>
                         <?php }?>
@@ -169,4 +165,60 @@
             <?php }
             ?>
     </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $( ".linkidcart" ).click(function() {
+            var url = $(this).attr('data');
+            console.log(url);
+            $.ajax({
+                url: url,       
+                dataType:'json',         
+                success: function(data){     
+                    console.log(data);
+                    $(".ShowSPbyBill").html("");
+                    for (i=0; i<data.length; i++){            
+                        var sanpham = data[i]; 
+                        console.log(sanpham);
+                        var str =` 
+
+                        <div class="p-2 fs-5 col-2 d-lg-block"><img class="img-fluid " src="${sanpham['hinhHangHoa']}" alt=""></div>
+                        <div class="p-2 fs-5 col-5 text-center align-self-center"><span class="fs-5">${sanpham['tenHangHoa']}</span></div>
+                        <div class="p-2 fs-5 col-2 text-center align-self-center"><span class="fs-5">${sanpham['gia']} đ</span></div>
+                        <div class="p-2 fs-5 col-1 text-center align-self-center"><span class="fs-5">${sanpham['soLuong']}</div>
+                        <div class="p-2 fs-5 col-2 text-center align-self-center"><span class="fs-5">${sanpham['thanhTien']}</div>  
+                        `;
+                        $(".ShowSPbyBill").append(str);
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<div class="modal modal-lg fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Chi tiết sản phẩm</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      
+      <div class="modal-body row">
+            <div class="row">
+                <div class="p-2 fs-5 col-2 d-lg-block "><span class="fs-5 fw-bolder">Hình ảnh</span></div>
+                <div class="p-2 fs-5 col-5 text-center"><span class="fs-5 fw-bolder">Tên</span></div>
+                <div class="p-2 fs-5 col-2 text-center"><span class="fs-5 fw-bolder">Giá</span></div>
+                <div class="p-2 fs-5 col-1 text-center"><span class="fs-5 fw-bolder">SL</span></div>
+                <div class="p-2 fs-5 col-2 text-center"><span class="fs-5 fw-bolder">Tổng</span></div>
+            </div>
+            <div class="row ShowSPbyBill">               
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

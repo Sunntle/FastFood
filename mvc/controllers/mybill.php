@@ -22,9 +22,6 @@ class mybill extends controller
         
     }
     
-    
-
-    
 }        
         
 

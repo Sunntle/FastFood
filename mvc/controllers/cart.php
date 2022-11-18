@@ -7,14 +7,18 @@ class cart extends controller{
     }
     
     function SayHi(){
-    $this->view(
-            "layout",
-            [
-            "Pages"=>"cart",
-            "Cart"=>$this->addtocart(),
-            
-            ],
-        );
+        if (isset($_SESSION['login'])) {
+            $this->view(
+                "layout",
+                [
+                "Pages"=>"cart",
+                "Cart"=>$this->addtocart(),
+
+                ],
+            );
+        }else{
+            header('Location: /live/login');
+        }
     }
     
     function addtocart(){

@@ -63,5 +63,9 @@ class billModel extends db{
             $data= $this->pdo_query($sql,$m);
             return $data[0];
         }
+        public function SeIdCart($a){
+            $sql = "SELECT * FROM giohang where idBill=? ";
+            return $this->pdo_query($sql,$a);
+        }
     }
 ?>

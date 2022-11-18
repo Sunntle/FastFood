@@ -62,6 +62,12 @@ class bill extends controller
             
         }
     }
+    public function ChiTietBill($a){
+        $result = $this->billModel->SeIdCart($a);
+        echo json_encode($result);
+    }
+
+    
 }
 
 
