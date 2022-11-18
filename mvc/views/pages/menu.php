@@ -10,10 +10,10 @@
 </div>
 <div class="container py-5">
     <section id="type">
-        <div class="row m-0 py-5 text-center text-decoration-none">
+        <div class="row m-0 py-5 text-decoration-none">
             <?php foreach($data['AllType'] as $kq) { ?>
-            <a class="bg-transparent col-lg-2 col-md-4 col-6 text-center text-decoration-none text-dark" href="/live/menu/SayHi/<?php echo $kq['maLoai']?>">
-                <img class="img-fluid py-3"src="<?php echo $kq['hinh']?>" alt=""><?php echo $kq['tenLoai']?></a>
+            <a class="bg-transparent col-lg-2 col-md-4 col-6 text-decoration-none text-dark" href="/live/menu/SayHi/<?php echo $kq['maLoai']?>">
+                <img class="p-img img-fluid py-3"src="<?php echo $kq['hinh']?>" alt=""><?php echo $kq['tenLoai']?></a>
         <?php }?>
         </div>
     
@@ -21,7 +21,7 @@
     
     <div class="row container">
         <?php foreach($data['ProductbyIDType'] as $kq){ ?>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
+            <div class="product col-lg-3 col-md-4 col-12">
                 <a class="bg-transparent" href="/live/menu/detailsproduct/<?php echo $kq['maHangHoa']?>">
                     <img class="img-fluid" src="<?php echo $kq['hinhAnh']?>" alt="">
                 </a>
