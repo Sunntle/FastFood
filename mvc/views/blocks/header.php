@@ -47,7 +47,15 @@
 <script>
 $( document ).ready(function() {
     $.get( "/live/bill/qtycart", function( data ) {
-        $( ".result" ).html(data);
+        if (data >0){
+            $( ".result" ).html(data);
+            $( ".result1" ).html(data);
+        }else{
+            $( ".result" ).html();
+            $( ".result1" ).html();
+        }
+       
+
     });
 });
 
