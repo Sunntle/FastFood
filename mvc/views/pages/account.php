@@ -84,13 +84,12 @@
                     </button>
                 </div>
             </div>
-            <div class="col-md-8 col-sm-12 food" id="donhang" style="display:none">
+            <div class="col-md-8 col-sm-12 food" id="donhang">
                 <h2 class="py-3 text-uppercase text-center">Danh sách đơn hàng</h2>
                     <table class="table">
                     <thead>
                         <tr>
                         <th scope="col">Mã đơn hàng</th>
-                        <th scope="col">Khách hàng</th>
                         <th scope="col">Số lượng hàng</th>
                         <th scope="col">Giá trị đơn hàng</th>
                         <th scope="col">Tình trạng đơn hàng</th>
@@ -106,19 +105,18 @@
                         <tr>
                             <th scope="row"><a class="text-dark bg-light" href="/live/billKH/SayHi&id=<?= $key['id']?>">NON-<?= $key['id']?></a>           
                         </th>
-                            <td ><?= $key['name']?></td>
                             <td><?= $key['sl'] ?></td>
                             <td><?= number_format($key['total'])?> đ</td>
                             <td> <?=$ttdh?> </td>
                             <td class="btn_suaxoa p">
-                                <button class="btn btn-danger"><a href="/live/billKH/dell&id=<?=$key['id']?>" class="text-light nav-link">Hủy Đơn Hàng</a></button>
+                                <button class="btn btn-danger"><a href="/live/billKH/dell&id=<?=$key['id']?>" class="text-light nav-link">Hủy</a></button>
                             </td>
                         </tr>
                         <?php }?>
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-8 col-sm-12 food" id="account">
+            <div class="col-md-8 col-sm-12 food" id="account" style="display:none">
                 <h2 class="text-center">Account</h2>
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="mb-3 mt-3">
