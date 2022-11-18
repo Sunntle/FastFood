@@ -1,10 +1,11 @@
 <?php 
-    if($data['Pages']=="account"){
+    if($data['Pages']== "account"){
         echo ' <script>
         $(document).ready(function (){
             $( ".nav-item a" ).removeClass( "text-white" ).addClass( "text-dark" );
             $("button i").removeClass( "text-white" ).addClass( "text-dark" );
             $("a i").removeClass( "text-white" ).addClass( "text-dark" );
+            $(" body div").removeClass( "slide");
         });
     </script> ';
     }
@@ -26,8 +27,8 @@
     }
 ?>
 
-<div class="container slide">
-<div class=""><?php if(isset($data['thongbao'])) echo "<div class='text-center my-2 text-danger fw-bolder'>".$data['thongbao']."</div>" ?></div>
+<div class="container ontop">
+    <div class=""><?php if(isset($data['thongbao'])) echo "<div class='text-center my-2 text-danger fw-bolder'>".$data['thongbao']."</div>" ?></div>
     <div class="row">
             <?php
             foreach($data['khachHang'] as $value){
@@ -171,6 +172,7 @@
     $(document).ready(function(){
         $( ".linkidcart" ).click(function() {
             var url = $(this).attr('data');
+            
             console.log(url);
             $.ajax({
                 url: url,       
@@ -193,7 +195,9 @@
                     }
                 }
             });
+            
         });
+        
     });
 </script>
 
