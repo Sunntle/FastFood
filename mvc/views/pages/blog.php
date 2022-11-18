@@ -14,8 +14,8 @@
             <div class="row py-2">
                 <div class="col-lg-6 col-md-12 p-0">
                     <div class="content-blog">
-                        <div class="about-main-text">
-                        <div class="headline-sm fw-bolder lh-sm my-2 text-center">Three Guys</div>
+                        <div class="about-main-text p-5">
+                        <h3 class="headline-sm fw-bolder lh-sm my-2 text-center">Three Guys</h3>
                             <div class="sub-heading">
                                 <strong>Cửa hàng Three Guys đầu tiên được mở tại Việt Nam vào năm 2022. Kể từ đó, Three Guys đã
                                     nỗ
