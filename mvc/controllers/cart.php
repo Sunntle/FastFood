@@ -61,7 +61,7 @@ class cart extends controller{
                         if ($slALL['maHangHoa'] == $id) {
                             if ($sl == 0 || $sl < 0) {    
                                 array_splice($_SESSION['vohang'],$i,1);
-                                debug($_SESSION['vohang']);
+                                
                                 break;
                             } elseif ($slALL['soLuong'] >= $sl){
                                 $_SESSION['vohang'][$i][4] = $sl;
