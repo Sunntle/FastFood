@@ -13,7 +13,7 @@
         <div class="row m-0 py-5 text-decoration-none">
             <?php foreach($data['AllType'] as $kq) { ?>
             <a class="bg-transparent col-lg-2 col-md-4 col-6 text-decoration-none text-dark" href="/live/menu/SayHi/<?php echo $kq['maLoai']?>">
-                <img class="p-img img-fluid py-3"src="<?php echo $kq['hinh']?>" alt=""><?php echo $kq['tenLoai']?></a>
+                <img class="img-fluid py-3"src="<?php echo $kq['hinh']?>" alt=""><?php echo $kq['tenLoai']?></a>
         <?php }?>
         </div>
     
@@ -22,8 +22,8 @@
     <div class="row container" id="sp">
         <?php foreach($data['ProductbyIDType'] as $kq){ ?>
             <div class="product col-lg-3 col-md-4 col-12">
-                <a class="bg-transparent" href="/live/menu/detailsproduct/<?php echo $kq['maHangHoa']?>">
-                    <img class="img-fluid" src="<?php echo $kq['hinhAnh']?>" alt="">
+                <a class="bg-transparent " href="/live/menu/detailsproduct/<?php echo $kq['maHangHoa']?>">
+                    <img class="p-img img-fluid rounded-3" src="<?php echo $kq['hinhAnh']?>" alt="">
                 </a>
                 <a href="" class="text-dark bg-transparent text-decoration-none "><?php foreach($data['AllType'] as $key){ if($kq['maLoai'] == $key['maLoai']) echo $key['tenLoai'];}?></a>
                 <a href="/live/menu/detailsproduct/<?php echo $kq['maHangHoa']?>" class="products-cat text-dark bg-transparent text-decoration-none "><h5 class="p-name"><?php echo $kq['tenHangHoa']?></h5></a>
@@ -34,11 +34,11 @@
                     <input type="hidden" name="tenHangHoa" value="<?php echo $kq['tenHangHoa']?>">
                     <input type="hidden" name="maHangHoa" value="<?php echo $kq['maHangHoa']?>">
                     <input type="hidden" name="gia" value="<?php echo $kq['gia']?>">
-                    <input class="pbuy-btn"  type="submit" class="py-2 px-5" id="addtocart" name="addtocart" value="Thêm vào giỏ hàng"> 
+                    <input class="pbuy-btn rounded-3"  type="submit" class="py-2 px-5" id="addtocart" name="addtocart" value="Thêm vào giỏ hàng"> 
                 </form>
             </div>               
         <?php }?>
     </div>   
-    <div  class="container text-center my-5">
-        <button class="bg-dark"><a class= "bg-dark text-light nav-link" href="/live/menu/SayHi/<?=$data['idLoai']?>&page=2#sp">Xem thêm</a></button>
+    <div  class="btn-load container text-center my-5">
+        <button class=" bg-dark rounded-3"><a class= "bg-dark text-light nav-link p-2 " href="/live/menu/SayHi/<?=$data['idLoai']?>&page=2#sp">Xem thêm</a></button>
     </div>        

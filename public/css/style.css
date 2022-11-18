@@ -138,14 +138,15 @@ border-top: 4px solid black;
 }
 
 /* Hoàng Huy */
-a img .p-img{
+
+.product a .p-img{
     transition: 0.3s all;
 }
-a img .p-img{
-    opacity: 0.7s;
+.product a .p-img:hover{
+    opacity: 0.7;
 }
 
-input[type="submit"] {
+.product input[type="submit"] {
     margin-top: 1%;
     text-transform: uppercase;
     text-align: center;
@@ -155,6 +156,18 @@ input[type="submit"] {
     padding: 10px 0px;;
     width: 100%;
     border: none;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 0.3s all;
+}
+.product:hover input[type="submit"] {
+    transform: translateY(0);
+    opacity: 1;
+
+}
+.btn-load:hover {
+    background: #fff;
+    color: black;
 }
 .text-linear-effect:hover {
     background-position: 0;
@@ -294,16 +307,18 @@ input[type="submit"] {
 .sproduct input:focus{
     outline: none;
 }
-.buy-btn{
+.d-product input[type="submit"] {
     margin-top: 1%;
     text-transform: uppercase;
-    background-color: var(--red-bg);
+    text-align: center;
+    display: block;
+    background-color: #f72b3f;
     color: #fff;
-    padding: 0.625em 0em;
-    width: 40%;
+    padding: 10px 0px;;
     border: none;
-    opacity: 1;
-    transition: 0.3s all;
+}
+.d-product input[type="submit"]:hover{
+    opacity: 0.7;
 }
 .items{
     background: whitesmoke;

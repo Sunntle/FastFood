@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-lg-5 col-md-12 col-12">
             <?php foreach($data['ProductID'] as $kq) {?>
-            <img class="img-fluid w-100" src="<?php echo $kq['hinhAnh']?>" alt="">
+            <img class="img-fluid w-100 rounded-3" src="<?php echo $kq['hinhAnh']?>" alt="">
 
             <div class="small-img-group">
                 <div class="small-img-col">
@@ -24,23 +24,24 @@
             </div>
         </div>
 
-        <div class="col-lg-6 col-md-12 col-12">
+        <div class="d-product col-lg-6 col-md-12 col-12">
             
             <h6>Menu / <?php foreach($data['listAll'] as $key){ if($kq['maLoai'] == $key['maLoai']) echo $key['tenLoai']; }?></h6>
             <h3 class="py-3"><?php echo $kq['tenHangHoa']?></h3>
             <h2 class="text-danger"><?php echo $kq['gia']?> đ</h2>
             <div class="quantity w-75 d-flex">
                     <button class="tru btn btn-outline-danger px-3" onclick=" tru('0')">-</button>
-                    <input type="number" class="mx-3 w-25 form-control border border-danger" id="numberSL" name="sl" value="1" min="1">
+                    <input type="number" class="mx-3 w-25 form-control border border-danger text-center" id="numberSL" name="sl" value="1" min="1">
                     <button class="cong btn btn-outline-danger px-3 " onclick=" cong('10')">+</button>
             </div>
+            <h5 class="m-3">Số lượng còn lại: <?php echo $kq['soLuong']?></h5>
             <form action="/live/cart " method="POST">
                 <input type="hidden" id="slsp" name="sl" value="1" min="1">
                 <input type="hidden" name="hinhAnh" value="<?php echo $kq['hinhAnh']?>">
                 <input type="hidden" name="tenHangHoa" value="<?php echo $kq['tenHangHoa']?>">
                 <input type="hidden" name="maHangHoa" value="<?php echo $kq['maHangHoa']?>">
                 <input type="hidden" name="gia" value="<?php echo $kq['gia']?>">
-                <input type="submit" class="py-2 px-5" id="addtocart" name="addtocart" value="Thêm vào giỏ hàng"> 
+                <input type="submit" class="py-2 px-5 rounded-3" id="addtocart" name="addtocart" value="Thêm vào giỏ hàng"> 
             </form>
             <h5 class="mt-4 mb-4">Giới thiệu sản phẩm</h5>
             <span><?php echo $kq['moTa']?></span>
