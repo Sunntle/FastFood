@@ -66,7 +66,32 @@ class menu extends controller{
         foreach($this->sanpham->SelectProductID($a) as $key){
             $luotXem = $key['luotXem'] + 1;
         }
-        $this->sanpham->UpdateLuotXem($luotXem,$a);
+        $this->sanpham->UpdateLuotXem($luotXem,$a);        
+        if (isset($_POST['binhLuan'])){
+            // $name = $_POST['tenKH'];
+            $maKh = $_POST['idKH'];
+            $mahh = $_POST['maHangHoa'];
+            $noiDung = $_POST['noidung'];
+            $ngayBl = date("Y/m/d");
+            if(empty($_POST['noidung'])){
+                $thongbao ="Noi dung không được bỏ trống !";
+            }else{
+            $this->binhLuan->UpdateBL($noiDung,$ngayBl,$mahh,$maKh);        
+            $this->view(
+            "layout",
+            [
+            "Pages"=>"detailsproduct",
+            "ProductID"=>$this->sanpham->SelectProductID($a),
+            "AllCmt"=>$this->sanpham->listAllCmt(),
+            "listAll"=>$this->loaiModel->listAll(),
+            "CmtID"=>$this->binhLuan->SelectCmtbyID($a),
+            "KhachHang"=>$this->user->listAll(),
+            ],
+        ); 
+            }
+
+
+        }
         $this->view(
             "layout",
             [
@@ -76,6 +101,7 @@ class menu extends controller{
             "listAll"=>$this->loaiModel->listAll(),
             "CmtID"=>$this->binhLuan->SelectCmtbyID($a),
             "KhachHang"=>$this->user->listAll(),
+            // "Thongbao"=>$thongbao,
             ],
         );
     }
