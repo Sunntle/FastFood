@@ -76,28 +76,33 @@
 </div>
 
 <?php 
-  debug($data['tkdh']);
+
   for($i=1;$i<13;$i++){
     if(isset($data['tkdh'][($i-1)]['thang'])){
       for($j = 1; $j <13;$j++){
         if(!isset($yValues[$j])) $yValues[$j]="";
         if($j == $data['tkdh'][($i-1)]['thang']){
            $yValues[$j] = $data['tkdh'][($i-1)]['tong'];
+           
         }elseif($yValues[$j]==""){
           $yValues[$j]=0;
         }
+        
       }
+      
     }
-    $xValuesx = $i;
   }
-  debug($yValues);
+
 ?>
+
+
 <script>
-var yValues = [0,0,0,0,0,0,0,0,0,0,0,0];
-
+var yValues = [<?php 
+  foreach($yValues as $key => $value){         
+      echo $value.",";
+  }
+    ?>];
 var xValues = [1,2,3,4,5,6,7,8,9,10,11,12];
-
-
 
 new Chart("myChart1", {
   type: "line",
@@ -114,7 +119,7 @@ new Chart("myChart1", {
   options: {
     legend: {display: false},
     scales: {
-      yAxes: [{ticks: {min: 1, max:30000000}}],
+      yAxes: [{ticks: {min: 1, max:10000000}}],
     }
   }
   
