@@ -75,11 +75,40 @@
     
 </div>
 
+<?php 
+  // debug($data['tkdh']);
 
+
+  // for($i=1;$i<13;$i++){
+    // debug($i);
+    
+
+      // if($i == isset($data['tkdh'][($i-1)]['thang'])){
+      //   debug($data['tkdh'][($i-1)]['tong']) ;
+      //   echo $data['tkdh'][($i-1)]['tong'];
+        
+      // }else{
+      //    echo $tong= "0,";
+      // }
+  // }
+
+
+  foreach ($data['tkdh'] as $key => $value){
+      for($i=1;$i<13;$i++){
+
+
+        if($value['thang'] == $i){  
+          debug($i);     
+          debug($value['tong']);
+        }
+      }
+  }
+
+
+
+?>
 <script>
-var yValues = [0,0,0,0,0,0,0,0,0,0,<?= $data['tkdh'][0]['tong']?>,0];
-  
-
+var yValues = [0,0,0,0,0,0,0,0,0,0,0,0];
 
 var xValues = [1,2,3,4,5,6,7,8,9,10,11,12];
 
