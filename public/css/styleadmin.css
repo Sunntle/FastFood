@@ -64,7 +64,6 @@
 
 .sidebar-sub ul{
   background: #1b1b1b;
-  height: 100%;
   width: 100%;
   list-style: none;
 }
@@ -175,9 +174,7 @@
   margin-top: 15px;
   width: 150px;
 }
-.homeAdmin{
-  height: 95px;
-}
+
 
 
 

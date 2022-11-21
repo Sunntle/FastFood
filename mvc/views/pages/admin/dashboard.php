@@ -16,7 +16,7 @@
 
   </style>
 </head>
-<div class="container-fluid w-100 text-white homeAdmin h-100">
+<div class="container-fluid w-100 text-white">
   <div class="row m-auto pt-5 ms-1 ">
     <div class="col-lg-3 col-md-6 col-sm-12 position-relative  border  rounded bg-success">
       <div class="row ">
