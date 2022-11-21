@@ -16,7 +16,7 @@
 
   </style>
 </head>
-<div class="container-fluid w-100 text-white homeAdmin h-100">
+<div class="container-fluid w-100 text-white">
   <div class="row m-auto pt-5 ms-1 ">
     <div class="col-lg-3 col-md-6 col-sm-12 position-relative  border  rounded bg-success">
       <div class="row ">
@@ -70,61 +70,20 @@
     </div>  
     <div class="col-lg-6 col-md-12 col-sm-12 container shadow text-center p-3">
       <canvas class="" id="myChart1" style="width:100%;max-width:600px;height:400px;"></canvas>
-      <!-- <div class="fs-3 fw-bolder">Sản phẩm có nhiều lượt xem</div> -->
-      <!-- <div>
-        <div class="row align-items-center">
-          <div class="col-md-4">
-            <div class="fs-2 fw-bolder">Top 1:</div>
-          </div>
-          <div class="col-md-8 px-5 py-3">
-            <img class="img-fluid rounded-circle" src="../public/images/1 (2).jpg" alt="">
-            <div class="fs-5">Gà rán sốt cayy</div>
-          </div>
-          <div class="col-md-4">
-          <div class="fs-3 fw-bolder">Top 2-3:</div>
-          </div>
-          <div class="col-md-8 px-5 py-3 d-flex">
-            <div class="col-6 px-">
-            <img class="img-fluid rounded-circle" src="../public/images/1 (2).jpg" alt="">
-            <div class="fs-6">Gà rán sốt cayy</div>
-            </div>
-            <div class="col-6 px-">
-            <img class="img-fluid rounded-circle" src="../public/images/1 (2).jpg" alt="">
-            <div class="fs-6">Gà rán sốt cayy</div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- <div class="row justify-content-end ">
-        <div class="col-4 px-3 pt-4">
-          <div class="p-2 pt-2"><img src="../public/images/1 (2).jpg" alt="" class="img-fluid rounded-circle"></div>
-          <div class="bg-danger h-100 mt-2"></div>
-        </div>
-        <div class="col-4 px-3">
-          <div class="p-1"><img src="../public/images/1 (2).jpg" alt="" class="img-fluid p-2 rounded-circle"></div>
-          <div class="bg-success h-100 mt-2 my-2"></div>
-        </div>
-        <div class="col-4 px-3 pt-5">
-          <div class="p-3"><img src="../public/images/1 (2).jpg" alt="" class="img-fluid p-2 rounded-circle"></div>
-          <div class="bg-info h-100 mt-2 my-2"></div>
-        </div>
-      </div>
-    </div> -->
+
    
     
 </div>
 
 
-
-
-
-
-
-
 <script>
-var yValues = [0,0,0,0,0,0,0,0,0,0,50,50];
+var yValues = [0,0,0,0,0,0,0,0,0,0,<?= $data['tkdh'][0]['tong']?>,0];
+  
+
 
 var xValues = [1,2,3,4,5,6,7,8,9,10,11,12];
+
+
 
 new Chart("myChart1", {
   type: "line",
@@ -141,7 +100,7 @@ new Chart("myChart1", {
   options: {
     legend: {display: false},
     scales: {
-      yAxes: [{ticks: {min: 1, max:100}}],
+      yAxes: [{ticks: {min: 1, max:30000000}}],
     }
   }
   

@@ -31,7 +31,7 @@ body{
     width: 100%;
 }
 .content{
-    background: url(https://fast-food.bold-themes.com/main-demo/wp-content/uploads/sites/2/2016/09/hero_inner_page.jpg);
+    background: url(../images/main-image-bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 0;
@@ -57,7 +57,7 @@ li.nav-item:hover a,.hover-red:hover a,.hover-red:hover button i,.hover-red:hove
     color: var(--red-bg)!important;
     transform: scale(1.1);
 }
-.slide{
+.slide , .slide1{
     padding-top: 12em;
     padding-bottom: 8em;
 }
@@ -82,8 +82,11 @@ li.nav-item:hover a,.hover-red:hover a,.hover-red:hover button i,.hover-red:hove
     width: 6em;
 }
 .slide>div{
-    position: relative;
-    z-index: 2;
+    position: relative; 
+    z-index: 2; 
+}
+.ontop{
+    padding-top: 12em;
 }
 
 .content::before,.bg-login::before{
@@ -97,10 +100,10 @@ li.nav-item:hover a,.hover-red:hover a,.hover-red:hover button i,.hover-red:hove
     right: 0;
     top: 0;
     bottom: 0;
-}
+} 
 
 .bg-login{
-    background: url(https://fast-food.bold-themes.com/main-demo/wp-content/uploads/sites/2/2016/07/portfolio_08.jpg);
+    background: url(../images/bg-login.jpg);
     background-size: cover;
     position: relative;
 }

@@ -5,6 +5,7 @@ class home extends controller{
     public $loaiModel;
     public $hangHoaModel;
     public $newsModel;
+    public $billModel; 
     public function __construct()
     {
         $this->loaiModel = $this->model("loaiModel");
@@ -12,6 +13,7 @@ class home extends controller{
         $this->binhLuanModel = $this->model("binhLuanModel");
         $this->hangHoaModel = $this->model("hangHoaModel");
         $this->newsModel = $this->model("newsModel");
+        $this->billModel = $this->model("billModel");   
     }
     public function SayHi(){
         $this->view(
@@ -25,6 +27,7 @@ class home extends controller{
             "listAllNews"=>$this->newsModel->SelectAllNews(),
             "tk"=> $this->loaiModel->thongke(),
             "TopSp"=>$this->hangHoaModel->SelectTopSp(),
+            "tkdh"=> $this->billModel->thongkedonhang(),
             ],
         );
     }
