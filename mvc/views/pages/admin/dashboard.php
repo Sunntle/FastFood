@@ -84,7 +84,7 @@
         if($j == $data['tkdh'][($i-1)]['thang']){
            $yValues[$j] = $data['tkdh'][($i-1)]['tong'];
         }elseif($yValues[$j]==""){
-          $yValues[$j]=0;
+          $yValues[$j] = 0;
         }
       }
     }
