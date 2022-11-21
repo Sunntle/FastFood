@@ -28,7 +28,7 @@
             
             <h6>Menu / <?php foreach($data['listAll'] as $key){ if($kq['maLoai'] == $key['maLoai']) echo $key['tenLoai']; }?></h6>
             <h3 class="py-3"><?php echo $kq['tenHangHoa']?></h3>
-            <h2 class="text-danger"><?php echo $kq['gia']?> đ</h2>
+            <h2 class="text-danger"><?php echo number_format($kq['gia'])?> VND</h2>
             <div class="quantity w-75 d-flex">
                     <button class="tru btn btn-outline-danger px-3" onclick=" tru('0')">-</button>
                     <input type="number" class="mx-3 w-25 form-control border border-danger text-center" id="numberSL" name="sl" value="1" min="1">
@@ -71,12 +71,11 @@
                         <div class="alert alert-danger">
                          <?php echo $data['Thongbao'] ?>
                         </div>  
-                    <?php }?>
-                    
+                    <?php }?>                 
                 </form>
-        <?php }else{
-            echo "<a href='/live/login'> Đăng nhập để bình luận</a>";
-            }?>
+        <?php }else { ?>
+            <button class="btn-login border-0 rounded-3 bg-danger text-white" href='/live/login'> Đăng nhập để bình luận</button>
+            <?php } ?>
 <?php } ?>
     <?php foreach($data['CmtID'] as $kq) {?>
         <div class="items my-2">
