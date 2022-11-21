@@ -26,6 +26,7 @@
     .on a, .on i{
         color: black!important;
     }
+    
 }
 @media (max-width: 428px) {
     .buy-btn{
@@ -77,4 +78,5 @@
     .boxDonHang table tr{
         display: flex;
     }
+    
 }

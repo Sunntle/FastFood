@@ -35,8 +35,8 @@ class bill extends controller
                 $use = $_SESSION['login']['maKH'];
             }
             
-            $ngay = date("d/m/Y");
-            
+            // $ngay = date("d/m/Y");
+            $ngay = date("Y/m/d");
             $last = $this->billModel->CreateBill($name, $use, $dc, $sdt, $email, $pttt, $ngay,$sumqty, $tt);
 
             for ($i=0 ; $i < sizeof($_SESSION['vohang']) ;$i++) {

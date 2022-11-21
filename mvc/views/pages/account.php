@@ -185,11 +185,11 @@
                         console.log(sanpham);
                         var str =` 
 
-                        <div class="p-2 fs-5 col-2 d-lg-block"><img class="img-fluid " src="${sanpham['hinhHangHoa']}" alt=""></div>
-                        <div class="p-2 fs-5 col-5 text-center align-self-center"><span class="fs-5">${sanpham['tenHangHoa']}</span></div>
-                        <div class="p-2 fs-5 col-2 text-center align-self-center"><span class="fs-5">${sanpham['gia']} đ</span></div>
-                        <div class="p-2 fs-5 col-1 text-center align-self-center"><span class="fs-5">${sanpham['soLuong']}</div>
-                        <div class="p-2 fs-5 col-2 text-center align-self-center"><span class="fs-5">${sanpham['thanhTien']}</div>  
+                        <div class="p-2 fs-5 col-lg-2 d-lg-block d-md-none d-sm-none "><img class="img-fluid " src="${sanpham['hinhHangHoa']}" alt=""></div>
+                        <div class="p-2 fs-5 col-lg-4 col-md-5 text-center align-self-center"><span class="fs-5">${sanpham['tenHangHoa']}</span></div>
+                        <div class="p-2 fs-5 col-lg-3 col-md-3 text-center align-self-center modal-gia"><span class="fs-5">${sanpham['gia']} đ</span></div>
+                        <div class="p-2 fs-1 col-lg-1 col-md-1 text-center align-self-center"><span class="fs-5">${sanpham['soLuong']}</div>
+                        <div class="p-2 fs-5 col-lg-2 col-md-3 text-center align-self-center"><span class="fs-5">${sanpham['thanhTien']}</div>  
                         `;
                         $(".ShowSPbyBill").append(str);
                     }
@@ -211,11 +211,11 @@
       
       <div class="modal-body row">
             <div class="row">
-                <div class="p-2 fs-5 col-2 d-lg-block "><span class="fs-5 fw-bolder">Hình ảnh</span></div>
-                <div class="p-2 fs-5 col-5 text-center"><span class="fs-5 fw-bolder">Tên</span></div>
-                <div class="p-2 fs-5 col-2 text-center"><span class="fs-5 fw-bolder">Giá</span></div>
-                <div class="p-2 fs-5 col-1 text-center"><span class="fs-5 fw-bolder">SL</span></div>
-                <div class="p-2 fs-5 col-2 text-center"><span class="fs-5 fw-bolder">Tổng</span></div>
+                <div class="p-2 fs-5 col-lg-2 d-lg-block d-md-none d-sm-none"><span class="fs-5 fw-bolder">Hình ảnh</span></div>
+                <div class="p-2 fs-5 col-lg-4 col-md-5 text-center "><span class="fs-5 fw-bolder">Tên</span></div>
+                <div class="p-2 fs-5 col-lg-3 col-md-3 text-center"><span class="fs-5 fw-bolder">Giá</span></div>
+                <div class="p-2 fs-5 col-lg-1 col-md-1 text-center"><span class="fs-5 fw-bolder">SL</span></div>
+                <div class="p-2 fs-5 col-lg-2 col-md-3 text-center"><span class="fs-5 fw-bolder">Tổng</span></div>
             </div>
             <div class="row ShowSPbyBill">               
             </div>

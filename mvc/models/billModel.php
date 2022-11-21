@@ -67,5 +67,10 @@ class billModel extends db{
             $sql = "SELECT * FROM giohang where idBill=? ";
             return $this->pdo_query($sql,$a);
         }
+        public function thongkedonhang(){
+            $sql = "SELECT MONTH(ngay) as thang , sum(total) as tong FROM bill WHERE status = 2";
+            return $this->pdo_query($sql);
+        }
+
     }
 ?>
