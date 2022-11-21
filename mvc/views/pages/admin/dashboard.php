@@ -76,36 +76,21 @@
 </div>
 
 <?php 
-  // debug($data['tkdh']);
-
-
-  // for($i=1;$i<13;$i++){
-    // debug($i);
-    
-
-      // if($i == isset($data['tkdh'][($i-1)]['thang'])){
-      //   debug($data['tkdh'][($i-1)]['tong']) ;
-      //   echo $data['tkdh'][($i-1)]['tong'];
-        
-      // }else{
-      //    echo $tong= "0,";
-      // }
-  // }
-
-
-  foreach ($data['tkdh'] as $key => $value){
-      for($i=1;$i<13;$i++){
-
-
-        if($value['thang'] == $i){  
-          debug($i);     
-          debug($value['tong']);
+  debug($data['tkdh']);
+  for($i=1;$i<13;$i++){
+    if(isset($data['tkdh'][($i-1)]['thang'])){
+      for($j = 1; $j <13;$j++){
+        if(!isset($yValues[$j])) $yValues[$j]="";
+        if($j == $data['tkdh'][($i-1)]['thang']){
+           $yValues[$j] = $data['tkdh'][($i-1)]['tong'];
+        }elseif($yValues[$j]==""){
+          $yValues[$j]=0;
         }
       }
+    }
+    $xValuesx = $i;
   }
-
-
-
+  debug($yValues);
 ?>
 <script>
 var yValues = [0,0,0,0,0,0,0,0,0,0,0,0];
