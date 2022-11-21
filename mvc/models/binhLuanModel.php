@@ -5,7 +5,7 @@ class binhLuanModel extends db{
         return $this->pdo_query($sql);
     }
     public function SelectCmtbyID($id){
-        $sql = "SELECT * FROM binhluan WHERE maHangHoa = ?";
+        $sql = "SELECT * FROM binhluan WHERE maHangHoa = ? ORDER BY ngayBL DESC";
         return $this->pdo_query($sql,$id);
     }
     public function SelectBLByGroup(){
@@ -31,6 +31,10 @@ class binhLuanModel extends db{
     public function DeleteBLByMaKH($maKH){
         $sql = "DELETE FROM binhluan WHERE maKH=?";
         $this->pdo_execute($sql,$maKH);
+    }
+    public function UpdateBL($noiDung,$ngayBl,$mahh,$maKh){
+        $sql = "INSERT INTO binhluan (noiDung, ngayBL, maHangHoa, maKH) VALUES (?,?,?,?)";
+        $this->pdo_execute($sql,$noiDung,$ngayBl,$mahh,$maKh);
     }
 }
 ?>

@@ -31,7 +31,7 @@ body{
     width: 100%;
 }
 .content{
-    background: url(https://fast-food.bold-themes.com/main-demo/wp-content/uploads/sites/2/2016/09/hero_inner_page.jpg);
+    background: url(../images/main-image-bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 0;
@@ -103,7 +103,7 @@ li.nav-item:hover a,.hover-red:hover a,.hover-red:hover button i,.hover-red:hove
 } 
 
 .bg-login{
-    background: url(https://fast-food.bold-themes.com/main-demo/wp-content/uploads/sites/2/2016/07/portfolio_08.jpg);
+    background: url(../images/bg-login.jpg);
     background-size: cover;
     position: relative;
 }

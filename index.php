@@ -8,4 +8,7 @@ function debug($param)
     print_r($param);
     echo '</pre>';
 }
+function checkLogin(){
+    return isset($_SESSION['login']);
+}
 ?>

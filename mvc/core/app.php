@@ -8,6 +8,8 @@ class App{
     function __construct(){
         $arr =$this->UrlProcess();
         if(isset($arr)&&$arr[0]=="admin"){
+           if(checkLogin()){
+            echo 1;
             unset($arr[0]);
             if(isset($arr[1])){
                 if(file_exists("./mvc/controllers/admin/".$arr[1].".php")){
@@ -28,6 +30,10 @@ class App{
             $this->params = $arr? array_values($arr):[];
             $this->controller = new $this->controller;
             call_user_func_array([$this->controller, $this->action], $this->params ); //tao bien controller chay ham action voi tham so params
+           }else{
+            header("location: ./login");
+           }
+           
         }else{
             if(isset($arr)){
                 if(file_exists("./mvc/controllers/".$arr[0].".php")){

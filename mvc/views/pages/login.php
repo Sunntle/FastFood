@@ -30,7 +30,7 @@
             <button type="submit" class="btn btn-danger" name="btnSignin">Đăng ký</button>
             </form>
         </div>
-        <div class="login col-lg-6 col-sm-12 py-3 px-4 login">
+        <div class="login col-lg-6 col-sm-12 py-3 px-4">
             <h3 class="text-center fs-2 fw-bolder ">ĐĂNG NHẬP</h3>
             <form action="login/khachhangdangnhap" method="post">
             <div class="mb-3 mt-3">
@@ -47,7 +47,7 @@
                 </label>
             </div>
             <div class="mb-3 col-6 text-end">
-                <a href="" class="text-primary p-3 text-decoration-none bg-transparent">Quên mật khẩu?</a>
+                <a href="login/QuenMatKhau" class="text-primary p-3 text-decoration-none bg-transparent">Quên mật khẩu?</a>
             </div>
             </div>
             <button type="submit" class="btn btn-danger" name="btnLogin">Đăng nhập</button>
