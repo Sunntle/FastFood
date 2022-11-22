@@ -76,23 +76,49 @@
 </div>
 
 <?php 
-
-  for($i=1;$i<13;$i++){
-    if(isset($data['tkdh'][($i-1)]['thang'])){
-      for($j = 1; $j <13;$j++){
-        if(!isset($yValues[$j])) $yValues[$j]="";
-        if($j == $data['tkdh'][($i-1)]['thang']){
-           $yValues[$j] = $data['tkdh'][($i-1)]['tong'];
-           
-        }elseif($yValues[$j]==""){
-          $yValues[$j] = 0;
+  function tinhDoanhThu($date, $data, $loaiDate){//13,$data['tkdh'],thang
+    for($i=1;$i<$date;$i++){
+      if(isset($data[($i-1)][$loaiDate])){
+        for($j = 1; $j <$date;$j++){
+          if(!isset($yValues[$j])) $yValues[$j]="";
+          if($j == $data[($i-1)][$loaiDate]){
+             $yValues[$j] = $data[($i-1)]['tong'];
+          }elseif($yValues[$j]==""){
+            $yValues[$j] = 0;
+          } 
         }
-        
       }
-      
     }
+    return $yValues;
   }
-
+  // $yValues = tinhDoanhThu(13,$data['tkdh'],'thang');
+ //doanh thu theo thang
+  // for($i=1;$i<13;$i++){
+  //   if(isset($data['tkdh'][($i-1)]['thang'])){
+  //     for($j = 1; $j <13;$j++){
+  //       if(!isset($yValues[$j])) $yValues[$j]="";
+  //       if($j == $data['tkdh'][($i-1)]['thang']){
+  //          $yValues[$j] = $data['tkdh'][($i-1)]['tong'];
+  //       }elseif($yValues[$j]==""){
+  //         $yValues[$j] = 0;
+  //       } 
+  //     }
+  //   }
+  // }
+  //doanh thu theo ngay
+  // dem de kiem tra xem thang' nao`
+  $yValues = tinhDoanhThu(32,$data['tkdhtheongay'],'ngay');
+  // switch($dem){
+  //   // thang 1, 3, 5, 7, 8, 10, 12
+  //   case "31":
+  //     tinhDoanhThu(32,$data['tkdhtheongay'],'ngay');
+  //   //thang 2
+  //   case "28":
+  //     tinhDoanhThu(28,$data['tkdhtheongay'],'ngay');
+  //   // thang 4, 6, 9, 11
+  //   case "30":  
+  //     tinhDoanhThu(31,$data['tkdhtheongay'],'ngay');
+  // }
 ?>
 
 
@@ -102,7 +128,10 @@ var yValues = [<?php
       echo $value.",";
   }
     ?>];
-var xValues = [1,2,3,4,5,6,7,8,9,10,11,12];
+// var xValues = [1,2,3,4,5,6,7,8,9,10,11,12];
+var xValues = <?php for($i=1;$i<13;$i++){
+  echo $i.",";
+  }?>;
 
 new Chart("myChart1", {
   type: "line",
@@ -119,7 +148,7 @@ new Chart("myChart1", {
   options: {
     legend: {display: false},
     scales: {
-      yAxes: [{ticks: {min: 1, max:10000000}}],
+      yAxes: [{ticks: {min: 0, max:50000000}}],
     }
   }
   

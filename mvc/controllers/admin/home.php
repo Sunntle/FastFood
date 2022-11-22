@@ -28,6 +28,7 @@ class home extends controller{
             "tk"=> $this->loaiModel->thongke(),
             "TopSp"=>$this->hangHoaModel->SelectTopSp(),
             "tkdh"=> $this->billModel->thongkedonhang(),
+            "tkdhtheongay"=> $this->billModel->thongkedonhangtheongay(),
             ],
         );
     }
