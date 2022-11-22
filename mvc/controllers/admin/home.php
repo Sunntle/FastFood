@@ -16,6 +16,8 @@ class home extends controller{
         $this->billModel = $this->model("billModel");   
     }
     public function SayHi(){
+        $date = getdate();
+        $thangHienTai = $date['mon'];
         $this->view(
             "layout1",
             [
@@ -28,7 +30,8 @@ class home extends controller{
             "tk"=> $this->loaiModel->thongke(),
             "TopSp"=>$this->hangHoaModel->SelectTopSp(),
             "tkdh"=> $this->billModel->thongkedonhang(),
-            "tkdhtheongay"=> $this->billModel->thongkedonhangtheongay(),
+            "thangHienTai"=> $thangHienTai,
+            "tkdhtheongay"=> $this->billModel->thongkedonhangtheongay($thangHienTai),
             ],
         );
     }
