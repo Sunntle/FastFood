@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="./public/css/style.css">
     <link rel="stylesheet" href="./public/css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="./public/images/ThreeGuysFastFood.png">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>

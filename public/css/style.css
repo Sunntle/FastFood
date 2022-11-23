@@ -53,7 +53,7 @@ body{
     color: black!important;
 }
 
-li.nav-item:hover a,.hover-red:hover a,button.hover-red:hover,.hover-red:hover a i{
+li.nav-item:hover a,.hover-red:hover a,button.hover-red:hover,.hover-red:hover a i,.hover-red:hover i{
     color: var(--red-bg)!important;
     transform: scale(1.1);
 }
