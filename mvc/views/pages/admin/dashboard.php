@@ -64,27 +64,73 @@
 
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<div class="container-fluid w-100 row mt-5 ms-1">
-    <div class="col-lg-6 col-md-12 col-sm-12 shadow">
-      <div id="myChart" style=" max-width:800px; height:600px;"></div>
+<div class="container-fluid d-flex flex-column mt-5 ms-1">
+<div class="container d-flex flex-column align-items-center shadow text-center p-3">
+      <form method="post">
+        <?php if(!isset($_POST['btnNgay'])){ ?>
+          <h2>Doanh thu theo tháng</h2>
+          <input class="border-0 bg-transparent text-underline text-info py-2" type="submit" value="Xem theo ngày" name="btnNgay">
+        <?php }else{ ?>
+          <h2>Doanh thu theo ngày</h2>
+          <input class="border-0 bg-transparent text-underline text-info py-2" type="submit" value="Xem theo tháng">
+        <?php } ?>
+      </form>
+    </h2>
+      <canvas class="" id="myChart1" style="width:100%;height:600px;"></canvas>  
+  </div>
+    <div class="shadow d-flex flex-column align-items-center p-3">
+    <h2>Thống kê loại hàng</h2>
+      <div id="myChart" style="width:100%; height:600px;"></div>
     </div>  
-    <div class="col-lg-6 col-md-12 col-sm-12 container shadow text-center p-3">
-      <canvas class="" id="myChart1" style="width:100%;max-width:600px;height:400px;"></canvas>
-
-   
     
 </div>
 
+<?php 
+  function tinhDoanhThu($date, $data, $loaiDate){
+    for($i=1;$i<$date;$i++){
+      if(isset($data[($i-1)][$loaiDate])){
+        for($j = 1; $j <$date;$j++){
+          if(!isset($yValues[$j])) $yValues[$j]="";
+          if($j == $data[($i-1)][$loaiDate]){
+             $yValues[$j] = $data[($i-1)]['tong'];
+          }elseif($yValues[$j]==""){
+            $yValues[$j] = 0;
+          } 
+        }
+      }
+    }
+    return $yValues;
+  }
+  if(isset($_POST['btnNgay'])){
+    $max = 10000000;
+    if($data['thangHienTai']==1 || $data['thangHienTai']==3 ||$data['thangHienTai']==5 ||$data['thangHienTai']==7 ||$data['thangHienTai']==8 ||$data['thangHienTai']==10 || $data['thangHienTai']==12){
+      $date = 32;
+      $yValues = tinhDoanhThu($date,$data['tkdhtheongay'],'ngay');
+    }elseif($data['thangHienTai']==2){
+      $date = 29;
+      $yValues = tinhDoanhThu($date,$data['tkdhtheongay'],'ngay');
+    }else{
+      $date = 31;
+      $yValues = tinhDoanhThu($date,$data['tkdhtheongay'],'ngay');
+    }
+  }elseif(!isset($_POST['btnNgay'])){
+    $date = 13;
+    $yValues = tinhDoanhThu($date,$data['tkdh'],'thang');
+    $max = 100000000;
+  }
+?>
+
 
 <script>
-var yValues = [0,0,0,0,0,0,0,0,0,0,<?= $data['tkdh'][0]['tong']?>,0];
-  
-
-
-var xValues = [1,2,3,4,5,6,7,8,9,10,11,12];
-
-
-
+var yValues = [<?php 
+  foreach($yValues as $key => $value){         
+      echo $value.",";
+  }
+    ?>];
+// var xValues = [1,2,3,4,5,6,7,8,9,10,11,12];
+var xValues = [<?php for($i=1;$i<$date;$i++){
+  echo $i.",";
+  }?>];
 new Chart("myChart1", {
   type: "line",
   data: {
@@ -100,7 +146,7 @@ new Chart("myChart1", {
   options: {
     legend: {display: false},
     scales: {
-      yAxes: [{ticks: {min: 1, max:30000000}}],
+      yAxes: [{ticks: {min: 0, max:<?=$max?>}}],
     }
   }
   
@@ -126,7 +172,7 @@ var data = google.visualization.arrayToDataTable([
 ]);
 
 var options = {
-  title:'Biểu đồ thông kê theo loại',
+  // title:'Biểu đồ thông kê theo loại',
   is3D:true
 };
 

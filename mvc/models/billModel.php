@@ -68,9 +68,12 @@ class billModel extends db{
             return $this->pdo_query($sql,$a);
         }
         public function thongkedonhang(){
-            $sql = "SELECT MONTH(ngay) as thang , sum(total) as tong FROM bill WHERE status = 2";
+            $sql = "SELECT MONTH(ngay) as thang , sum(total) as tong FROM bill WHERE status = 2 GROUP BY MONTH(ngay) ";
             return $this->pdo_query($sql);
         }
-
+        public function thongkedonhangtheongay($thang){
+            $sql = "SELECT DAY(ngay)as ngay, MONTH(ngay) as thang, sum(total) as tong FROM bill WHERE status = 2 GROUP BY ngay HAVING MONTH(ngay) =? ";
+            return $this->pdo_query($sql,$thang);
+        }
     }
 ?>
