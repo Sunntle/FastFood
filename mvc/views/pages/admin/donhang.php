@@ -83,7 +83,7 @@ function huydh($status,$n,$key){
         <?php if($data['currentPage'] > 1){ 
             $prev = $data['currentPage'] -1;?>
             <li class="page-item ">
-                <a class="page-link text-dark bg-light" href="/live/admin/donhang/SayHi/<?=$first?>"><<</a>
+                <a class="page-link text-dark bg-light" href="/live/admin/donhang/SayHi/<?=$prev?>"><<</a>
             </li>
         <?php } ?>
 
@@ -106,7 +106,7 @@ function huydh($status,$n,$key){
                 <?php }
         } ?>
         <?php if($data['currentPage'] < ($data['countSP']-1)){ 
-            $next = $data['currentPage']; ?>
+            $next = $data['currentPage']+1; ?>
             <li class="page-item ">
                 <a class="page-link text-dark bg-light" href="/live/admin/donhang/SayHi/<?=$next?>">>></a>
             </li>

@@ -134,6 +134,58 @@
                         <?php }?>
                     </tbody>
                 </table>
+
+            
+                <nav class=" w-100 pt-5  ">
+                    <ul class="d-flex justify-content-center pagination">
+                        <?php if($data['currentPage']>2){
+                            $first = 'href="/live/login/SayHi&page=1"';
+                        ?>
+                        <li class="page-item ">
+                            <a class="page-link text-dark bg-light" <?= $first?> >FIRST</a>
+                        </li>
+                            <?php } ?>
+
+                        <?php if($data['currentPage'] > 1){ 
+                            $prev = $data['currentPage'] -1;?>
+                            <li class="page-item ">
+                                <a class="page-link text-dark bg-light" href="/live/login/SayHi&page=<?=$prev?>"><<</a>
+                            </li>
+                        <?php } ?>
+
+
+                        <?php for($i = 1; $i <= $data['countSP']; $i++) {
+                                if ($i != $data['currentPage'] ){ 
+                                    if(($i > $data['currentPage'] -3) && ($i<$data['currentPage'] + 3)){
+                                        $url = $i;
+                                        if (isset($data['key']) ){
+                                            echo $data['key'];
+                                            $url .= "/".$data['key'];
+                                        }
+                                        ?> 
+                                    <li class="page-item ">
+                                        <a class="page-link text-dark bg-light shadow" href="/live/login/SayHi&page=<?= $url?>"><?=$i?></a>
+                                    </li>
+                                <?php }
+                                } else{ ?>
+                                    <a class="page-link text-light bg-dark " href="/live/login/SayHi&page=<?=$i?>"><?=$i?></a>
+                                <?php }
+                        } ?>
+                        <?php if($data['currentPage'] < ($data['countSP']-1)){ 
+                            $next = $data['currentPage']+1; ?>
+                            <li class="page-item ">
+                                <a class="page-link text-dark bg-light" href="/live/login/SayHi&page=<?=$next?>">>></a>
+                            </li>
+                        <?php } ?>
+
+                        <?php if($data['currentPage'] < ($data['countSP']-2)){ 
+                            $end = $data['countSP'] ;?>
+                                <li class="page-item">
+                                    <a class="page-link text-dark bg-light" href="/live/login/SayHi&page=<?= $data['countSP'] ?>">LAST</a>
+                                </li>
+                            <?php } ?>
+                    </ul>
+                </nav>
             </div>
             <div class="col-md-8 col-sm-12 food" id="account" style="display:none">
                 <h2 class="text-center">Account</h2>

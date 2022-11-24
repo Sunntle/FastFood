@@ -30,6 +30,11 @@ class billModel extends db{
             $row = $this->pdo_query($sql);
             return $row[0]['dem'];
         }
+        public function CountAllBillByID($id){
+            $sql = "SELECT count(maKH) as dem FROM bill WHERE maKH = ? ";
+            $row = $this->pdo_query($sql,$id);
+            return $row[0]['dem'];
+        }
         public function ShowAllBill(){
             $sql = "SELECT * FROM bill ORDER BY status ASC , id DESC";
             return $this->pdo_query($sql);
@@ -86,6 +91,11 @@ class billModel extends db{
         public function PhanTrang($perPage,$offset){
             $sql = "SELECT * FROM bill ORDER BY status ASC, id DESC LIMIT ".$perPage." OFFSET ".$offset ;
             $data = $this->pdo_query($sql);
+            return $data;
+        }
+        public function PhanTrangByID($id,$perPage,$offset){
+            $sql = "SELECT * FROM bill WHERE maKH = ? ORDER BY status ASC, id DESC LIMIT ".$perPage." OFFSET ".$offset ;
+            $data = $this->pdo_query($sql,$id);
             return $data;
         }
     }
