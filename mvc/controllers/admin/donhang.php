@@ -58,7 +58,10 @@ class donhang extends controller{
             header('Location: /live/admin/donhang/');
         } 
     }
-
+    public function huybill($u,$i){ 
+        $qty = $this->billModel->updateHuyBill($u,$i);
+        header('Location: /live/admin/donhang');
+    }
     function dell(){
         $id = $_GET['id'];
         $this->billModel->dellIdCart($id);

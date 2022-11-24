@@ -27,7 +27,7 @@ class billModel extends db{
         }
         
         public function ShowAllBill(){
-            $sql = "SELECT * FROM bill ORDER BY status ASC";
+            $sql = "SELECT * FROM bill ORDER BY status ASC , id DESC";
             return $this->pdo_query($sql);
         }
         public function dellIdCart($id){
@@ -51,7 +51,7 @@ class billModel extends db{
             return $this->pdo_execute($sql,$MaKH);
         }
         public function SelectBillByStatus($u){
-            $sql = "SELECT * FROM bill WHERE maKH = ? ORDER BY status ASC ";
+            $sql = "SELECT * FROM bill WHERE maKH = ? ORDER BY status ASC, id DESC ";
             return $this->pdo_query($sql,$u);
         }
         public function QtyCart($qty){
@@ -59,12 +59,12 @@ class billModel extends db{
             return $this->pdo_query($sql,$qty);
         }
         public function demsldonhang($m){
-            $sql ="SELECT maKH, COUNT(maKH) as sl FROM bill WHERE status BETWEEN 0 AND 1 AND maKH = ?";
+            $sql ="SELECT maKH, COUNT(maKH) as sl FROM bill WHERE status BETWEEN 0 AND 1 AND maKH = ? AND unBill BETWEEN 0 AND 1";
             $data= $this->pdo_query($sql,$m);
             return $data[0];
         }
         public function SeIdCart($a){
-            $sql = "SELECT * FROM giohang where idBill=? ";
+            $sql = "SELECT * FROM giohang WHERE idBill=? ";
             return $this->pdo_query($sql,$a);
         }
         public function thongkedonhang(){
@@ -74,6 +74,10 @@ class billModel extends db{
         public function thongkedonhangtheongay($thang){
             $sql = "SELECT DAY(ngay)as ngay, MONTH(ngay) as thang, sum(total) as tong FROM bill WHERE status = 2 GROUP BY ngay HAVING MONTH(ngay) =? ";
             return $this->pdo_query($sql,$thang);
+        }
+        public function updateHuyBill($u,$i){
+            $sql = "UPDATE bill SET unBill = ? WHERE id = ? ";
+            return $this->pdo_execute($sql,$u,$i);
         }
     }
 ?>
