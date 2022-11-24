@@ -27,10 +27,11 @@ class khachhang extends controller{
     }
     public function XoaKH(){
         $this->binhLuanModel = $this->model("binhLuanModel");
-        // $this->billModel = $this->model("billModel");
-        // foreach($this->billModel->SelectBillByMaKH($_GET['maKH']) as $key){
-        //     $this->billModel->dellIdCart($key['id']);
-        // }
+        $this->billModel = $this->model("billModel");
+        foreach($this->billModel->SelectBillByStatus($_GET['maKH']) as $key ){
+            $this->billModel->dellIdCart($key['id']);
+        };
+        $this->billModel->DeleteBillByMaKH($_GET['maKH']);
         $this->binhLuanModel->DeleteBLBYMaKH($_GET['maKH']);
         $this->userModel->DeleteKH($_GET['maKH']);
         header("location: ./");

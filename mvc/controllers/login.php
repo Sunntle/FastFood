@@ -153,11 +153,7 @@ class login extends controller{
                 if($this->userModel->SelectUser($user)){
                     foreach($this->userModel->SelectUser($user) as $key){
                             if(password_verify($pass,$key['matKhau'])){
-                                echo "
-                                <div class='alert alert-success p-2 w-25 rounded text-center my-5 mx-auto'>Đăng nhập thành công !
-                                <div><a href='../home' class='btn btn-info text-dark my-2'>Trang chủ</a></div>
-                                </div>
-                                ";
+                                header("location: ./");
                                 $_SESSION['login']=$key;
                                 $_SESSION['login']['user']=$key['user'];
                                 $_SESSION['login']['pass']=$key['matKhau'];

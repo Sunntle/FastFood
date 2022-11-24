@@ -29,7 +29,4 @@
                 </div>
             </div>
     </article>
-    <article class="blog">
-
-    </article>
 </div>

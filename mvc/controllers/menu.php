@@ -8,6 +8,7 @@ class menu extends controller{
         $this->loaiModel = $this->model("loaiModel");
         $this->binhLuan = $this->model("binhLuanModel");
         $this->user = $this->model("userModel");
+        $this->hangHoaModel = $this->model("hangHoaModel");
     }
     
 
@@ -86,6 +87,8 @@ class menu extends controller{
             "listAll"=>$this->loaiModel->listAll(),
             "CmtID"=>$this->binhLuan->SelectCmtbyID($a),
             "KhachHang"=>$this->user->listAll(),
+            "loai"=>$this->loaiModel->listAll(),
+            "TopSp"=>$this->hangHoaModel->SelectTopSp(),
             ],
         ); 
             }
@@ -101,6 +104,8 @@ class menu extends controller{
             "listAll"=>$this->loaiModel->listAll(),
             "CmtID"=>$this->binhLuan->SelectCmtbyID($a),
             "KhachHang"=>$this->user->listAll(),
+            "loai"=>$this->loaiModel->listAll(),
+            "TopSp"=>$this->hangHoaModel->SelectTopSp(),
             // "Thongbao"=>$thongbao,
             ],
         );
