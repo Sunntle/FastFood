@@ -333,31 +333,19 @@ border-top: 4px solid black;
     padding: 10px 0px;;
     border: none;
 }
-.items{
-    background: whitesmoke;
-    box-shadow: 0 0 0.125em grey;
+.post li .images_cmt{
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+.post li .images_cmt img{
+    object-fit: cover;
     width: 100%;
-}
-.items img{
-    width: 18.75em;
-    height: 11.25em;
-}
-.text .anh{
-    width: 15%;
     height: 100%;
 }
-.text{
-    font-size: 0.625em;
-    display: flex;
-    align-items: center;
-    height: 30%;
-}
-.chu p{
-    text-align: justify;
-    margin: 0.625em;
-}
-.text1 p{
-    font-size: 0.625em;
+.post li .nd_cmt .time_cmt{
+    font-size: 10px;
+    color: darkgray;
 }
 .btClear{
     clear: both;
