@@ -17,15 +17,15 @@
                     <div class="col-lg-3 col-sm-6">
                     
                         <div class="m-1 border rounded shadow p-3">
-                        <a href="news/details&newsID=<?php echo $kq['id']?>"><img class="img-fluid" src="<?php echo $kq['anhtieude'] ?>" alt=""></a>
+                        <a href="news/details&newsID=<?php echo $kq['id']?>"><img class="img-fluid w-100" style="height: 140px;" src="<?php echo $kq['anhtieude'] ?>" alt=""></a>
                         <h5 class="py-1 my-2 fs-5"><a href="news/details&newsID=<?php echo $kq['id']?>" class="text-decoration-none text-dark bg-transparent"><?php echo $kq['tieuDe']?></a></h5>
-                        <p><?php echo substr($kq['noiDung'],0, 63)?> ....</p>
+                        <p><?php echo substr($kq['noiDung'],0, 65)?> ....</p>
                         </div>
                     </div>                    
                     <?php } ?>
                 </div>
                 <div class="text-center my-5">
-                    <a class="btn btn-danger rounded" href="#" role="button"><span class="text-white  p-1">Xem thêm</span></a>
+                    <a class="btn btn-danger rounded" href="/live/news/SayHi&page=2#news" role="button"><span class="text-white  p-1">Xem thêm</span></a>
                 </div>
             </div>
     </article>
