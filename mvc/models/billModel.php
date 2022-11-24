@@ -25,7 +25,11 @@ class billModel extends db{
             $row = $this->pdo_query($sql);
             return $row[0]['dem']; 
         }
-        
+        public function CountAllBill(){
+            $sql = "SELECT count(id) as dem FROM bill ";
+            $row = $this->pdo_query($sql);
+            return $row[0]['dem'];
+        }
         public function ShowAllBill(){
             $sql = "SELECT * FROM bill ORDER BY status ASC , id DESC";
             return $this->pdo_query($sql);
@@ -78,6 +82,11 @@ class billModel extends db{
         public function updateHuyBill($u,$i){
             $sql = "UPDATE bill SET unBill = ? WHERE id = ? ";
             return $this->pdo_execute($sql,$u,$i);
+        }
+        public function PhanTrang($perPage,$offset){
+            $sql = "SELECT * FROM bill ORDER BY status ASC, id DESC LIMIT ".$perPage." OFFSET ".$offset ;
+            $data = $this->pdo_query($sql);
+            return $data;
         }
     }
 ?>

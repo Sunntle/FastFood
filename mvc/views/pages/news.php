@@ -19,7 +19,7 @@
                         <div class="m-1 border rounded shadow p-3">
                         <a href="news/details&newsID=<?php echo $kq['id']?>"><img class="img-fluid" src="<?php echo $kq['anhtieude'] ?>" alt=""></a>
                         <h5 class="py-1 my-2 fs-5"><a href="news/details&newsID=<?php echo $kq['id']?>" class="text-decoration-none text-dark bg-transparent"><?php echo $kq['tieuDe']?></a></h5>
-                        <p>Jollibee Việt Nam đã đưa vào vận hành nhà máy mới với chứng nhận ISO 22000:2018...</p>
+                        <p><?php echo substr($kq['noiDung'],0, 63)?> ....</p>
                         </div>
                     </div>                    
                     <?php } ?>

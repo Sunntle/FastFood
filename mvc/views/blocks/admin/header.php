@@ -59,7 +59,7 @@
                 </a>
                 <ul class="sixth-show">
                     <li><a href="javascript:void(0)"><i class="fa-solid fa-square-plus"></i>&nbsp Tạo mới</a></li>
-                    <li><a href="donhang"><i class="fa-sharp fa-solid fa-pen-to-square"></i>&nbsp Xem</a></li>
+                    <li><a href="donhang/SayHi/1"><i class="fa-sharp fa-solid fa-pen-to-square"></i>&nbsp Xem</a></li>
                 </ul>
             </li>
             <li>

@@ -8,14 +8,20 @@ class donhang extends controller{
         $this->hangHoaModel = $this->model("hangHoaModel");
     }
     
-    function SayHi(){
-        
+    function SayHi($page){
+        $countBILL = $this->billModel->CountAllBill();
+        $perPage = 5;
+        $pageCount = (int) ceil($countBILL / $perPage); 
+        $currentPage = isset($page) ? (int) $page : 1;
+        $offset =  ($currentPage - 1) * $perPage;
         $this->view(
             "layout1",
             [
             "Pages"=>"donhang",
-            "AllBill"=>$this->billModel->ShowAllBill(),
-            
+            "currentPage"=>$currentPage,
+            "phantrang"=>$this->billModel->PhanTrang($perPage,$offset),
+            // "AllBill"=>$this->billModel->ShowAllBill(),
+            "countSP"=> $pageCount, 
             ],
         );
     }
