@@ -74,7 +74,7 @@
                     <?php }?>                 
                 </form>
         <?php }else { ?>
-            <button class="btn-login border-0 rounded-3 bg-danger text-white px-3 p-1" href='/live/login'> Đăng nhập để bình luận</button>
+            <button class="btn-login border-0 rounded-3 bg-danger px-3 p-1"><a class="text-white text-decoration-none bg-danger" href="/live/login">Đăng nhập để bình luận</a> </button>
             <?php } ?>
 <?php } ?>
     <?php foreach($data['CmtID'] as $kq) {?>
