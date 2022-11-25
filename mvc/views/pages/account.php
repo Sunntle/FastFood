@@ -31,10 +31,10 @@
         }else{
              switch ($n){
                 case '0':
-                    $tt = '<a class="text-primary text-decoration-none" href="/live/bill/huybill/1/'.$key.'">Hủy đơn hàng</a>';
+                    $tt = '<a class="text-primary text-decoration-none bg-transparent" href="/live/bill/huybill/1/'.$key.'">Hủy đơn hàng</a>';
                     break;
                 case '1':
-                    $tt = '<a class="text-dark text-decoration-none">Chờ xác nhận</a>';
+                    $tt = '<a class="text-dark text-decoration-none bg-transparent">Chờ xác nhận</a>';
                     break;
                 case '2':
                     $tt = "Hủy hoàn tất";
