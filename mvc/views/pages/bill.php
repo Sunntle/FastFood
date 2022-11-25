@@ -92,7 +92,7 @@ if(isset($_SESSION["login"])){
             </div>
             <div class="formpttt m-auto pb-5">
             <div class="ms-5 form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="pttt" value="1">
+                <input class="form-check-input" type="radio" name="pttt" value="1" required>
                 <label class="form-check-label" >Thanh toán trực tiếp</label>
             </div>
             <div class="form-check form-check-inline">

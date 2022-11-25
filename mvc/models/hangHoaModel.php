@@ -61,11 +61,11 @@ class hangHoaModel extends db{
         return $this->pdo_execute($sql,$soLuong,$maHangHoa);
     }
     // new
-    public function PhanTrang($keyword,$perPage,$offset){
-        $sql = "SELECT * FROM hanghoa WHERE tenHangHoa LIKE '%".$keyword."%' ORDER BY maHangHoa asc LIMIT ".$perPage." OFFSET ".$offset ;
-        $data = $this->pdo_query($sql);
-        return $data;
-    }
+    // public function PhanTrang($keyword,$perPage,$offset){
+    //     $sql = "SELECT * FROM hanghoa WHERE tenHangHoa LIKE '%".$keyword."%' ORDER BY maHangHoa asc LIMIT ".$perPage." OFFSET ".$offset ;
+    //     $data = $this->pdo_query($sql);
+    //     return $data;
+    // }
     public function countSP($keyword){
         $sql = "SELECT count(maHangHoa) as dem FROM hanghoa WHERE tenHangHoa LIKE '%". $keyword ."%'";
         $count = $this->pdo_query($sql);

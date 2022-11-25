@@ -26,7 +26,7 @@
                             <td style="width: 50px;"><?php echo $kq['tieuDe']?></td>
                             <td><img src=".<?php echo $kq['anhtieude']?>" alt="" width="400px;"></td>
                             <td style="width: 150px;"><?php echo $kq['ngay']?></td>
-                            <td style="width: 500px;"><?php echo $kq['noiDung']?></td>
+                            <td style="width: 500px;"><?php echo substr($kq['noiDung'],0, 255)?> ....</td>
                             <td class="col-2">
                                 <form action="news/SuaNews" method="post">
                                 <input type="hidden" name="id" value="<?=$kq['id']?>">
