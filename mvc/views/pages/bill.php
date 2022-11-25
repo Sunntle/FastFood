@@ -69,25 +69,25 @@ if(isset($_SESSION["login"])){
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label ms-5">Người đặt hàng</label>
                 <div class="col-sm-8">
-                <input type="text" name="name" class="form-control" id="" value="<?= $name?>">
+                <input type="text" name="name" class="form-control" id="" value="<?= $name?>" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label ms-5">Địa chỉ</label>
                 <div class="col-sm-8">
-                <input type="text" name="dc" class="form-control" id="" value="<?= $dc?>">
+                <input type="text" name="dc" class="form-control" id="" value="<?= $dc?>" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label ms-5">Email</label>
                 <div class="col-sm-8">
-                <input type="text" name="email" class="form-control" id="" value="<?= $email?>">
+                <input type="text" name="email" class="form-control" id="" value="<?= $email?>" required>
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="" class="col-sm-2 col-form-label ms-5">Số điện thoại</label>
                 <div class="col-sm-8">
-                <input type="text" name="sdt" class="form-control" id="" value="<?= $sdt?>">
+                <input type="text" name="sdt" class="form-control" id="" value="<?= $sdt?>" required>
                 </div>
             </div>
             <div class="formpttt m-auto pb-5">

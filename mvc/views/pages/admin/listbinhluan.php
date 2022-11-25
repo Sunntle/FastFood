@@ -1,4 +1,4 @@
-<h2 class="py-3 text-uppercase text-center">Danh sách hàng hóa</h2>
+<h2 class="py-3 text-uppercase text-center">Danh sách bình luận</h2>
 <div class="row align-items-center my-2 text-center">
         <div class="row align-items-center my-2 text-center">
             <div class="col-3">Hàng hóa</div>
