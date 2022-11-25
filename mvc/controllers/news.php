@@ -17,7 +17,7 @@ class news extends controller{
             "layout",
             [
             "Pages"=>"news",
-            "AllNews"=>$this->newsModel->SelectAllNews($page),
+            "AllNews"=>$this->newsModel->SelectAllNewsPT($page),
             ],
         );
     }
