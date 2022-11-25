@@ -1,7 +1,11 @@
 <?php
 class newsModel extends db{
     public function SelectAllNews(){
-        $sql =  "SELECT * FROM tintuc";
+        $sql =  "SELECT * FROM tintuc ";
+        return $this->pdo_query($sql);
+    }
+    public function SelectAllNewsPT($page){
+        $sql =  "SELECT * FROM tintuc LIMIT 0,$page";
         return $this->pdo_query($sql);
     }
     public function SelectNewsID($id){

@@ -7,14 +7,21 @@ class news extends controller{
         $this->newsModel = $this->model("newsModel");
     }
     function SayHi(){
+        if(isset($_GET['page'])){
+            $page = $_GET['page'] * 4;
+        } else{
+            $page = 4;
+        }
+
         $this->view(
             "layout",
             [
             "Pages"=>"news",
-            "AllNews"=>$this->newsModel->SelectAllNews(),
+            "AllNews"=>$this->newsModel->SelectAllNewsPT($page),
             ],
         );
     }
+    
     function details(){
         $this->view(
             "layout",

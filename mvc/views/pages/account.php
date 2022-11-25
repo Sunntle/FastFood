@@ -25,6 +25,26 @@
         }
         return $tt;
     }
+    function huydh($status,$n,$key){
+        if($status == 2){
+           return $tt ="";
+        }else{
+             switch ($n){
+                case '0':
+                    $tt = '<a class="text-primary text-decoration-none bg-transparent" href="/live/bill/huybill/1/'.$key.'">Hủy đơn hàng</a>';
+                    break;
+                case '1':
+                    $tt = '<a class="text-dark text-decoration-none bg-transparent">Chờ xác nhận</a>';
+                    break;
+                case '2':
+                    $tt = "Hủy hoàn tất";
+                    break;
+                default:
+                    break;
+            }
+            return $tt;
+        }
+    }
 ?>
 
 <div class="container ontop">
@@ -91,27 +111,81 @@
                     <thead>
                         <tr>
                         <th scope="col">Mã đơn hàng</th>
-                        <th scope="col">Số lượng hàng</th>
-                        <th scope="col">Giá trị đơn hàng</th>
-                        <th scope="col">Tình trạng đơn hàng</th>
+                        <th scope="col">Số lượng </th>
+                        <th scope="col">Tổng đơn hàng</th>
+                        <th scope="col">Trạng thái</th>
                         <th scope="col">Thao tác</th>
                         </tr>
                     </thead>
                     <tbody class="centerBill">
                         <?php foreach ($data['billKH'] as $key){                             
-                            $ttdh = ttdh($key['status']);                            
+                            $ttdh = ttdh($key['status']); 
+
+                            $huybill = huydh($key['status'],$key['unBill'],$key['id']);
                         ?>            
                             <td scope="row"><a class="text-dark bg-light linkidcart text-decoration-none " data="/live/bill/ChiTietBill/<?= $key['id']?>" data-bs-toggle="modal" data-bs-target="#myModal">NON-<b><?= $key['id']?></b> </a> </td>                                
                             <td><?= $key['sl'] ?></td>
                             <td><?= number_format($key['total'])?> đ</td>
                             <td> <?=$ttdh?> </td>
                             <td style="height: 15px;" class="btn_suaxoa p">
-                                <button  class="btn btn-danger"><a  href="/live/billKH/dell&id=<?=$key['id']?>" class="text-light nav-link">Hủy</a></button>
+                                <?=$huybill?> 
                             </td>
                         </tr>
                         <?php }?>
                     </tbody>
                 </table>
+
+            
+                <nav class=" w-100 pt-5  ">
+                    <ul class="d-flex justify-content-center pagination">
+                        <?php if($data['currentPage']>2){
+                            $first = 'href="/live/login/SayHi&page=1"';
+                        ?>
+                        <li class="page-item ">
+                            <a class="page-link text-dark bg-light" <?= $first?> >FIRST</a>
+                        </li>
+                            <?php } ?>
+
+                        <?php if($data['currentPage'] > 1){ 
+                            $prev = $data['currentPage'] -1;?>
+                            <li class="page-item ">
+                                <a class="page-link text-dark bg-light" href="/live/login/SayHi&page=<?=$prev?>"><<</a>
+                            </li>
+                        <?php } ?>
+
+
+                        <?php for($i = 1; $i <= $data['countSP']; $i++) {
+                                if ($i != $data['currentPage'] ){ 
+                                    if(($i > $data['currentPage'] -3) && ($i<$data['currentPage'] + 3)){
+                                        $url = $i;
+                                        if (isset($data['key']) ){
+                                            echo $data['key'];
+                                            $url .= "/".$data['key'];
+                                        }
+                                        ?> 
+                                    <li class="page-item ">
+                                        <a class="page-link text-dark bg-light shadow" href="/live/login/SayHi&page=<?= $url?>"><?=$i?></a>
+                                    </li>
+                                <?php }
+                                } else{ ?>
+                                    <a class="page-link text-light bg-dark " href="/live/login/SayHi&page=<?=$i?>"><?=$i?></a>
+                                <?php }
+                        } ?>
+                        <?php if($data['currentPage'] < ($data['countSP']-1)){ 
+                            $next = $data['currentPage']+1; ?>
+                            <li class="page-item ">
+                                <a class="page-link text-dark bg-light" href="/live/login/SayHi&page=<?=$next?>">>></a>
+                            </li>
+                        <?php } ?>
+
+                        <?php if($data['currentPage'] < ($data['countSP']-2)){ 
+                            $end = $data['countSP'] ;?>
+                                <li class="page-item">
+                                    <a class="page-link text-dark bg-light" href="/live/login/SayHi&page=<?= $data['countSP'] ?>">LAST</a>
+                                </li>
+                            <?php } ?>
+                    </ul>
+                </nav>
             </div>
             <div class="col-md-8 col-sm-12 food" id="account" style="display:none">
                 <h2 class="text-center">Account</h2>

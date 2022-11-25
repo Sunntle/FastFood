@@ -25,7 +25,7 @@
             </div>
             <div class="mb-3 mt-3">
                 <label for="ht" class="form-label text-white ">Số điện thoại:</label>
-                <input type="text" class="form-control" id="number" placeholder="Địa chỉ" name="number" required>
+                <input type="text" class="form-control" id="number" placeholder="Số điện thoại" name="number" required>
             </div>
             <button type="submit" class="btn btn-danger" name="btnSignin">Đăng ký</button>
             </form>

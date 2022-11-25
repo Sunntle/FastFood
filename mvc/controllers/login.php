@@ -1,7 +1,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <?php
 class login extends controller{
-    //model
     public $userModel;
     public $billModel;
     public function __construct()
@@ -72,11 +71,26 @@ class login extends controller{
                     ],
                 );
             }else{
+                
+                $countBILL = $this->billModel->CountAllBillByID($_SESSION['login']['maKH']);
+                $perPage = 5;
+                $pageCount = (int) ceil($countBILL / $perPage); 
+                if (isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                }else{
+                    $page = 1;
+                }
+                $currentPage = $page;
+                $offset =  ($currentPage - 1) * $perPage;
                 $this->view(
+                    
                     "layout",
                     [
                     "Pages"=>"account",
-                    "billKH"=>$this->billModel->SelectBillByStatus($_SESSION['login']['maKH']),
+                    // "billKH"=>$this->billModel->SelectBillByStatus($_SESSION['login']['maKH']),
+                    "currentPage"=>$currentPage,
+                    "countSP"=> $pageCount, 
+                    "billKH"=>$this->billModel->PhanTrangByID($_SESSION['login']['maKH'],$perPage,$offset),
                     "khachHang"=>$this->userModel->SelectUserByMaKH($_SESSION['login']['maKH']),
                     ],
                 );
@@ -97,12 +111,12 @@ class login extends controller{
             $dem =0;
             $loi = "";
             if(strlen($_POST['user'])==0 || strlen($_POST['pw'])==0 ||strlen($_POST['pw'])==0||strlen($_POST['email'])==0||strlen($_POST['name'])==0 || strlen($_POST['address'])==0 ||strlen($_POST['number'])==0) {
-                $loi = "Chưa điền đủ thông tin !";
+                $loi = "<span class='text-danger'> Chưa điền đủ thông tin !</span>";
             }else {
                 $user = $_POST['user'];
                 foreach($this->userModel->SelectUser($user) as $key){
                     if($key['user']==$user){
-                        $loi =" Tài khoản đã có người sử dụng !";
+                        $loi =" <span class='text-danger'>Tài khoản đã có người sử dụng !</span>";
                         $dem =1;
                     }
                 }
@@ -113,9 +127,14 @@ class login extends controller{
                     $name = $_POST['name'];
                     $address = $_POST['address'];
                     $number = $_POST['number'];
-                    if($this->userModel->InsertNewUser($user,$pass_hash,$email,$name,$address,$number)==null){
-                        $loi ="Đăng ký thành công !";
+                    $pattern = "/^0\d{9}$/";//check sdt 10 chu so hay khong
+                    if(preg_match($pattern,$number)) {
+                        if($this->userModel->InsertNewUser($user,$pass_hash,$email,$name,$address,$number)==null){
+                                $loi ="Đăng ký thành công !";
+                            }
                     }
+                    else $loi = "<span class='text-danger'>Tạo tài khoản không thành công <br>Số điện thoại phải có 10 số !</span>";
+                    // 
                 }
             }
             if(isset($loi) && $loi !=""){
