@@ -68,7 +68,6 @@ class donhang extends controller{
 
         $qty = $this->billModel->updateHuyBill($u,$i);
         header('Location: /live/admin/donhang/SayHi/1');
-        
     }
     function dell(){
         $id = $_GET['id'];
