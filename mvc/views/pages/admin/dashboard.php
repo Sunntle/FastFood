@@ -87,19 +87,19 @@
 
 <?php 
   function tinhDoanhThu($date, $data, $loaiDate){
-    for($i=1;$i<$date;$i++){
+    for($i=1;$i<$date;$i++){//kiem tra thang'
       if(isset($data[($i-1)][$loaiDate])){
-        for($j = 1; $j <$date;$j++){
-          if(!isset($yValues[$j])) $yValues[$j]="";
-          if($j == $data[($i-1)][$loaiDate]){
-             $yValues[$j] = $data[($i-1)]['tong'];
+        for($j = 1; $j <$date;$j++){//duyet thang' co doanh thu
+          if(!isset($yValues[$j])) $yValues[$j]="";//khong ton tai -> khoi tao mang rong
+          if($j == $data[($i-1)][$loaiDate]){//neu thang co doanh thu
+             $yValues[$j] = $data[($i-1)]['tong'];// gan tong doanh thu cho mang
           }elseif($yValues[$j]==""){
-            $yValues[$j] = 0;
+            $yValues[$j] = 0;// gan mang rong bang 0
           } 
         }
       }
     }
-    return $yValues;
+    return $yValues;// tra ve mang
   }
   if(isset($_POST['btnNgay'])){
     $max = 10000000;
