@@ -21,7 +21,6 @@ class bill extends controller
 
     public function bill()
     {   
-        
         if (isset($_POST['dathang'])) {
             $name = $_POST['name'];
             $email = $_POST['email'];
@@ -29,15 +28,15 @@ class bill extends controller
             $dc = $_POST['dc'];
             $tt = $_POST['tongtien'];
             $sumqty = $_POST['sumqty'];
-            
+
             $pttt = $_POST['pttt'];
-            if(isset($_SESSION['login'])){
+            if (isset($_SESSION['login'])) {
                 $use = $_SESSION['login']['maKH'];
             }
-            
+
             // $ngay = date("d/m/Y");
             $ngay = date("Y/m/d");
-            $last = $this->billModel->CreateBill($name, $use, $dc, $sdt, $email, $pttt, $ngay,$sumqty, $tt);
+            $last = $this->billModel->CreateBill($name, $use, $dc, $sdt, $email, $pttt, $ngay, $sumqty, $tt);
 
             for ($i=0 ; $i < sizeof($_SESSION['vohang']) ;$i++) {
                 $maHH = (int)$_SESSION['vohang'][$i][0];

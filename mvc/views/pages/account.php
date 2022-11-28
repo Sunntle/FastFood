@@ -157,18 +157,13 @@
                         <?php for($i = 1; $i <= $data['countSP']; $i++) {
                                 if ($i != $data['currentPage'] ){ 
                                     if(($i > $data['currentPage'] -3) && ($i<$data['currentPage'] + 3)){
-                                        $url = $i;
-                                        if (isset($data['key']) ){
-                                            echo $data['key'];
-                                            $url .= "/".$data['key'];
-                                        }
                                         ?> 
                                     <li class="page-item ">
-                                        <a class="page-link text-dark bg-light shadow" href="/live/login/SayHi&page=<?= $url?>"><?=$i?></a>
+                                        <a class="page-link text-dark bg-light shadow" href="/live/login/SayHi&page=<?= $i?>"><?=$i?></a>
                                     </li>
                                 <?php }
                                 } else{ ?>
-                                    <a class="page-link text-light bg-dark " href="/live/login/SayHi&page=<?=$i?>"><?=$i?></a>
+                                    <a class="page-link text-light bg-dark shadow" href="/live/login/SayHi&page=<?=$i?>"><?=$i?></a>
                                 <?php }
                         } ?>
                         <?php if($data['currentPage'] < ($data['countSP']-1)){ 
@@ -178,7 +173,7 @@
                             </li>
                         <?php } ?>
 
-                        <?php if($data['currentPage'] < ($data['countSP']-2)){ 
+                        <?php if($data['currentPage'] < ($data['countSP']-1)){ 
                             $end = $data['countSP'] ;?>
                                 <li class="page-item">
                                     <a class="page-link text-dark bg-light" href="/live/login/SayHi&page=<?= $data['countSP'] ?>">LAST</a>

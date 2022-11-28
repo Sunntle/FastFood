@@ -199,7 +199,35 @@ class login extends controller{
                     $pass_hash = password_hash($pass,PASSWORD_DEFAULT);
                     foreach($this->userModel->SelectUser($user) as $key){
                         $this->userModel->UpdatePass($pass_hash,$key['maKH']);
-                        $loi = "Kiểm tra email để nhận mật khẩu mới!";
+                        require './PHPMailer-master/src/Exception.php';
+                        require './PHPMailer-master/src/PHPMailer.php';
+                        require './PHPMailer-master/src/SMTP.php';
+                        require './PHPMailer-master/src/POP3.php';
+                        $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+                        try {
+                            //Server settings
+                            $mail->SMTPDebug = 0;
+                            $mail->CharSet = "utf-8";                      //Enable verbose debug output
+                            $mail->isSMTP();                                            //Send using SMTP
+                            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                            $mail->Username   = 'taile2608@gmail.com';                     //SMTP username
+                            $mail->Password   = '';                               //SMTP password
+                            $mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
+                            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+                            //Recipients
+                            $mail->setFrom('taile2608@gmail.com', 'ThreeGuysFastFood');
+                            $mail->addAddress($key['email'], $key['tenKH']);     //Add a recipient   
+                            //Content
+                            $mail->isHTML(true);                                  //Set email format to HTML
+                            $mail->Subject = 'Đổi mật khẩu';
+                            $mail->Body    = 'Xin chào '.$key['tenKH'].'!<br>Mật khẩu mới của bạn là: '.$pass;
+                            $mail->send();
+                            $loi = "Kiểm tra email để nhận mật khẩu mới!";
+                        } catch (Exception $e) {
+                            $loi = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                        }
                     }
                 }else {
                     $loi ="Sai tài khoản !";

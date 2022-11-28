@@ -76,8 +76,9 @@
                     <td class="w-50"><?= number_format($tong) ?> đ</td>
                 </tr>
             </table>
-
-            <a class="btn btn-dark p-2 cursor-pointer text-light bg-dark nav-link <?= $dis?>" href="/live/bill">THANH TOÁN ĐƠN HÀNG</a> 
+            <?php if(isset($_SESSION['vohang']) && $_SESSION['vohang'] != null ){ ?>
+                <a class="btn btn-dark p-2 cursor-pointer text-light bg-dark nav-link <?= $dis?>" href="/live/bill">THANH TOÁN ĐƠN HÀNG</a>
+            <?php }?> 
         </div>
     </div>
     <div style="clear:both"></div>

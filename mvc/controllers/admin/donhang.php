@@ -65,6 +65,7 @@ class donhang extends controller{
         } 
     }
     public function huybill($u,$i){ 
+
         $qty = $this->billModel->updateHuyBill($u,$i);
         header('Location: /live/admin/donhang/SayHi/1');
     }
