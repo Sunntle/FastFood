@@ -19,7 +19,7 @@
           <label for="hinh" class="form-label">Ảnh tiêu đề</label>
           <input type="file" class="form-control" id="anhtieude" name="anhtieude" value="<?=$kq['anhtieude']?>">
           <label for="hinh" class="form-label">Nội dung</label>
-          <textarea name="noiDung" class="form-control" cols="30" rows="10" ><?php echo substr($kq['noiDung'],0, 63)?> ....</textarea>
+          <textarea name="noiDung" class="form-control" cols="30" rows="10" ><?php echo $kq['noiDung']?></textarea>
           <?php }
             if (isset($data['Thongbao'])):?>
                 <div class="alert alert-success">
