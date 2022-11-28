@@ -140,7 +140,7 @@ class login extends controller{
             if(isset($loi) && $loi !=""){
                 echo "
                 <div class='alert alert-success p-4 w-25 rounded text-center my-5 mx-auto'>".$loi."
-                <div><a href='../home' class='btn btn-info text-white mt-3'>Trang chủ</a></div>
+                <div><a onclick='history.back();' class='btn btn-danger text-white my-2'>Trở lại</a></div>
                 </div>
                 ";
             }
