@@ -30,8 +30,8 @@
                 </ul>
                 <div class="row col-md-12 col-lg-4 col-sm-12 m-0 justify-content-center">
                     <form action="/live/menu/SayHi/1" method="POST" class="d-flex search-m col-lg-10 col-md-8 col-8 m-0 p-0 " role="search">
-                        <input class="form-control" name="keyword" type="search" placeholder="Tìm kiếm" aria-label="Search">
-                        <button class="btn search border-0 me-2 text-white hover-red" type="submit">
+                        <input class="form-control bg-transparent border-0 border-bottom text-white search" name="keyword" type="search" placeholder="Tìm kiếm" aria-label="Search">
+                        <button class="btn border-0 me-2 text-white hover-red" type="submit">
                             <i class="fa-solid fa-magnifying-glass fs-5"></i>
                         </button>
                     </form>
@@ -44,19 +44,3 @@
         </nav>
     </div>
 </header>
-<script>
-$( document ).ready(function() {
-    $.get( "/live/bill/qtycart", function( data ) {
-        if (data >0){
-            $( ".result" ).html(data);
-            
-        }else{
-            $( ".result" ).html();
-            
-        }
-       
-
-    });
-});
-
-</script>

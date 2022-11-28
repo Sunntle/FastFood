@@ -16,3 +16,13 @@ function openTab(foodName) {
         }
         document.getElementById(foodName).style.display = "block";
 }
+$( document ).ready(function() {
+        $.get( "/live/bill/qtycart", function( data ) {
+            if (data >0){
+                $( ".result" ).html(data);
+                
+            }else{
+                $( ".result" ).html();  
+            }
+        });
+    });
