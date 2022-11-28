@@ -54,8 +54,6 @@ $( document ).ready(function() {
             $( ".result" ).html();
             
         }
-       
-
     });
 });
 

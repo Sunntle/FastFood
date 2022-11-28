@@ -211,8 +211,8 @@ class login extends controller{
                             $mail->isSMTP();                                            //Send using SMTP
                             $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                            $mail->Username   = 'taile2608@gmail.com';                     //SMTP username
-                            $mail->Password   = 'tqtpdwaguyysknqv';                               //SMTP password
+                            $mail->Username   = 'huylgps20497@fpt.edu.vn';                     //SMTP username
+                            $mail->Password   = 'kumyqxvittrfxzdi';                               //SMTP password
                             $mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
                             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
