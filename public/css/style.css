@@ -117,6 +117,10 @@ div h3{
 .change-update p{
     min-width: 150px;
 }
+.change-update button:hover p{
+    font-weight: 600;
+    color: var(--red-bg);
+}
 /* Gia Huy */
 .boxCart tr td{
 font-size: 1em;

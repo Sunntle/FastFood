@@ -14,7 +14,7 @@
         <label for="hinh" class="form-label">Hình</label>
         <input type="file" class="form-control" id="hinh" name="hinh">
         <label for="" class="form-label">Địa chỉ</label>
-        <input type="text" class="form-control" name="diaChi" required>
+        <input type="text" class="form-control" name="diaChi">
         <label for="" class="form-label">Vai trò</label>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="vaiTro" id="flexRadioDefault1" value="1">
