@@ -49,7 +49,6 @@
                     <span class="fas fa-caret-down fifth"></span>
                 </a>
                 <ul class="fifth-show">
-                    <li><a href="binhluan/ThemBinhLuan"><i class="fa-solid fa-square-plus"></i>&nbsp Tạo mới</a></li>
                     <li><a href="binhluan"><i class="fa-sharp fa-solid fa-pen-to-square"></i>&nbsp Xem</a></li>
                 </ul>
             </li>
