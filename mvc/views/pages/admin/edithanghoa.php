@@ -11,7 +11,7 @@
         <label for="" class="form-label">Tên HH</label>
         <input type="text" class="form-control" name="tenHangHoa" value="<?=$value['tenHangHoa']?>">
         <label for="" class="form-label">Giá</label>
-        <input type="text" class="form-control" name="gia" value="<?=$value['gia']?>">
+        <input type="number" class="form-control" name="gia" min="1" value="<?=$value['gia']?>">
         <label for="hinh" class="form-label">Hình</label>
         <input type="file" class="form-control" id="hinh" name="hinh">
         <label for="" class="form-label">Mô tả</label>
@@ -31,7 +31,7 @@
         <label for="" class="form-label">Lượt xem</label>
         <input type="text" class="form-control" name="luotXem" disabled value="<?=$value['luotXem']?>">
         <label for="" class="form-label">Số lượng</label>
-        <input type="text" class="form-control" name="soLuong" value="<?=$value['soLuong']?>">
+        <input type="number" class="form-control" name="soLuong" min="0" value="<?=$value['soLuong']?>">
     </div>
     <?php }
     if(isset($data['thongbao'])) echo $data['thongbao'];

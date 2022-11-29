@@ -6,7 +6,7 @@
         <label for="" class="form-label">Tên HH</label>
         <input type="text" class="form-control" name="tenHangHoa" required>
         <label for="" class="form-label">Giá</label>
-        <input type="text" class="form-control" name="gia" required>
+        <input type="number" class="form-control" min="1" name="gia" required>
         <label for="hinh" class="form-label">Hình</label>
         <input type="file" class="form-control" id="hinh" name="hinh" required>
         <label for="" class="form-label">Mô tả</label>
@@ -22,7 +22,7 @@
             <label for="floatingSelect">Chọn 1 loại hàng</label>
             </div>
         <label for="" class="form-label">Số lượng</label>
-        <input type="text" class="form-control" name="soLuong" required>
+        <input type="number" class="form-control" min="0" name="soLuong" required>
     </div>
     <?php
     if(isset($data['thongbao'])) echo $data['thongbao'];
