@@ -1,6 +1,41 @@
 <div class="bg-login">
     <div class="container slide row mx-auto">
-        <div class="signin col-lg-6 col-sm-12 py-3 px-4 signin">
+        <?php if(!isset($_POST['showDangKy'])){ ?>
+        <div class="signin col-lg-6 col-sm-12 py-3 px-4 signin d-flex align-items-center ">
+            <form action="" method="post">
+            <div class="text-start fs-2 text-white">Bạn chưa có tài khoản ?<br><input class="border-0 bg-transparent p-0" type="submit" value="Đăng ký ngay!" name="showDangKy"></div>
+            </form>
+        </div>
+        <div class="login col-lg-6 col-sm-12 py-3 px-4">
+            <h3 class="text-center fs-2 fw-bolder ">ĐĂNG NHẬP</h3>
+            <form action="login/khachhangdangnhap" method="post">
+            <div class="mb-3 mt-3">
+                <label for="ht" class="form-label text-white">Tên đăng nhập:</label>
+                <input type="text" class="form-control" id="user" placeholder="Tên đăng nhập" name="user" required>
+            </div>
+            <div class="mb-3">
+                <label for="pwd" class="form-label text-white">Password:</label>
+                <input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw" required>
+            </div>
+            <div class="row">
+            <div class="form-check mb-3 col-6 px-5">
+                <input class="form-check-input" type="checkbox" name="remember"><span class="text-white">Remember me</span>
+                </label>
+            </div>
+            <div class="mb-3 col-6 text-end">
+                <a href="login/QuenMatKhau" class="text-primary p-3 text-decoration-none bg-transparent">Quên mật khẩu?</a>
+            </div>
+            </div>
+            <button type="submit" class="btn btn-danger" name="btnLogin">Đăng nhập</button>
+            </form>
+        </div>
+        <?php }else{ ?>
+        <div class="signin col-lg-6 col-sm-12 py-3 px-4 signin d-flex align-items-center ">
+            <form action="" method="post">
+            <div class="text-start fs-2 text-white">Bạn đã có tài khoản <br><input class="border-0 bg-transparent p-0" type="submit" value="Đăng nhập ngay!"></div>
+            </form>
+        </div>
+        <div class="login col-lg-6 col-sm-12 py-3 px-4">
             <h3 class="text-center fs-2 fw-bolder ">ĐĂNG KÝ TÀI KHOẢN</h3>
             <form action="login/khachhangdangky" method="post">
             <div class="mb-3 mt-3">
@@ -30,28 +65,7 @@
             <button type="submit" class="btn btn-danger" name="btnSignin">Đăng ký</button>
             </form>
         </div>
-        <div class="login col-lg-6 col-sm-12 py-3 px-4">
-            <h3 class="text-center fs-2 fw-bolder ">ĐĂNG NHẬP</h3>
-            <form action="login/khachhangdangnhap" method="post">
-            <div class="mb-3 mt-3">
-                <label for="ht" class="form-label text-white">Tên đăng nhập:</label>
-                <input type="text" class="form-control" id="user" placeholder="Tên đăng nhập" name="user" required>
-            </div>
-            <div class="mb-3">
-                <label for="pwd" class="form-label text-white">Password:</label>
-                <input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw" required>
-            </div>
-            <div class="row">
-            <div class="form-check mb-3 col-6 px-5">
-                <input class="form-check-input" type="checkbox" name="remember"><span class="text-white">Remember me</span>
-                </label>
-            </div>
-            <div class="mb-3 col-6 text-end">
-                <a href="login/QuenMatKhau" class="text-primary p-3 text-decoration-none bg-transparent">Quên mật khẩu?</a>
-            </div>
-            </div>
-            <button type="submit" class="btn btn-danger" name="btnLogin">Đăng nhập</button>
-            </form>
-        </div>
+        <?php } ?>
+        
     </div>
 </div>

@@ -107,7 +107,7 @@ li.nav-item:hover a,.hover-red:hover a,button.hover-red:hover,.hover-red:hover a
     background-size: cover;
     position: relative;
 }
-div h3{
+div h3, .signin div input{
     color:var(--red-bg);
 }
 .bg-special{
