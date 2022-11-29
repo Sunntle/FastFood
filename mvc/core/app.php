@@ -29,7 +29,8 @@ class App{
             $this->params = $arr? array_values($arr):[];
             $this->controller = new $this->controller;
             call_user_func_array([$this->controller, $this->action], $this->params ); //tao bien controller chay ham action voi tham so params
-           }else{
+           //controller::action(params)
+        }else{
             header("location: ./login");
            }
            
