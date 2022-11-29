@@ -19,8 +19,7 @@ class bill extends controller
         );
     }
 
-    public function bill()
-    {   
+    public function bill(){   
         if (isset($_POST['dathang'])) {
             $name = $_POST['name'];
             $email = $_POST['email'];
