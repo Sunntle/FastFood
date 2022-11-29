@@ -6,6 +6,7 @@ class binhluan extends controller{
     {
         $this->binhLuanModel = $this->model("binhLuanModel");
         $this->hangHoaModel = $this->model("hangHoaModel");
+        $this->userModel = $this->model("userModel");
     }
     public function SayHi(){
         $arr[]="";
@@ -36,6 +37,7 @@ class binhluan extends controller{
             [
             "Pages"=> "listbinhluantheohang",
             "listAll"=>$this->binhLuanModel->SelectBLByMaHH($_POST['maBL']),
+            "listAllKH"=>$this->userModel->listAll(),
             ],
         );
     }
@@ -44,15 +46,6 @@ class binhluan extends controller{
             "layout1",
             [
             "Pages"=> "editbinhluan",
-            ],
-        );
-    }
-    public function ThemBinhLuan(){
-        $this->view(
-            "layout1",
-            [
-            "Pages"=> "listbinhluan",
-            "listAll"=>$this->binhLuanModel->listAll(),
             ],
         );
     }
