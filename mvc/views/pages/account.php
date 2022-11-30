@@ -31,7 +31,7 @@
         }else{
              switch ($n){
                 case '0':
-                    $tt = '<a class="text-primary text-decoration-none bg-transparent" href="/live/bill/huybill/1/'.$key.'">Hủy đơn hàng</a>';
+                    $tt = '<a class="text-primary text-decoration-none bg-transparent" href="./bill/huybill/1/'.$key.'">Hủy đơn hàng</a>';
                     break;
                 case '1':
                     $tt = '<a class="text-dark text-decoration-none bg-transparent">Chờ xác nhận</a>';
@@ -123,7 +123,7 @@
 
                             $huybill = huydh($key['status'],$key['unBill'],$key['id']);
                         ?>            
-                            <td scope="row"><a class="text-dark bg-light linkidcart text-decoration-none " data="/live/bill/ChiTietBill/<?= $key['id']?>" data-bs-toggle="modal" data-bs-target="#myModal">NON-<b><?= $key['id']?></b> </a> </td>                                
+                            <td scope="row"><a class="text-dark bg-light linkidcart text-decoration-none " data="./bill/ChiTietBill/<?= $key['id']?>" data-bs-toggle="modal" data-bs-target="#myModal">NON-<b><?= $key['id']?></b> </a> </td>                                
                             <td><?= $key['sl'] ?></td>
                             <td><?= number_format($key['total'])?> đ</td>
                             <td> <?=$ttdh?> </td>
@@ -139,7 +139,7 @@
                 <nav class=" w-100 pt-5  ">
                     <ul class="d-flex justify-content-center pagination">
                         <?php if($data['currentPage']>2){
-                            $first = 'href="/live/login/SayHi&page=1"';
+                            $first = 'href="./login/SayHi&page=1"';
                         ?>
                         <li class="page-item ">
                             <a class="page-link text-dark bg-light" <?= $first?> >FIRST</a>
@@ -149,7 +149,7 @@
                         <?php if($data['currentPage'] > 1){ 
                             $prev = $data['currentPage'] -1;?>
                             <li class="page-item ">
-                                <a class="page-link text-dark bg-light" href="/live/login/SayHi&page=<?=$prev?>"><<</a>
+                                <a class="page-link text-dark bg-light" href="./login/SayHi&page=<?=$prev?>"><<</a>
                             </li>
                         <?php } ?>
 
@@ -159,24 +159,24 @@
                                     if(($i > $data['currentPage'] -3) && ($i<$data['currentPage'] + 3)){
                                         ?> 
                                     <li class="page-item ">
-                                        <a class="page-link text-dark bg-light shadow" href="/live/login/SayHi&page=<?= $i?>"><?=$i?></a>
+                                        <a class="page-link text-dark bg-light shadow" href="./login/SayHi&page=<?= $i?>"><?=$i?></a>
                                     </li>
                                 <?php }
                                 } else{ ?>
-                                    <a class="page-link text-light bg-dark shadow" href="/live/login/SayHi&page=<?=$i?>"><?=$i?></a>
+                                    <a class="page-link text-light bg-dark shadow" href="./login/SayHi&page=<?=$i?>"><?=$i?></a>
                                 <?php }
                         } ?>
                         <?php if($data['currentPage'] < ($data['countSP']-1)){ 
                             $next = $data['currentPage']+1; ?>
                             <li class="page-item ">
-                                <a class="page-link text-dark bg-light" href="/live/login/SayHi&page=<?=$next?>">>></a>
+                                <a class="page-link text-dark bg-light" href="./login/SayHi&page=<?=$next?>">>></a>
                             </li>
                         <?php } ?>
 
                         <?php if($data['currentPage'] < ($data['countSP']-1)){ 
                             $end = $data['countSP'] ;?>
                                 <li class="page-item">
-                                    <a class="page-link text-dark bg-light" href="/live/login/SayHi&page=<?= $data['countSP'] ?>">LAST</a>
+                                    <a class="page-link text-dark bg-light" href="./login/SayHi&page=<?= $data['countSP'] ?>">LAST</a>
                                 </li>
                             <?php } ?>
                     </ul>

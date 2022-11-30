@@ -17,7 +17,7 @@ class cart extends controller{
                 ],
             );
         }else{
-            header('Location: /live/login');
+            header('Location: ./login');
         }
     }
     
@@ -50,7 +50,7 @@ class cart extends controller{
 
                 }
                 array_push($_SESSION['vohang'], $add);
-                header('Location: /live/cart');
+                header('Location: ./cart');
             }
         }    
     }
@@ -85,7 +85,7 @@ class cart extends controller{
                 }   
             }  
         }
-        header('Location: /live/cart&thongbao='.$thongbao);
+        header('Location: ./cart&thongbao='.$thongbao);
     }
 
 
@@ -126,8 +126,8 @@ class cart extends controller{
             else {
                 unset($_SESSION['vohang']);
             }
-            if (isset($_SESSION['vohang'])) header('Location: /live/cart');
-            else header('Location: /live/menuSayHi/1');
+            if (isset($_SESSION['vohang'])) header('Location: ./cart');
+            else header('Location: ./menuSayHi/1');
         }
     }
 }

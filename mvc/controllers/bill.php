@@ -47,7 +47,7 @@ class bill extends controller
                 $this->billModel->CreateCart($use, $maHH, $hinhAnh, $ten, $gia, $sl, $tt, $last);
             }
             $show = $this->billModel->ShowBill($last);
-            header('Location: /live/mybill&lastid='.$last);
+            header('Location: ../mybill&lastid='.$last);
         }
     }
     public function qtycart(){
@@ -57,7 +57,6 @@ class bill extends controller
             if($qty['sl'] > 0){
                 echo $qty['sl'];
             }
-            
         }
     }
     public function ChiTietBill($a){
@@ -67,7 +66,7 @@ class bill extends controller
 
     public function huybill($u,$i){ 
         $qty = $this->billModel->updateHuyBill($u,$i);
-        header('Location: /live/login');
+        header('Location: ../../../login');
     }
 }
 

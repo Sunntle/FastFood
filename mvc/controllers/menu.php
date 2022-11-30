@@ -19,6 +19,12 @@ class menu extends controller{
             $i="";
             $page = "";
             $data = $this->sanpham->SelectProductbyIDType($i,$se,$page);
+            if($data == null){
+                $rong = "Không tìm thấy sản phẩm phù hợp";
+            }else {
+                $rong ="";
+            }
+
         } else{
             if(isset($_GET['page'])){
                 $page = $_GET['page'] * 4;
@@ -29,6 +35,7 @@ class menu extends controller{
             $id = "maLoai = $a";
             $limit = " LIMIT 0,$page";
             $data = $this->sanpham->SelectProductbyIDType($id,$se,$limit);
+            $rong ="";
         }
           
         
@@ -39,29 +46,28 @@ class menu extends controller{
             "AllType"=>$this->loaiModel->listAll(),
             "ProductbyIDType"=>$data,
             "idLoai"=>$a,
+            "rong"=>$rong,
             ],
         ); 
     }
-    function search(){
+    // function search(){
 
-        if (isset($_POST['keyword']) && $_POST['keyword'] !=""){
-            
-            $keyword = $_POST['keyword'];
-            var_dump($keyword);
-            $se = $this->sanpham->search();
-        } else{
-            $se = "Không tìm thấy sản phẩm tương tự ";
-        }
+    //     if (isset($_POST['keyword']) && $_POST['keyword'] !=""){           
+    //         $keyword = $_POST['keyword'];
+    //         $se = $this->sanpham->search();
+    //     } else{
+    //         $se = "Không tìm thấy sản phẩm tương tự ";
+    //     }
         
         
-        $this->view(
-            "layout",
-            [
-            "Pages"=>"menu",
-            "All"=> $se,
-            ],
-        );
-    }
+    //     $this->view(
+    //         "layout",
+    //         [
+    //         "Pages"=>"menu",
+    //         "All"=> $se,
+    //         ],
+    //     );
+    // }
    
     function detailsproduct($a){
         foreach($this->sanpham->SelectProductID($a) as $key){

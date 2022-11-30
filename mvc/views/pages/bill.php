@@ -23,7 +23,7 @@ if(isset($_SESSION["login"])){
     </div>
 </div>
 <div class="container mt-5">
-    <form action="/live/bill/bill" method="POST">
+    <form action="./bill/bill" method="POST">
     <div class="m-auto">
             <h2 class="my-4 ps-5 ">Thông tin đơn hàng</h2>
             <table class="table table-striped" style="border-collapse:collapse">

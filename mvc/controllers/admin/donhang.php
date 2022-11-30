@@ -60,21 +60,20 @@ class donhang extends controller{
                     }
                 }    
             }
-
             $this->billModel->UpdateBill($status,$id);          
-            header('Location: /live/admin/donhang/SayHi/1');
-        } 
+            
+        } header('Location: ./SayHi/1');
     }
     public function huybill($u,$i){ 
 
         $qty = $this->billModel->updateHuyBill($u,$i);
-        header('Location: /live/admin/donhang/SayHi/1');
+        header('Location: ../../SayHi/1');
     }
     function dell(){
         $id = $_GET['id'];
         $this->billModel->dellIdCart($id);
         $this->billModel->dellIdBill($id);
-        header('Location: /live/admin/donhang/SayHi/1');
+        header('Location: ./SayHi/1');
     }
 }
 

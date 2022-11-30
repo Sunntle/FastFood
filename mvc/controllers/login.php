@@ -73,7 +73,7 @@ class login extends controller{
             }else{
                 
                 $countBILL = $this->billModel->CountAllBillByID($_SESSION['login']['maKH']);
-                $perPage = 5;
+                $perPage = 8;
                 $pageCount = (int) ceil($countBILL / $perPage); 
                 if (isset($_GET['page'])) {
                     $page = $_GET['page'];

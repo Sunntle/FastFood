@@ -55,7 +55,7 @@
         <input type="hidden" name="id" value="<?= $_GET['id']?>">
         <input type="submit" name="btn-add" class="btn btn-primary" value="Cập nhật">
             <input type="reset" class="btn btn-danger" value="Nhập lại">
-            <a href="/live/admin/donhang" class="btn btn-success">Danh sách</a>
+            <a href="./donhang/SayHi/1" class="btn btn-success">Danh sách</a>
         </div>
     </form>
     

@@ -105,7 +105,7 @@ foreach ($data['Hoadon'] as $bill){
 
         </table>
         <div class="mb-3">
-            <a class="bg-dark text-light text-decoration-none px-4 py-2 mb-3" href="/live/menu/SayHi/1">Trở về menu</a>
+            <a class="bg-dark text-light text-decoration-none px-4 py-2 mb-3" href="./menu/SayHi/1">Trở về menu</a>
         </div>
     </div>
 </div>
