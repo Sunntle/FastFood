@@ -42,7 +42,7 @@ class donhang extends controller{
             $fl = 0;
             $status = $_POST['status'];
 
-            if ($_POST['status']==2){
+            if ($_POST['status']==2 || $_POST['status']==1){
                 $id = $_POST['id'];                
                 $slAllSP = $this->hangHoaModel->soLuong();
                 
@@ -60,6 +60,7 @@ class donhang extends controller{
                     }
                 }    
             }
+
             $this->billModel->UpdateBill($status,$id);          
             header('Location: /live/admin/donhang/SayHi/1');
         } 
