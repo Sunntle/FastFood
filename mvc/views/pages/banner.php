@@ -17,7 +17,7 @@
         </div>
         <div class="row text-center">
         <?php foreach($data['TopSp'] as $kq){?>
-                <div class="product col-lg-3 col-md-4 col-12">
+                <div class="product col-lg-3 col-md-4 col-12 py-2">
                 <a class="bg-transparent " href="./menu/detailsproduct/<?php echo $kq['maHangHoa']?>">
                     <img class="p-img img-fluid rounded-3" src="<?php echo $kq['hinhAnh']?>" alt="">
                 </a>

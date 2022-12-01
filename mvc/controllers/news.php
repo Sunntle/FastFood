@@ -22,12 +22,13 @@ class news extends controller{
         );
     }
     
-    function details(){
+    function details($a){
         $this->view(
             "layout",
             [
             "Pages"=>"news-details",
-            "NewsID"=> $this->newsModel->SelectNewsID($_GET['newsID']),
+            "NewsID"=> $this->newsModel->SelectNewsID($a),
+            "NewsTop"=> $this->newsModel->SelectTopNews(),
             ],
         );
     }

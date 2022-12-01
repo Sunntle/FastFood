@@ -7,13 +7,13 @@
         <div class="tile-body">
           <form class="row">
           <label for="" class="form-label">Tên tiêu đề</label>
-          <input type="text" class="form-control" name="tieuDe">
+          <input type="text" class="form-control" name="tieuDe" required>
           <label for="" class="form-label">Ngày viết</label>
-          <input type="date" class="form-control" name="ngay">
+          <input type="date" class="form-control" name="ngay" required>
           <label for="hinh" class="form-label">Ảnh tiêu đề</label>
-          <input type="file" class="form-control" id="anhtieude" name="anhtieude" >
+          <input type="file" class="form-control" id="anhtieude" name="anhtieude" required>
           <label for="hinh" class="form-label">Nội dung</label>
-          <textarea name="noiDung" class="form-control" cols="30" rows="10" ></textarea>
+          <textarea name="noiDung" class="form-control" cols="30" rows="10" required></textarea>
           <?php if (isset($data['Thongbao'])) echo $data['Thongbao'] ?>
 
         </div>

@@ -69,25 +69,36 @@ class news extends controller{
     } 
     public function ThemNews(){
         $thongbao="";
-
-        if(isset($_POST['btn-update'])){     
+        if(isset($_POST['btn-update'])){  
+            $dem = 0;
+            $tennews = $_POST['tieuDe'];
+  
             if(empty($_POST['tieuDe']) or empty($_POST['ngay']) or empty($_POST['noiDung'])){
                 $thongbao = "Không được để trống!";
             }else{
-                $tennews = $_POST['tieuDe'];
-                $ngaynews = $_POST['ngay'];
-                $ndnews = $_POST['noiDung'];
-                // $tennews = $_POST['tieuDe'];
-                $hinhanhpath = basename($_FILES['anhtieude']['name']);
-                if(!($hinhanhpath=="")){
-                    $target_dir = "./public/images/";
-                    $target_file = $target_dir.$hinhanhpath;
-                    move_uploaded_file($_FILES["anhtieude"]["tmp_name"], $target_file);
-                    $this->newsModel->InsertNews($tennews,$ngaynews,$ndnews,$target_file);
-                    $thongbao = "Cập nhật thành công!";
-                }else if($hinhanhpath=="") {
-                    $thongbao = "Chưa tải ảnh lên!";
-                };
+                foreach($this->newsModel->SelectNewsByName($tennews) as $key){
+                    if($key['tieuDe']==$tennews){
+                        $dem = 1;
+                    }
+                }
+                if($dem == 0){
+                    $ngaynews = $_POST['ngay'];
+                    $ndnews = $_POST['noiDung'];
+                    // $tennews = $_POST['tieuDe'];
+                    $hinhanhpath = basename($_FILES['anhtieude']['name']);
+                    if(!($hinhanhpath=="")){
+                        $target_dir = "./public/images/";
+                        $target_file = $target_dir.$hinhanhpath;
+                        move_uploaded_file($_FILES["anhtieude"]["tmp_name"], $target_file);
+                        $this->newsModel->InsertNews($tennews,$ngaynews,$ndnews,$target_file);
+                        $thongbao = "Cập nhật thành công!";
+                    }else if($hinhanhpath=="") {
+                        $thongbao = "Chưa tải ảnh lên!";
+                    };
+                }else if($dem == 1){
+                    $thongbao = "Bài viết đã tồn tại!";
+                } 
+
             }
 
             }

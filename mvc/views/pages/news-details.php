@@ -20,9 +20,9 @@ foreach($data['NewsID'] as $kq) { ?>
             <div class="text-center p-2">
             <img class="img-fluid" src="https://kfcvietnam.com.vn/uploads/images/image-20210222114845-2.png" alt="">
             </div>
-            <p>
+            <!-- <p>
             Một trong những khó khăn đó là có địa bàn rất rộng, hơn 20 ấp, bị ngăn cách bởi sông Cái Tàu làm cho sự phát triển của toàn xã trở nên không đồng đều. 15 ấp sống dưới tán rừng chưa có cơ sở hạ tầng để phát triển kinh tế.
-            </p>
+            </p> -->
         </div>
         <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=450&layout=standard&action=like&size=large&share=true&height=35&appId=4927767217278608" width="450" height="35" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
     </div>
@@ -30,34 +30,15 @@ foreach($data['NewsID'] as $kq) { ?>
     <div>
         <h3 class="text-center text-uppercase my-3">Tin tức khác</h3>
         <div class="row">
+                    <?php foreach($data['NewsTop'] as $kq) { ?>
                     <div class="col-lg-3 col-sm-6">
+                    
                         <div class="m-1 border rounded shadow p-3">
-                        <a href="#"><img class="img-fluid" src="./public/images/news1.jpg" alt=""></a>
-                        <h5 class="py-1 my-2 fs-5"><a href="#" class="text-decoration-none text-dark bg-transparent">Jollibee Việt Nam khai trương cửa hàng thứ 150</a></h5>
-                        <p>Jollibee Việt Nam đã đưa vào vận hành nhà máy mới với chứng nhận ISO 22000:2018...</p>
+                        <a href="news/details/<?php echo $kq['id']?>"><img class="img-fluid w-100" style="height: 140px;" src="<?php echo $kq['anhtieude'] ?>" alt=""></a>
+                        <h5 class="py-1 my-2 fs-5"><a href="news/details/<?php echo $kq['id']?>" class="text-decoration-none text-dark bg-transparent"><?php echo $kq['tieuDe']?></a></h5>
+                        <p><?php echo substr($kq['noiDung'],0, 60)?> ....</p>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="m-1 border rounded shadow p-3">
-                        <a href="#"><img class="img-fluid" src="./public/images/news1.jpg" alt=""></a>
-                        <h5 class="py-1 my-2 fs-5"><a href="#" class="text-decoration-none text-dark bg-transparent">Jollibee Việt Nam khai trương cửa hàng thứ 150</a></h5>
-                        <p>Jollibee Việt Nam đã đưa vào vận hành nhà máy mới với chứng nhận ISO 22000:2018...</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="m-1 border rounded shadow p-3">
-                        <a href="#"><img class="img-fluid" src="./public/images/news1.jpg" alt=""></a>
-                        <h5 class="py-1 my-2 fs-5"><a href="#" class="text-decoration-none text-dark bg-transparent">Jollibee Việt Nam khai trương cửa hàng thứ 150</a></h5>
-                        <p>Jollibee Việt Nam đã đưa vào vận hành nhà máy mới với chứng nhận ISO 22000:2018...</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="m-1 border rounded shadow p-3">
-                        <a href="#"><img class="img-fluid" src="./public/images/news1.jpg" alt=""></a>
-                        <h5 class="py-1 my-2 fs-5"><a href="#" class="text-decoration-none text-dark bg-transparent">Jollibee Việt Nam khai trương cửa hàng thứ 150</a></h5>
-                        <p>Jollibee Việt Nam đã đưa vào vận hành nhà máy mới với chứng nhận ISO 22000:2018...</p>
-                        </div>
-                    </div>
+                    </div>                    
+                    <?php } ?>
                 </div>
-    </div>
 </div>

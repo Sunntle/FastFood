@@ -4,6 +4,10 @@ class newsModel extends db{
         $sql =  "SELECT * FROM tintuc ";
         return $this->pdo_query($sql);
     }
+    public function SelectTopNews(){
+        $sql = "SELECT * FROM tintuc ORDER BY ngay DESC limit 4";
+        return $this->pdo_query($sql);
+    }
     public function SelectAllNewsPT($page){
         $sql =  "SELECT * FROM tintuc LIMIT 0,$page";
         return $this->pdo_query($sql);
@@ -26,7 +30,7 @@ class newsModel extends db{
     }
     public function SelectNewsByName($tennews){
         $sql =  "SELECT * FROM tintuc WHERE tieuDe = ?";
-        return $this->pdo_execute($sql,$tennews);
+        return $this->pdo_query($sql,$tennews);
     }
     public function InsertNews($tennews,$ngaynews,$ndnews,$hinhtdnews){
         $sql = "INSERT INTO tintuc ( tieuDe, ngay, noiDung, anhtieude) VALUES (?,?,?,?)";
