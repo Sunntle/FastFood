@@ -4,9 +4,9 @@ class userModel extends db{
         $sql = "SELECT * FROM khachhang";
         return $this->pdo_query($sql);
     }
-    public function InsertNewUser($user,$pass,$email,$name,$address,$number){
-        $sql = "INSERT INTO khachhang(user,matKhau,email,tenKH,diaChi,soDienThoai) VALUES(?,?,?,?,?,?)";
-        return $this->pdo_execute($sql,$user,$pass,$email,$name,$address,$number);
+    public function InsertNewUser($user,$pass,$email,$name,$address,$number,$hinh){
+        $sql = "INSERT INTO khachhang(user,matKhau,email,tenKH,diaChi,soDienThoai,hinh) VALUES(?,?,?,?,?,?,?)";
+        return $this->pdo_execute($sql,$user,$pass,$email,$name,$address,$number,$hinh);
     }
     public function SelectUser($user){
         $sql = "SELECT * FROM khachhang WHERE user = ?";
@@ -51,9 +51,9 @@ class userModel extends db{
         $sql = "DELETE FROM khachhang WHERE maKH= ?";
         $this->pdo_execute($sql,$maKH);
     }
-    public function InsertKH($tenKH,$email,$user,$matKhau,$hinh,$vaiTro,$diaChi){
-        $sql = "INSERT INTO khachhang(tenKH,email,user,matKhau,hinh,vaiTro,diaChi) VALUES(?,?,?,?,?,?,?)";
-        return $this->pdo_execute($sql,$tenKH,$email,$user,$matKhau,$hinh,$vaiTro,$diaChi);
+    public function InsertKH($tenKH,$email,$user,$matKhau,$hinh,$vaiTro,$diaChi,$dienThoai){
+        $sql = "INSERT INTO khachhang(tenKH,email,user,matKhau,hinh,vaiTro,diaChi,soDienThoai) VALUES(?,?,?,?,?,?,?,?)";
+        return $this->pdo_execute($sql,$tenKH,$email,$user,$matKhau,$hinh,$vaiTro,$diaChi,$dienThoai);
     }
 }
 ?>

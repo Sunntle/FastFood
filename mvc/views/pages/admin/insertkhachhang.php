@@ -10,11 +10,13 @@
         <label for="" class="form-label">Tên đăng nhập</label>
         <input type="text" class="form-control" name="user" required>
         <label for="" class="form-label">Mật khẩu</label>
-        <input type="text" class="form-control" name="matKhau" required>
+        <input type="password" class="form-control" name="matKhau" required>
         <label for="hinh" class="form-label">Hình</label>
         <input type="file" class="form-control" id="hinh" name="hinh">
         <label for="" class="form-label">Địa chỉ</label>
         <input type="text" class="form-control" name="diaChi">
+        <label for="" class="form-label">Số điện thoại:</label>
+        <input type="text" class="form-control" id="number" name="number" required>
         <label for="" class="form-label">Vai trò</label>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="vaiTro" id="flexRadioDefault1" value="1">

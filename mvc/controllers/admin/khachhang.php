@@ -84,12 +84,20 @@ class khachhang extends controller{
                 $diaChi = $_POST['diaChi'];
                 $pass_hash = password_hash($matKhau,PASSWORD_DEFAULT);
                 $user = $_POST['user'];
-                foreach($this->userModel->SelectUser($user) as $key){
-                    if($key['user']==$user){
-                        $thongbao =" Tài khoản đã có người sử dụng !";
-                        $dem =1;
+                $number = $_POST['number'];
+                $pattern = "/^0\d{9}$/";
+                if(!preg_match($pattern,$number)) {
+                    $thongbao .= "<span class='text-danger'>Tạo tài khoản thất bại !<br>Số điện thoại không phù hợp</span>";
+                    $dem = 1;
+                }else {
+                    foreach($this->userModel->SelectUser($user) as $key){
+                        if($key['user']==$user){
+                            $thongbao ="<span class='text-danger'> Tài khoản đã có người sử dụng !</span>";
+                            $dem =1;
+                        }
                     }
                 }
+                
                 if($dem==0){
                     $vaiTro = $_POST['vaiTro'];
                     $hinhanhpath = basename($_FILES['hinh']['name']);
@@ -97,11 +105,11 @@ class khachhang extends controller{
                         $target_dir = "./public/images/";
                         $target_file = $target_dir.$hinhanhpath;
                         move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file);
-                        $this->userModel->InsertKH($tenKH,$email,$user,$pass_hash,$target_file,$vaiTro,$diaChi);
+                        $this->userModel->InsertKH($tenKH,$email,$user,$pass_hash,$target_file,$vaiTro,$diaChi,$number);
                         $thongbao = "Thêm thành công thông tin và hình ảnh khách hàng !";
                     }else if($hinhanhpath=="") {
                         $avt_default="./public/images/default_avatar.jpg";
-                        $this->userModel->InsertKH($tenKH,$email,$user,$pass_hash,$avt_default,$vaiTro,$diaChi);
+                        $this->userModel->InsertKH($tenKH,$email,$user,$pass_hash,$avt_default,$vaiTro,$diaChi,$number);
                         $thongbao = "Cập nhật thành công thông tin khách hàng!";
                     };
                 }

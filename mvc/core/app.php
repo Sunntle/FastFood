@@ -8,7 +8,7 @@ class App{
     function __construct(){
         $arr =$this->UrlProcess();
         if(isset($arr)&&$arr[0]=="admin"){
-           if(checkLogin()){
+           if(checkLogin()&&$_SESSION['login']['vaiTro']==1){
             unset($arr[0]);
             if(isset($arr[1])){
                 if(file_exists("./mvc/controllers/admin/".$arr[1].".php")){

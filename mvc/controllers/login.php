@@ -128,8 +128,9 @@ class login extends controller{
                     $address = $_POST['address'];
                     $number = $_POST['number'];
                     $pattern = "/^0\d{9}$/";//check sdt 10 chu so hay khong
+                    $avt_default="./public/images/default_avatar.jpg";
                     if(preg_match($pattern,$number)) {
-                        if($this->userModel->InsertNewUser($user,$pass_hash,$email,$name,$address,$number)==null){
+                        if($this->userModel->InsertNewUser($user,$pass_hash,$email,$name,$address,$number,$avt_default)==null){
                                 $loi ="Đăng ký thành công !";
                             }
                     }
