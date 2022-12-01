@@ -27,12 +27,12 @@
                 <div class="p-2 fs-5 col-lg-2 col-2 text-center"><span class="fs-5 fw-bolder">Giá</span></div>
                 <div class="p-2 fs-5 col-lg-1 col-2 text-center"><span class="fs-5 fw-bolder">Số lượng</span></div>
                 <div class="p-2 fs-5 col-lg-3 col-2 text-center"><span class="fs-5 fw-bolder">Tạm tính</span></div>
-                <div class="p-2 fs-5 col-lg-2 col-3 text-center"><a href="" class="cart text-decoration-none bg-transparent"><span class="text-dark fw-bolder fs-5"><a class="text-dart nav-link bg-light" href="/live/cart/dellcart">Xóa tất cả</a></span></a>
+                <div class="p-2 fs-5 col-lg-2 col-3 text-center"><a href="" class="cart text-decoration-none bg-transparent"><span class="text-dark fw-bolder fs-5"><a class="text-dart nav-link bg-light" href="./cart/dellcart">Xóa tất cả</a></span></a>
                 </div>
             </div>
         
         <?php if (isset($_SESSION['vohang'])) { ?>
-            <form action="/live/cart/updateCart" method="POST">  
+            <form action="./cart/updateCart" method="POST">  
             <?php
                 $tong = 0; 
                 $i=0;
@@ -50,14 +50,14 @@
                 <div class="p-2 fs-5 col-lg-2 col-2 text-center"><span class="fs-5"><?= number_format($kq[3]) ?> đ</span></div>
                 <div class="p-2 fs-5 col-lg-1 col-2 text-center"><span class="fs-5"><input class="p-1 form-control" id="qty" type="number" name="slnew[<?= $kq[0]?>]" step="1" min="-100" value="<?= $kq[4]?>"></span></div>
                 <div class="p-2 fs-5 col-lg-3 col-2 text-center"><span class="fs-5"><?= number_format($tt)?> đ</span></div>
-                <div class="p-2 fs-5 col-lg-2 col-3 text-center"><a href="/live/cart/dellcart&id=<?=$i?>" class="bg-transparent text-dark"><i class="fa-solid fa-trash"></i></a></a> </div>
+                <div class="p-2 fs-5 col-lg-2 col-3 text-center"><a href="./cart/dellcart&id=<?=$i?>" class="bg-transparent text-dark"><i class="fa-solid fa-trash"></i></a></a> </div>
                 <!-- <input type="hidden" name="sum"> -->
             </div>
             
             <?php $i++;          
             } ?>
             <div class="container w-100 p-3 d-flex flex-row">
-                <a href="/live/menu/SayHi/1" class="btn bg-success text-light rounded">Thêm Mới</a>
+                <a href="./menu/SayHi/1" class="btn bg-success text-light rounded">Thêm Mới</a>
                 <button class="ms-3 btn btn-dark " type="submit">Cập nhật</button>
             </div>
             <div class="container"><p class="text-danger"><?= $tb?></p></div>
@@ -77,7 +77,7 @@
                 </tr>
             </table>
             <?php if(isset($_SESSION['vohang']) && $_SESSION['vohang'] != null ){ ?>
-                <a class="btn btn-dark p-2 cursor-pointer text-light bg-dark nav-link <?= $dis?>" href="/live/bill">THANH TOÁN ĐƠN HÀNG</a>
+                <a class="btn btn-dark p-2 cursor-pointer text-light bg-dark nav-link <?= $dis?>" href="./bill">THANH TOÁN ĐƠN HÀNG</a>
             <?php }?> 
         </div>
     </div>
@@ -95,7 +95,7 @@
             console.log(id);
             
             $.ajax({
-                url: "/live/cart/updateCart/"+id+"/"+qty,
+                url: "./cart/updateCart/"+id+"/"+qty,
                 success:function(data){
                     location.reload();
                     

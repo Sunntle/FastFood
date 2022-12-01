@@ -35,7 +35,7 @@
                     <button class="cong btn btn-outline-danger px-3 " onclick=" cong('10')">+</button>
             </div>
             <h5 class="m-3">Số lượng còn lại: <?php echo $kq['soLuong']?></h5>
-            <form action="/live/cart " method="POST">
+            <form action="./cart " method="POST">
                 <input type="hidden" id="slsp" name="sl" value="1" min="1">
                 <input type="hidden" name="hinhAnh" value="<?php echo $kq['hinhAnh']?>">
                 <input type="hidden" name="tenHangHoa" value="<?php echo $kq['tenHangHoa']?>">
@@ -58,7 +58,7 @@
                 $idKH = $_SESSION['login']['maKH'];
             }?>
             
-                    <form action="/live/menu/detailsproduct/<?php echo $kq['maHangHoa']?>#cmt" method="post">
+                    <form action="./menu/detailsproduct/<?php echo $kq['maHangHoa']?>#cmt" method="post">
                     <h4 name="tenKH"><?php echo $name?></h4>
                     <input type="hidden" name="idKH" value="<?php echo $idKH?>">
                     <input type="hidden" name="maHangHoa" value="<?php echo $kq['maHangHoa']?>">
@@ -74,7 +74,7 @@
                     <?php }?>                 
                 </form>
         <?php }else { ?>
-            <button class="btn-login border-0 rounded-3 bg-danger px-3 p-1"><a class="text-white text-decoration-none bg-danger" href="/live/login">Đăng nhập để bình luận</a> </button>
+            <button class="btn-login border-0 rounded-3 bg-danger px-3 p-1"><a class="text-white text-decoration-none bg-danger" href="./login">Đăng nhập để bình luận</a> </button>
             <?php } ?>
 <?php } ?>
     <?php foreach($data['CmtID'] as $kq) {?>

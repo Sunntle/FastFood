@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Trang quản trị - Three Guys Fast Food</title>
     <base href="http://localhost/live/admin/home">
-    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" href="../public/css/styleadmin.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">

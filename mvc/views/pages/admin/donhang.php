@@ -62,8 +62,8 @@ function huydh($status,$n,$key){
         <td><?= number_format($key['total'])?> đ</td>
         <td> <?= $ttdh?> </td>
         <td> <?= $huybill?> </td>
-        <td class="btn_suaxoa p"><button class="btn btn-success"><a class="text-light nav-link" href="/live/admin/donhang/editdonhang&id=<?=$key['id']?>">Sửa</a></button>
-                     <button class="btn btn-danger"><a href="/live/admin/donhang/dell&id=<?=$key['id']?>" class="text-light nav-link">Xóa</a></button>
+        <td class="btn_suaxoa p"><button class="btn btn-success"><a class="text-light nav-link" href="./donhang/editdonhang&id=<?=$key['id']?>">Sửa</a></button>
+                     <button class="btn btn-danger"><a href="./donhang/dell&id=<?=$key['id']?>" class="text-light nav-link">Xóa</a></button>
         </td>
         </tr>
         <?php }?>
@@ -73,7 +73,7 @@ function huydh($status,$n,$key){
 <nav class=" w-100 pt-5  ">
     <ul class="d-flex justify-content-center pagination">
         <?php if($data['currentPage']>2){
-            $first = 'href="/live/admin/donhang/SayHi/1"';
+            $first = 'href="./donhang/SayHi/1"';
         ?>
         <li class="page-item ">
             <a class="page-link text-dark bg-light" <?= $first?> >FIRST</a>
@@ -83,7 +83,7 @@ function huydh($status,$n,$key){
         <?php if($data['currentPage'] > 1){ 
             $prev = $data['currentPage'] -1;?>
             <li class="page-item ">
-                <a class="page-link text-dark bg-light" href="/live/admin/donhang/SayHi/<?=$prev?>"><<</a>
+                <a class="page-link text-dark bg-light" href="./donhang/SayHi/<?=$prev?>"><<</a>
             </li>
         <?php } ?>
 
@@ -98,24 +98,24 @@ function huydh($status,$n,$key){
                         }
                         ?> 
                     <li class="page-item ">
-                        <a class="page-link text-dark bg-light shadow" href="/live/admin/donhang/SayHi/<?= $url?>"><?=$i?></a>
+                        <a class="page-link text-dark bg-light shadow" href="./donhang/SayHi/<?= $url?>"><?=$i?></a>
                     </li>
                 <?php }
                 } else{ ?>
-                    <a class="page-link text-light bg-dark " href="/live/admin/donhang/SayHi/<?=$i?>"><?=$i?></a>
+                    <a class="page-link text-light bg-dark " href="./donhang/SayHi/<?=$i?>"><?=$i?></a>
                 <?php }
         } ?>
         <?php if($data['currentPage'] < ($data['countSP']-1)){ 
             $next = $data['currentPage']+1; ?>
             <li class="page-item ">
-                <a class="page-link text-dark bg-light" href="/live/admin/donhang/SayHi/<?=$next?>">>></a>
+                <a class="page-link text-dark bg-light" href="./donhang/SayHi/<?=$next?>">>></a>
             </li>
         <?php } ?>
 
         <?php if($data['currentPage'] < ($data['countSP']-2)){ 
             $end = $data['countSP'] ;?>
                 <li class="page-item">
-                    <a class="page-link text-dark bg-light" href="/live/admin/donhang/SayHi/<?= $data['countSP'] ?>">LAST</a>
+                    <a class="page-link text-dark bg-light" href="./donhang/SayHi/<?= $data['countSP'] ?>">LAST</a>
                 </li>
             <?php } ?>
     </ul>

@@ -88,35 +88,6 @@ class cart extends controller{
         header('Location: ./cart&thongbao='.$thongbao);
     }
 
-
-
-
-    // function updateCart(){
-    //     $slAllSP = $this->hangHoaModel->soLuong();
-    //     foreach($_POST['slnew'] as $id => $sl ){ 
-    //         for ($i=0;$i<sizeof($_SESSION['vohang']);$i++){  
-    //             if($_SESSION['vohang'][$i][0] == $id){
-
-    //                 $_SESSION['vohang'][$i][4] = $sl;
-    //                 break;
-    //             }   
-    //         }  
-    //     }
-    //     header('Location: /live/cart');
-    // }
-    // function updateCart($id,$qty){
-    //     debug($id);debug($qty);
-    //     for ($i=0;$i<sizeof($_SESSION['vohang']);$i++){
-    //         if($_SESSION['vohang'][$i][0] == $id){
-    //             $_SESSION['vohang'][$i][4] = $qty;
-    //             break;
-    //         }
-    //     }
-    //     // header('Location: /live/cart');
-    // }
-
-
-
     function dellcart(){
         if(isset($_SESSION['vohang'])){
             
@@ -126,8 +97,8 @@ class cart extends controller{
             else {
                 unset($_SESSION['vohang']);
             }
-            if (isset($_SESSION['vohang'])) header('Location: ./cart');
-            else header('Location: ./menuSayHi/1');
+            if (isset($_SESSION['vohang'])) header('Location: ../cart');
+            else header('Location: ./../menu/SayHi/1');
         }
     }
 }
