@@ -5,23 +5,14 @@
     </div>
     <div class="row text-center">
         <?php foreach($data['TopSp'] as $kq){?>
-<<<<<<< HEAD
                 <div class="product col-lg-3 col-md-4 col-12">
                 <a class="bg-transparent " href="./menu/detailsproduct/<?php echo $kq['maHangHoa']?>">
-=======
-                <div class="product col-lg-3 col-md-4 col-12 py-2">
-                <a class="bg-transparent " href="/live/menu/detailsproduct/<?php echo $kq['maHangHoa']?>">
->>>>>>> 3b9e09ad669346a22612ffff7ec59b6e0c2c8749
                     <img class="p-img img-fluid rounded-3" src="<?php echo $kq['hinhAnh']?>" alt="">
                 </a>
                 <a href="" class="text-dark bg-transparent text-decoration-none "><?php foreach($data['loai'] as $key){ if($kq['maLoai'] == $key['maLoai']) echo $key['tenLoai'];}?></a>
                 <a href="./menu/detailsproduct/<?php echo $kq['maHangHoa']?>" class="products-cat text-dark bg-transparent text-decoration-none "><h5 class="p-name"><?php echo $kq['tenHangHoa']?></h5></a>
                 <a href="./menu/detailsproduct/<?php echo $kq['maHangHoa']?>" class="bg-transparent text-decoration-none "><h5 class="p-price text-danger"><?php echo number_format($kq['gia'])?> VND</h5></a>
-<<<<<<< HEAD
                 <form action="./cart" method="POST" class="form_addtocart">
-=======
-                <form action="/live/cart" method="POST" class="form_addtocart">
->>>>>>> 3b9e09ad669346a22612ffff7ec59b6e0c2c8749
                     <input type="hidden" name="sl" value="1" min="1">
                     <input type="hidden" name="hinhAnh" value="<?php echo $kq['hinhAnh']?>">
                     <input type="hidden" name="tenHangHoa" value="<?php echo $kq['tenHangHoa']?>">
