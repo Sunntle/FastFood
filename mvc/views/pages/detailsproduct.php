@@ -58,7 +58,7 @@
                 $idKH = $_SESSION['login']['maKH'];
             }?>
             
-                    <form action="/live/menu/detailsproduct/<?php echo $kq['maHangHoa']?>#cmt" method="post">
+                    <form action="./menu/detailsproduct/<?php echo $kq['maHangHoa']?>#cmt" method="post">
                     <h4 name="tenKH"><?php echo $name?></h4>
                     <input type="hidden" name="idKH" value="<?php echo $idKH?>">
                     <input type="hidden" name="maHangHoa" value="<?php echo $kq['maHangHoa']?>">

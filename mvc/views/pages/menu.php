@@ -12,8 +12,9 @@
     <section id="type">
         <div class="row m-0 py-5 text-decoration-none">
             <?php foreach($data['AllType'] as $kq) { ?>
-            <a class="bg-transparent col-lg-2 col-md-4 col-6 text-decoration-none text-dark" href="./menu/SayHi/<?php echo $kq['maLoai']?>">
-                <img class="img-fluid py-3"src="<?php echo $kq['hinh']?>" alt=""><?php echo $kq['tenLoai']?></a>
+            <a class="bg-transparent col-lg-2 col-md-4 col-6 text-decoration-none text-dark text-center h5" href="./menu/SayHi/<?php echo $kq['maLoai']?>">
+                <img class="img-fluid py-3"src="<?php echo $kq['hinh']?>" alt=""><?php echo $kq['tenLoai']?>
+            </a>
         <?php }?>
         </div>
     
@@ -21,7 +22,7 @@
     <h2 class="text-danger text-center"><?php if(isset($data['rong'])) echo $data['rong']  ?></h2>
     <div class="row container" id="sp">
         <?php foreach($data['ProductbyIDType'] as $kq){ ?>
-            <div class="product col-lg-3 col-md-4 col-12">
+            <div class="product col-lg-3 col-md-4 col-12 py-2">
                 <a class="bg-transparent " href="./menu/detailsproduct/<?php echo $kq['maHangHoa']?>">
                     <img class="p-img img-fluid rounded-3" src="<?php echo $kq['hinhAnh']?>" alt="">
                 </a>

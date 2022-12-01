@@ -15,11 +15,11 @@
           <label for="" class="form-label">Tên tiêu đề</label>
           <input type="text" class="form-control" name="tieuDe" value="<?=$kq['tieuDe']?>">
           <label for="" class="form-label">Ngày viết</label>
-          <input type="date" class="form-control" name="ngay" value="<?=$kq['ngay']?>">
+          <input type="date" class="form-control" name="ngay" value="<?=$kq['ngay']?>" required>
           <label for="hinh" class="form-label">Ảnh tiêu đề</label>
           <input type="file" class="form-control" id="anhtieude" name="anhtieude" value="<?=$kq['anhtieude']?>">
           <label for="hinh" class="form-label">Nội dung</label>
-          <textarea name="noiDung" class="form-control" cols="30" rows="10" ><?php echo $kq['noiDung']?></textarea>
+          <textarea name="noiDung" class="form-control" cols="30" rows="10" required><?php echo $kq['noiDung']?></textarea>
           <?php }
             if (isset($data['Thongbao'])):?>
                 <div class="alert alert-success">

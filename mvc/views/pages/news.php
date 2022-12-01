@@ -17,9 +17,9 @@
                     <div class="col-lg-3 col-sm-6">
                     
                         <div class="m-1 border rounded shadow p-3">
-                        <a href="news/details&newsID=<?php echo $kq['id']?>"><img class="img-fluid w-100" style="height: 140px;" src="<?php echo $kq['anhtieude'] ?>" alt=""></a>
-                        <h5 class="py-1 my-2 fs-5"><a href="news/details&newsID=<?php echo $kq['id']?>" class="text-decoration-none text-dark bg-transparent"><?php echo $kq['tieuDe']?></a></h5>
-                        <p><?php echo substr($kq['noiDung'],0, 65)?> ....</p>
+                        <a href="news/details/<?php echo $kq['id']?>"><img class="img-fluid w-100" style="height: 140px;" src="<?php echo $kq['anhtieude'] ?>" alt=""></a>
+                        <h5 class="py-1 my-2 fs-5"><a href="news/details/<?php echo $kq['id']?>" class="text-decoration-none text-dark bg-transparent"><?php echo $kq['tieuDe']?></a></h5>
+                        <p><?php echo substr($kq['noiDung'],0, 60)?> ....</p>
                         </div>
                     </div>                    
                     <?php } ?>

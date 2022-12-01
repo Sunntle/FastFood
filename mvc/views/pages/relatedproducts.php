@@ -10,8 +10,8 @@
                     <img class="p-img img-fluid rounded-3" src="<?php echo $kq['hinhAnh']?>" alt="">
                 </a>
                 <a href="" class="text-dark bg-transparent text-decoration-none "><?php foreach($data['loai'] as $key){ if($kq['maLoai'] == $key['maLoai']) echo $key['tenLoai'];}?></a>
-                <a href="/live/menu/detailsproduct/<?php echo $kq['maHangHoa']?>" class="products-cat text-dark bg-transparent text-decoration-none "><h5 class="p-name"><?php echo $kq['tenHangHoa']?></h5></a>
-                <a href="/live/menu/detailsproduct/<?php echo $kq['maHangHoa']?>" class="bg-transparent text-decoration-none "><h5 class="p-price text-danger"><?php echo number_format($kq['gia'])?> VND</h5></a>
+                <a href="./menu/detailsproduct/<?php echo $kq['maHangHoa']?>" class="products-cat text-dark bg-transparent text-decoration-none "><h5 class="p-name"><?php echo $kq['tenHangHoa']?></h5></a>
+                <a href="./menu/detailsproduct/<?php echo $kq['maHangHoa']?>" class="bg-transparent text-decoration-none "><h5 class="p-price text-danger"><?php echo number_format($kq['gia'])?> VND</h5></a>
                 <form action="/live/cart" method="POST" class="form_addtocart">
                     <input type="hidden" name="sl" value="1" min="1">
                     <input type="hidden" name="hinhAnh" value="<?php echo $kq['hinhAnh']?>">
