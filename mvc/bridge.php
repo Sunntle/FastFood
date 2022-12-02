@@ -11,4 +11,9 @@ function debug($param)
 function checkLogin(){
     return isset($_SESSION['login']);
 }
+function formatString($str){
+    $str = trim($str);
+    $str = strtolower($str);
+    $str = ucwords($str);
+}
 ?>

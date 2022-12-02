@@ -52,7 +52,7 @@ class khachhang extends controller{
             if(strlen($_POST['tenKH'])==0||strlen($_POST['email'])==0||strlen($_POST['matKhau'])==0){
                 $thongbao ="Không được bỏ trống các trường !";
             }else{
-                $tenKH = $_POST['tenKH'];
+                $tenKH = formatString($_POST['tenKH']);
                 $email = $_POST['email'];
                 $matKhau = $_POST['matKhau'];
                 $pass_hash = password_hash($matKhau, PASSWORD_DEFAULT);
@@ -88,7 +88,7 @@ class khachhang extends controller{
             if(strlen($_POST['tenKH'])==0||strlen($_POST['email'])==0||strlen($_POST['matKhau'])==0){
                 $thongbao ="Không được bỏ trống các trường !";
             }else{
-                $tenKH = trim($_POST['tenKH']);
+                $tenKH = formatString($_POST['tenKH']);
                 $email = $_POST['email'];
                 $matKhau = $_POST['matKhau'];
                 $diaChi = $_POST['diaChi'];
