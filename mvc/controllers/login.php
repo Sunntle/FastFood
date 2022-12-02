@@ -61,12 +61,24 @@ class login extends controller{
                 
             }
             if(isset($thongbao)) {
+                $countBILL = $this->billModel->CountAllBillByID($_SESSION['login']['maKH']);
+                $perPage = 8;
+                $pageCount = (int) ceil($countBILL / $perPage); 
+                if (isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                }else{
+                    $page = 1;
+                }
+                $currentPage = $page;
+                $offset =  ($currentPage - 1) * $perPage;
                 $this->view(
                     "layout",
-                    [
+                    [                   
                     "Pages"=>"account",
                     "thongbao"=>$thongbao,
-                    "billKH"=>$this->billModel->SelectBillByStatus($_SESSION['login']['maKH']),
+                    "currentPage"=>$currentPage,
+                    "countSP"=> $pageCount, 
+                    "billKH"=>$this->billModel->PhanTrangByID($_SESSION['login']['maKH'],$perPage,$offset),
                     "khachHang"=>$this->userModel->SelectUserByMaKH($_SESSION['login']['maKH']),
                     ],
                 );
@@ -83,11 +95,9 @@ class login extends controller{
                 $currentPage = $page;
                 $offset =  ($currentPage - 1) * $perPage;
                 $this->view(
-                    
                     "layout",
                     [
                     "Pages"=>"account",
-                    // "billKH"=>$this->billModel->SelectBillByStatus($_SESSION['login']['maKH']),
                     "currentPage"=>$currentPage,
                     "countSP"=> $pageCount, 
                     "billKH"=>$this->billModel->PhanTrangByID($_SESSION['login']['maKH'],$perPage,$offset),
