@@ -26,15 +26,25 @@ class khachhang extends controller{
         );
     }
     public function XoaKH(){
-        $this->binhLuanModel = $this->model("binhLuanModel");
-        $this->billModel = $this->model("billModel");
-        foreach($this->billModel->SelectBillByStatus($_GET['maKH']) as $key ){
-            $this->billModel->dellIdCart($key['id']);
-        };
-        $this->billModel->DeleteBillByMaKH($_GET['maKH']);
-        $this->binhLuanModel->DeleteBLBYMaKH($_GET['maKH']);
-        $this->userModel->DeleteKH($_GET['maKH']);
-        header("location: ./");
+        if($_SESSION['login']['maKH']==$_GET['maKH']){
+            $loi = "Không thể xóa chính mình!";
+            echo "
+                <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet'>
+                <div class='alert alert-danger p-4 w-25 rounded text-center my-5 mx-auto'>".$loi."
+                <div><a onclick='history.back()' class='btn btn-info text-white mt-3'>Trở lại</a></div>
+                </div>
+                ";
+        }else{
+            $this->binhLuanModel = $this->model("binhLuanModel");
+            $this->billModel = $this->model("billModel");
+            foreach($this->billModel->SelectBillByStatus($_GET['maKH']) as $key ){
+                $this->billModel->dellIdCart($key['id']);
+            };
+            $this->billModel->DeleteBillByMaKH($_GET['maKH']);
+            $this->binhLuanModel->DeleteBLBYMaKH($_GET['maKH']);
+            $this->userModel->DeleteKH($_GET['maKH']);
+            header("location: ./");
+        }
     }
     public function CapNhatKH(){
         if(isset($_POST['btn-add'])){
@@ -78,12 +88,12 @@ class khachhang extends controller{
             if(strlen($_POST['tenKH'])==0||strlen($_POST['email'])==0||strlen($_POST['matKhau'])==0){
                 $thongbao ="Không được bỏ trống các trường !";
             }else{
-                $tenKH = $_POST['tenKH'];
+                $tenKH = trim($_POST['tenKH']);
                 $email = $_POST['email'];
                 $matKhau = $_POST['matKhau'];
                 $diaChi = $_POST['diaChi'];
                 $pass_hash = password_hash($matKhau,PASSWORD_DEFAULT);
-                $user = $_POST['user'];
+                $user = trim($_POST['user']);
                 $number = $_POST['number'];
                 $pattern = "/^0\d{9}$/";
                 if(!preg_match($pattern,$number)) {
@@ -97,7 +107,10 @@ class khachhang extends controller{
                         }
                     }
                 }
-                
+                if(strlen($matKhau)<3){
+                    $loi =" <span class='text-danger'>Mật khẩu phải dài hơn 3 ký tự !</span>";
+                    $dem = 1;
+                }
                 if($dem==0){
                     $vaiTro = $_POST['vaiTro'];
                     $hinhanhpath = basename($_FILES['hinh']['name']);

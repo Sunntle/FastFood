@@ -16,20 +16,24 @@ class login extends controller{
                 if(strlen($_POST['name'])==0||strlen($_POST['number'])==0||strlen($_POST['address'])==0){
                     $thongbao ="Bạn chưa điền đầy đủ thông tin !";
                 }else{
-                    $name = $_POST['name'];
+                    $name = trim($_POST['name']);
                     $soDienThoai = $_POST['number'];
-                    $diaChi = $_POST['address'];
-                    $hinhanhpath = basename($_FILES['hinh']['name']);
-                    if(!($hinhanhpath=="")){
-                        $target_dir = "./public/images/";
-                        $target_file = $target_dir.$hinhanhpath;
-                        move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file);
-                        $this->userModel->UpdateKHByUser($name,$soDienThoai,$diaChi,$target_file,$maKH);
-                        $thongbao = "Cập nhật thành công thông tin khách hàng !";
-                    }else if($hinhanhpath=="") {
-                        $this->userModel->UpdateKHByUserNoImg($name,$soDienThoai,$diaChi,$maKH);
-                        $thongbao = "Cập nhật thành công thông tin khách hàng không hình ảnh !";
-                    };
+                    $pattern = "/^0\d{9}$/";
+                    if(preg_match($pattern,$soDienThoai)) {
+                        $diaChi = $_POST['address'];
+                        $hinhanhpath = basename($_FILES['hinh']['name']);
+                        if(!($hinhanhpath=="")){
+                            $target_dir = "./public/images/";
+                            $target_file = $target_dir.$hinhanhpath;
+                            move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file);
+                            $this->userModel->UpdateKHByUser($name,$soDienThoai,$diaChi,$target_file,$maKH);
+                            $thongbao = "Cập nhật thành công thông tin khách hàng !";
+                        }else if($hinhanhpath=="") {
+                            $this->userModel->UpdateKHByUserNoImg($name,$soDienThoai,$diaChi,$maKH);
+                            $thongbao = "Cập nhật thành công thông tin khách hàng không hình ảnh !";
+                        };
+                    }else $thongbao = "Cập nhật không thành công !<br> Số điện thoại phải dài 10 chữ số !";
+                    
                 }
                 
             }
@@ -71,7 +75,6 @@ class login extends controller{
                     ],
                 );
             }else{
-                
                 $countBILL = $this->billModel->CountAllBillByID($_SESSION['login']['maKH']);
                 $perPage = 8;
                 $pageCount = (int) ceil($countBILL / $perPage); 
@@ -112,19 +115,23 @@ class login extends controller{
             $loi = "";
             if(strlen($_POST['user'])==0 || strlen($_POST['pw'])==0 ||strlen($_POST['pw'])==0||strlen($_POST['email'])==0||strlen($_POST['name'])==0 || strlen($_POST['address'])==0 ||strlen($_POST['number'])==0) {
                 $loi = "<span class='text-danger'> Chưa điền đủ thông tin !</span>";
-            }else {
-                $user = $_POST['user'];
+            }else{
+                $user = trim($_POST['user']);
                 foreach($this->userModel->SelectUser($user) as $key){
                     if($key['user']==$user){
                         $loi =" <span class='text-danger'>Tài khoản đã có người sử dụng !</span>";
                         $dem =1;
                     }
                 }
+                $pass = $_POST['pw'];
+                if(strlen($pass)<3){
+                    $loi =" <span class='text-danger'>Mật khẩu phải dài hơn 3 ký tự !</span>";
+                    $dem = 1;
+                }
                 if($dem==0){
-                    $pass = $_POST['pw'];
                     $pass_hash = password_hash($pass,PASSWORD_DEFAULT);
                     $email = $_POST['email'];
-                    $name = $_POST['name'];
+                    $name = trim($_POST['name']);
                     $address = $_POST['address'];
                     $number = $_POST['number'];
                     $pattern = "/^0\d{9}$/";//check sdt 10 chu so hay khong
@@ -138,7 +145,13 @@ class login extends controller{
                     // 
                 }
             }
-            if(isset($loi) && $loi !=""){
+            if(isset($loi) && $dem == 1){
+                echo "
+                <div class='alert alert-danger p-4 w-25 rounded text-center my-5 mx-auto'>".$loi."
+                <div><a href='../login' class='btn btn-info text-white mt-3'>Trở lại</a></div>
+                </div>
+                ";
+            }else{
                 echo "
                 <div class='alert alert-success p-4 w-25 rounded text-center my-5 mx-auto'>".$loi."
                 <div><a href='../home' class='btn btn-info text-white mt-3'>Trang chủ</a></div>

@@ -81,7 +81,7 @@
         <div class="post ">
             <li class="d-flex gap-3 mb-2 mt-3">
                 <div class="images_cmt">
-                    <img src="<?php foreach($data['KhachHang'] as $key){ if($kq['maKH'] == $key['maKH']) echo $key['hinh']; }?>" alt="">
+                    <img class="rounded-circle" src="<?php foreach($data['KhachHang'] as $key){ if($kq['maKH'] == $key['maKH']) echo $key['hinh']; }?>" alt="">
                 </div>
                 <div class="nd_cmt">
                     <h5 class="name_cmt"><?php foreach($data['KhachHang'] as $key){ if($kq['maKH'] == $key['maKH']) echo $key['tenKH']; }?></h5>
