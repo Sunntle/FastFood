@@ -15,5 +15,6 @@ function formatString($str){
     $str = trim($str);
     $str = strtolower($str);
     $str = ucwords($str);
+    return $str;
 }
 ?>

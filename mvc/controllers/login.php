@@ -142,6 +142,7 @@ class login extends controller{
                     $pass_hash = password_hash($pass,PASSWORD_DEFAULT);
                     $email = $_POST['email'];
                     $name = formatString($_POST['name']);
+                    var_dump($name);
                     $address = $_POST['address'];
                     $number = $_POST['number'];
                     $pattern = "/^0\d{9}$/";//check sdt 10 chu so hay khong
