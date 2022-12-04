@@ -24,9 +24,9 @@
                     </div>                    
                     <?php } ?>
                 </div>
-                <div class="text-center my-5">
-                    <a class="btn btn-danger rounded" href="/live/news/SayHi&page=2#news" role="button"><span class="text-white  p-1">Xem thêm</span></a>
-                </div>
+                <div  class="btn-load container text-center my-5">
+        		<button class="bg-dark rounded-3"><a class= "bg-dark text-light nav-link p-2 " href="./news/SayHi&page=2#news">Xem thêm</a></button>
+    		    </div> 
             </div>
     </article>
 </div>

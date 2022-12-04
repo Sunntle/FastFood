@@ -23,6 +23,9 @@
     .nav-link, i:not(i.features){
         color: black!important;
     }
+    a.more{
+        color: white!important;
+    }
     .on a, .on i{
         color: black!important;
     }

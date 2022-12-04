@@ -41,5 +41,5 @@
         <?php }?>
     </div>   
     <div  class="btn-load container text-center my-5">
-        <button class=" bg-dark rounded-3"><a class= "bg-dark text-light nav-link p-2 " href="./menu/SayHi/<?=$data['idLoai']?>&page=2#sp">Xem thêm</a></button>
+        <button class=" bg-dark rounded-3"><a class= "bg-dark text-light nav-link p-2 more" href="./menu/SayHi/<?=$data['idLoai']?>&page=2#sp">Xem thêm</a></button>
     </div>        
