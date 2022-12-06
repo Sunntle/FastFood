@@ -23,7 +23,7 @@ function huydh($status,$n,$key){
 
         switch ($n){           
             case '1':
-                $tt = '<a class="text-primary text-decoration-none" href="/live/admin/donhang/huybill/2/'.$key.'">Hủy đơn hàng</a>';
+                $tt = '<a class="text-primary text-decoration-none" href="./donhang/huybill/2/'.$key.'">Hủy đơn hàng</a>';
                 break;
             case '2':
                 $tt = "Hủy thành công";
