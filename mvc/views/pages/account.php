@@ -258,7 +258,7 @@
                         <div class="p-2 fs-5 col-lg-4 col-md-5 text-center align-self-center"><span class="fs-5">${sanpham['tenHangHoa']}</span></div>
                         <div class="p-2 fs-5 col-lg-3 col-md-3 text-center align-self-center modal-gia"><span class="fs-5">${sanpham['gia']} đ</span></div>
                         <div class="p-2 fs-1 col-lg-1 col-md-1 text-center align-self-center"><span class="fs-5">${sanpham['soLuong']}</div>
-                        <div class="p-2 fs-5 col-lg-2 col-md-3 text-center align-self-center"><span class="fs-5">${sanpham['thanhTien']}</div>  
+                        <div class="p-2 fs-5 col-lg-2 col-md-3 text-center align-self-center"><span class="fs-5">${sanpham['thanhTien']} đ</div>  
                         `;
                         $(".ShowSPbyBill").append(str);
                     }
