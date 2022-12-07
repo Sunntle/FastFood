@@ -151,8 +151,8 @@ class login extends controller{
                             $loi .="Đăng ký thành công !";
                         }
                     }
-                else $loi .= "Số điện thoại phải có 10 số !<br>";
                 }
+                else $loi .= "Số điện thoại phải có 10 số !<br>";
             }
             if(isset($loi)){
                 $this->view(
