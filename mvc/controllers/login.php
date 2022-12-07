@@ -124,50 +124,58 @@ class login extends controller{
             $dem =0;
             $loi = "";
             if(strlen($_POST['user'])==0 || strlen($_POST['pw'])==0 ||strlen($_POST['pw'])==0||strlen($_POST['email'])==0||strlen($_POST['name'])==0 || strlen($_POST['address'])==0 ||strlen($_POST['number'])==0) {
-                $loi = "<span class='text-danger'> Chưa điền đủ thông tin !</span>";
+                $loi .= " Chưa điền đủ thông tin !<br>";
             }else{
                 $user = trim($_POST['user']);
                 foreach($this->userModel->SelectUser($user) as $key){
                     if($key['user']==$user){
-                        $loi =" <span class='text-danger'>Tài khoản đã có người sử dụng !</span>";
+                        $loi .="Tài khoản đã có người sử dụng !<br>";
                         $dem =1;
                     }
                 }
                 $pass = $_POST['pw'];
                 if(strlen($pass)<3){
-                    $loi =" <span class='text-danger'>Mật khẩu phải dài hơn 3 ký tự !</span>";
+                    $loi .="Mật khẩu phải dài hơn 3 ký tự !<br>";
                     $dem = 1;
                 }
-                if($dem==0){
-                    $pass_hash = password_hash($pass,PASSWORD_DEFAULT);
-                    $email = $_POST['email'];
-                    $name = formatString($_POST['name']);
-                    var_dump($name);
-                    $address = $_POST['address'];
-                    $number = $_POST['number'];
-                    $pattern = "/^0\d{9}$/";//check sdt 10 chu so hay khong
-                    $avt_default="./public/images/default_avatar.jpg";
-                    if(preg_match($pattern,$number)) {
+                $pass_hash = password_hash($pass,PASSWORD_DEFAULT);
+                $email = $_POST['email'];
+                $name = formatString($_POST['name']);
+                $address = $_POST['address'];
+                $number = $_POST['number'];
+                $pattern = "/^0\d{9}$/";//check sdt 10 chu so hay khong
+                $avt_default="./public/images/default_avatar.jpg";
+                if(preg_match($pattern,$number)) {
+                    if($dem==0){
                         if($this->userModel->InsertNewUser($user,$pass_hash,$email,$name,$address,$number,$avt_default)==null){
-                                $loi ="Đăng ký thành công !";
-                            }
+                            $thanhcong ="Đăng ký thành công !";
+                        }
                     }
-                    else $loi = "<span class='text-danger'>Tạo tài khoản không thành công <br>Số điện thoại phải có 10 số !</span>";
-                    // 
                 }
+                else $loi .= "Số điện thoại phải có 10 số !<br>";
             }
-            if(isset($loi) && $dem == 1){
-                echo "
-                <div class='alert alert-danger p-4 w-25 rounded text-center my-5 mx-auto'>".$loi."
-                <div><a href='../login' class='btn btn-info text-white mt-3'>Trở lại</a></div>
-                </div>
-                ";
-            }else{
-                echo "
-                <div class='alert alert-success p-4 w-25 rounded text-center my-5 mx-auto'>".$loi."
-                <div><a href='../home' class='btn btn-info text-white mt-3'>Trang chủ</a></div>
-                </div>
-                ";
+            if(isset($loi)&& $dem == 1){
+                $this->view(
+                    "layout",
+                    [
+                    "Pages"=>"login",
+                    "thongbaoloi"=>$loi,
+                    "user"=>$user,
+                    "pass"=>$pass,
+                    "email"=>$email,
+                    "name"=>$name,
+                    "address"=>$address,
+                    "number"=>$number,
+                    ],
+                );
+            }elseif(isset($loi)&& $dem == 0){
+                $this->view(
+                    "layout",
+                    [
+                    "Pages"=>"login",
+                    "thongbaoloi"=>$thanhcong,
+                    ],
+                );
             }
         }
     }
@@ -189,22 +197,21 @@ class login extends controller{
                                 $_SESSION['login']['hoTen']=$key['tenKH'];
                                 $_SESSION['login']['vaiTro']=$key['vaiTro'];
                                 $_SESSION['login']['maKH']=$key['maKH'];
-                            }else echo "
-                            <div class='alert alert-danger p-2 w-25 rounded text-center my-5 mx-auto'>Sai mật khẩu !
-                            <div><a href='../home' class='btn btn-success text-dark my-2'>Trang chủ</a>
-                            <a onclick='history.back()' class='btn btn-danger text-dark my-2'>Quay về</a>
-                            </div>  
-                            </div>
-                            ";
+                            }else {
+                                $loi = "Sai mật khẩu !";
+                                
+                            }
                     }
-                }else $loi ="Sai tài khoản";
+                }else $loi ="Sai tài khoản !";
             }
             if(isset($loi) && $loi !=""){
-                echo "
-                <div class='alert alert-danger p-2 w-25 rounded text-center my-5 mx-auto'>".$loi."
-                <div><a onclick='history.back();' class='btn btn-danger text-white my-2'>Trở lại</a></div>
-                </div>
-                ";
+                $this->view(
+                    "layout",
+                    [
+                    "Pages"=>"login",
+                    "thongbao"=>$loi,
+                    ],
+                );
             }
         }
     }

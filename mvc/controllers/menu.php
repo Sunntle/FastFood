@@ -1,4 +1,7 @@
 <?php
+
+use function PHPSTORM_META\argumentsSet;
+
 class menu extends controller{
     public $sanpham;
     public $loaiModel;
@@ -12,7 +15,7 @@ class menu extends controller{
     }
     
 
-    function SayHi($a){       
+    function SayHi($a){    
         if (isset($_POST['keyword']) && $_POST['keyword'] !=""){    
             $keyword = $_POST['keyword'];
             $se = " tenHangHoa LIKE '%$keyword%'";
