@@ -19,7 +19,6 @@
 
             <div class="small-img-group">
                 <div class="small-img-col">
-
                 </div>
             </div>
         </div>
@@ -29,14 +28,13 @@
             <h6>Menu / <?php foreach($data['listAll'] as $key){ if($kq['maLoai'] == $key['maLoai']) echo $key['tenLoai']; }?></h6>
             <h3 class="py-3"><?php echo $kq['tenHangHoa']?></h3>
             <h2 class="text-danger"><?php echo number_format($kq['gia'])?> VND</h2>
-            <div class="quantity w-75 d-flex">
-                    <button class="tru btn btn-outline-danger px-3" onclick=" tru('0')">-</button>
-                    <input type="number" class="mx-3 w-25 form-control border border-danger text-center" id="numberSL" name="sl" value="1" min="1">
-                    <button class="cong btn btn-outline-danger px-3 " onclick=" cong('10')">+</button>
-            </div>
             <h5 class="m-3">Số lượng còn lại: <?php echo $kq['soLuong']?></h5>
             <form action="./cart " method="POST">
-                <input type="hidden" id="slsp" name="sl" value="1" min="1">
+                <div class="quantity w-75 d-flex mb-3">
+                    <div class="tru btn btn-outline-danger px-3" onclick=" tru('1')">-</div>
+                    <input type="number" class="mx-3 w-25 form-control border border-danger text-center" id="slsp" name="sl" value="1" >
+                    <div class="cong btn btn-outline-danger px-3 " onclick=" cong('10')">+</div>
+                </div>
                 <input type="hidden" name="hinhAnh" value="<?php echo $kq['hinhAnh']?>">
                 <input type="hidden" name="tenHangHoa" value="<?php echo $kq['tenHangHoa']?>">
                 <input type="hidden" name="maHangHoa" value="<?php echo $kq['maHangHoa']?>">
@@ -95,26 +93,21 @@
     <?php require_once "relatedproducts.php"; ?>
 </div>
     
-<script>
+<script>  
     
-    function cong(max) {
-
-    var cong =document.getElementById("numberSL").value = parseInt(document.getElementById("numberSL").value) + 1;
+    function cong(max) {        
+        var cong = document.getElementById("slsp").value =  parseInt(document.getElementById("slsp").value) + 1;
+        if (document.getElementById("slsp").value >= parseInt(max)) {
+            document.getElementById("slsp").value = max;        
+        }
+    }
+    function tru(min) {
+        var slsp = document.getElementById("slsp").value = parseInt(document.getElementById("slsp").value) - 1;        
+        if (document.getElementById("slsp").value <= parseInt(min)) {
+            document.getElementById("slsp").value = min;
+        }
+    }
     
-    var slsp = document.getElementById("slsp").value = parseInt(document.getElementById("slsp").value) + 1;
-    slsp = cong ;
-    // if (document.getElementById("numberSL").value >= parseInt(max)) {
-    //     document.getElementById("numberSL").value = max;
-    // }
-}
-function tru(min) {
-    
-    var tru = document.getElementById("numberSL").value = parseInt(document.getElementById("numberSL").value) - 1;
 
-    // if (document.getElementById("numberSL").value <= parseInt(min)) {
-    //     document.getElementById("numberSL").value = min;
-
-    // }
-}
 </script>
     
