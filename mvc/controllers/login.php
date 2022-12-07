@@ -148,13 +148,13 @@ class login extends controller{
                 if(preg_match($pattern,$number)) {
                     if($dem==0){
                         if($this->userModel->InsertNewUser($user,$pass_hash,$email,$name,$address,$number,$avt_default)==null){
-                            $loi .="Đăng ký thành công !";
+                            $thanhcong ="Đăng ký thành công !";
                         }
                     }
                 }
                 else $loi .= "Số điện thoại phải có 10 số !<br>";
             }
-            if(isset($loi)){
+            if(isset($loi)&& $dem == 1){
                 $this->view(
                     "layout",
                     [
@@ -166,6 +166,14 @@ class login extends controller{
                     "name"=>$name,
                     "address"=>$address,
                     "number"=>$number,
+                    ],
+                );
+            }elseif(isset($loi)&& $dem == 0){
+                $this->view(
+                    "layout",
+                    [
+                    "Pages"=>"login",
+                    "thongbaoloi"=>$thanhcong,
                     ],
                 );
             }
