@@ -3,15 +3,12 @@ class billModel extends db{
 
         public function CreateCart($use,$maHH,$hinhAnh,$ten,$gia,$sl,$tt,$last){
             $sql = "INSERT INTO giohang (maKH,maHangHoa,hinhHangHoa,tenHangHoa,gia,soLuong,thanhTien,idBill)  VALUES (?,?,?,?,?,?,?,?)";
-            return $this->pdo_execute($sql,$use,$maHH,$hinhAnh,$ten,$gia,$sl,$tt,$last);
-            
+            return $this->pdo_execute($sql,$use,$maHH,$hinhAnh,$ten,$gia,$sl,$tt,$last);   
         }
-
         public function CreateBill($name,$use,$dc,$sdt,$email,$pttt,$ngay,$sumqty,$tt){
             $sql = "INSERT INTO bill (name,maKH, diaChi,sdt,email,pttt,ngay,sl,total)  VALUES (?,?,?,?,?,?,?,?,?)";
             return $this->pdo_query_id($sql,$name,$use,$dc,$sdt,$email,$pttt,$ngay,$sumqty,$tt);
         }
-        
         public function ShowBill($last){
             $sql = "SELECT * FROM bill where id= $last";
             return $this->pdo_query($sql);
@@ -42,6 +39,10 @@ class billModel extends db{
         public function dellIdCart($id){
             $sql = " DELETE FROM giohang WHERE idBill = ? ";
             return $this->pdo_execute($sql,$id);
+        }
+        public function DeleteCartByMaHH($maHangHoa){
+            $sql = " DELETE FROM giohang WHERE maHangHoa = ? ";
+            return $this->pdo_execute($sql,$maHangHoa);
         }
         public function dellIdBill($id){
             $sql = " DELETE FROM bill WHERE id = ? ";

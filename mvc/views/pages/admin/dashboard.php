@@ -122,9 +122,9 @@
 
 
 <script>
-var yValues = [<?php 
+var yValues = [<?php
   foreach($yValues as $key => $value){         
-      echo $value.",";
+      echo $value.",";//10000,2000,0
   }
     ?>];
 

@@ -48,14 +48,19 @@ class login extends controller{
                         foreach($this->userModel->SelectUserByMaKH($maKH) as $key){
                             if(password_verify($pass,$key['matKhau'])){
                                 $newpass = $_POST['new-pswd'];
-                                $renewpass = $_POST['re-new-pswd'];
-                                if($newpass==$renewpass){
-                                    $newpass = password_hash($newpass,PASSWORD_DEFAULT);
-                                    $this->userModel->UpdatePass($newpass,$maKH);
-                                    $thongbao = "Cập nhật thành công !";
-                                }else{
-                                    $thongbao = "Cập nhật thất bại !<br>Hai mật khẩu mới không trùng nhau !";
+                                if(strlen($newpass)<3){
+                                    $thongbao .="Mật khẩu phải dài hơn 3 ký tự !<br>";
+                                }else {
+                                    $renewpass = $_POST['re-new-pswd'];
+                                    if($newpass==$renewpass){
+                                        $newpass = password_hash($newpass,PASSWORD_DEFAULT);
+                                        $this->userModel->UpdatePass($newpass,$maKH);
+                                        $thongbao = "Cập nhật thành công !";
+                                    }else{
+                                        $thongbao = "Cập nhật thất bại !<br>Hai mật khẩu mới không trùng nhau !";
+                                    }
                                 }
+                                
                             }else{
                                 $thongbao = "Cập nhật thất bại !<br>Sai mật khẩu hiện tại !";
                             }

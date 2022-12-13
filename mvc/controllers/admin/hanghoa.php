@@ -112,6 +112,8 @@ class hanghoa extends controller{
             );
     }
     public function XoaHangHoa(){
+        $this->billModel = $this->model('billModel');
+        $this->billModel->DeleteCartByMaHH($_GET['maHangHoa']);
         $this->hangHoaModel->DeleteHangHoa($_GET['maHangHoa']);
         header("location: ./");
     }

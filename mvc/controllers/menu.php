@@ -53,25 +53,6 @@ class menu extends controller{
             ],
         ); 
     }
-    // function search(){
-
-    //     if (isset($_POST['keyword']) && $_POST['keyword'] !=""){           
-    //         $keyword = $_POST['keyword'];
-    //         $se = $this->sanpham->search();
-    //     } else{
-    //         $se = "Không tìm thấy sản phẩm tương tự ";
-    //     }
-        
-        
-    //     $this->view(
-    //         "layout",
-    //         [
-    //         "Pages"=>"menu",
-    //         "All"=> $se,
-    //         ],
-    //     );
-    // }
-   
     function detailsproduct($a){
         foreach($this->sanpham->SelectProductID($a) as $key){
             $luotXem = $key['luotXem'] + 1;
